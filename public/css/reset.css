@@ -42,6 +42,9 @@ textarea {
   word-break: break-word;
   text-rendering: optimizeLegibility;
   color: #333;
+}
+
+body {
   background-color: #fff;
 }
 
@@ -136,7 +139,6 @@ html {
 
 a:hover {
   color: rgb(79, 76, 212) !important;
-  text-decoration: underline;
 }
 
 /* 清除浮动 */
