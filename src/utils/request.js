@@ -17,4 +17,4 @@ request.interceptors.response.use(
   }
 );
 
-export default reqest;
+export default request;
