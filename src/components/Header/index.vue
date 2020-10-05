@@ -1,22 +1,18 @@
 <template>
   <div class="header">
     Header...
-    <LoginCart />
+    <Sidebar />
   </div>
 </template>
 
 <script>
-import LoginCart from "../../components/LoginCart";
+import Sidebar from "@/components/Sidebar";
 export default {
   name: "Header",
   components: {
-    LoginCart,
+    Sidebar,
   },
 };
 </script>
 
-<style lang="less" scoped>
-.header {
-  color: red;
-}
-</style>
+<style lang="less" scoped></style>

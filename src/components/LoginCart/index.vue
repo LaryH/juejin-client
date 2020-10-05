@@ -13,7 +13,8 @@
           <img src="./images/panda03.png" class="blindfold" ref="blindfold" />
         </div>
         <div class="logincart-title">
-          <h1>手机登录</h1>
+          <h1 v-if="isPhone">手机登录</h1>
+          <h1 v-else>账密登录</h1>
           <i title="关闭">x</i>
         </div>
         <!-- 手机号/验证码 -->
@@ -21,7 +22,7 @@
           <div class="logincart-userInfo-box">
             <div class="logincart-dropdown-input">
               <span>+86</span>
-              <i>></i>
+              <img src="./images/down.svg" alt="下拉" />
             </div>
             <input
               v-if="isPhone"
@@ -144,8 +145,6 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.logincart-container {
-}
 .feedback {
   position: absolute;
   right: 20px;
