@@ -17,6 +17,7 @@ export default [
   {
     path: "/home",
     component: Home,
+<<<<<<< HEAD
     children: [],
   },
   {
@@ -34,5 +35,9 @@ export default [
   {
     path: "/events",
     component: Events,
+=======
+    redirect: "/",
+    children: [],
+>>>>>>> e56c3d93649a540a8c8f37d23506ba55e0bf3739
   },
 ];
