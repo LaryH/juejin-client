@@ -398,13 +398,18 @@
           </li>
         </ul>
       </div>
+      <Sidebar />
     </div>
   </div>
 </template>
 
 <script>
+import Sidebar from "@/components/Sidebar";
 export default {
   name: "Container",
+  components: {
+    Sidebar,
+  },
 };
 </script>
 
@@ -416,13 +421,12 @@ a {
 }
 .timeline-entry-list {
   width: 960px;
-  background-color: lightblue;
   // 居中
   position: absolute;
   left: 0;
   right: 0;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 10px auto;
+
   .entry-list-container {
     width: 700px;
     height: 100%;
