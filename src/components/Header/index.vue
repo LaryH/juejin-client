@@ -45,9 +45,11 @@
 <script>
 export default {
   name: "Header",
+  components: {},
 };
 </script>
 
+<<<<<<< HEAD
 <style lang="less" scoped>
 .header {
   width: 100%;
@@ -148,3 +150,6 @@ export default {
   }
 }
 </style>
+=======
+<style lang="less" scoped></style>
+>>>>>>> 51fcf73d06c63346129196b7b02c897afa47f873
