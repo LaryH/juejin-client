@@ -39,23 +39,23 @@
                   <div class="action-list">
                     <div class="item like clickable">
                       <a href>
-                        <img src="./imgs/04.svg" alt />
+                        <img src="./images/04.svg" alt />
                       </a>
                     </div>
                     <div class="item like clickable">
                       <a href>
-                        <img src="./imgs/03.svg" alt />
+                        <img src="./images/03.svg" alt />
                       </a>
                     </div>
                     <div class="item like clickable">
                       <a href>
-                        <img src="./imgs/02.svg" alt />
+                        <img src="./images/02.svg" alt />
                       </a>
                     </div>
                   </div>
                 </div>
                 <div class="info-box-img">
-                  <img src="./imgs/o1.jpg" alt />
+                  <img src="./images/o1.jpg" alt />
                 </div>
               </div>
             </div>
@@ -81,23 +81,23 @@
                   <div class="action-list">
                     <div class="item like clickable">
                       <a href>
-                        <img src="./imgs/04.svg" alt />
+                        <img src="./images/04.svg" alt />
                       </a>
                     </div>
                     <div class="item like clickable">
                       <a href>
-                        <img src="./imgs/03.svg" alt />
+                        <img src="./images/03.svg" alt />
                       </a>
                     </div>
                     <div class="item like clickable">
                       <a href>
-                        <img src="./imgs/02.svg" alt />
+                        <img src="./images/02.svg" alt />
                       </a>
                     </div>
                   </div>
                 </div>
                 <div class="info-box-img">
-                  <img src="./imgs/o1.jpg" alt />
+                  <img src="./images/o1.jpg" alt />
                 </div>
               </div>
             </div>
@@ -123,23 +123,23 @@
                   <div class="action-list">
                     <div class="item like clickable">
                       <a href>
-                        <img src="./imgs/04.svg" alt />
+                        <img src="./images/04.svg" alt />
                       </a>
                     </div>
                     <div class="item like clickable">
                       <a href>
-                        <img src="./imgs/03.svg" alt />
+                        <img src="./images/03.svg" alt />
                       </a>
                     </div>
                     <div class="item like clickable">
                       <a href>
-                        <img src="./imgs/02.svg" alt />
+                        <img src="./images/02.svg" alt />
                       </a>
                     </div>
                   </div>
                 </div>
                 <div class="info-box-img">
-                  <img src="./imgs/o1.jpg" alt />
+                  <img src="./images/o1.jpg" alt />
                 </div>
               </div>
             </div>
@@ -165,23 +165,23 @@
                   <div class="action-list">
                     <div class="item like clickable">
                       <a href>
-                        <img src="./imgs/04.svg" alt />
+                        <img src="./images/04.svg" alt />
                       </a>
                     </div>
                     <div class="item like clickable">
                       <a href>
-                        <img src="./imgs/03.svg" alt />
+                        <img src="./images/03.svg" alt />
                       </a>
                     </div>
                     <div class="item like clickable">
                       <a href>
-                        <img src="./imgs/02.svg" alt />
+                        <img src="./images/02.svg" alt />
                       </a>
                     </div>
                   </div>
                 </div>
                 <div class="info-box-img">
-                  <img src="./imgs/o1.jpg" alt />
+                  <img src="./images/o1.jpg" alt />
                 </div>
               </div>
             </div>
@@ -207,23 +207,23 @@
                   <div class="action-list">
                     <div class="item like clickable">
                       <a href>
-                        <img src="./imgs/04.svg" alt />
+                        <img src="./images/04.svg" alt />
                       </a>
                     </div>
                     <div class="item like clickable">
                       <a href>
-                        <img src="./imgs/03.svg" alt />
+                        <img src="./images/03.svg" alt />
                       </a>
                     </div>
                     <div class="item like clickable">
                       <a href>
-                        <img src="./imgs/02.svg" alt />
+                        <img src="./images/02.svg" alt />
                       </a>
                     </div>
                   </div>
                 </div>
                 <div class="info-box-img">
-                  <img src="./imgs/o1.jpg" alt />
+                  <img src="./images/o1.jpg" alt />
                 </div>
               </div>
             </div>
@@ -249,23 +249,23 @@
                   <div class="action-list">
                     <div class="item like clickable">
                       <a href>
-                        <img src="./imgs/04.svg" alt />
+                        <img src="./images/04.svg" alt />
                       </a>
                     </div>
                     <div class="item like clickable">
                       <a href>
-                        <img src="./imgs/03.svg" alt />
+                        <img src="./images/03.svg" alt />
                       </a>
                     </div>
                     <div class="item like clickable">
                       <a href>
-                        <img src="./imgs/02.svg" alt />
+                        <img src="./images/02.svg" alt />
                       </a>
                     </div>
                   </div>
                 </div>
                 <div class="info-box-img">
-                  <img src="./imgs/o1.jpg" alt />
+                  <img src="./images/o1.jpg" alt />
                 </div>
               </div>
             </div>
@@ -291,23 +291,23 @@
                   <div class="action-list">
                     <div class="item like clickable">
                       <a href>
-                        <img src="./imgs/04.svg" alt />
+                        <img src="./images/04.svg" alt />
                       </a>
                     </div>
                     <div class="item like clickable">
                       <a href>
-                        <img src="./imgs/03.svg" alt />
+                        <img src="./images/03.svg" alt />
                       </a>
                     </div>
                     <div class="item like clickable">
                       <a href>
-                        <img src="./imgs/02.svg" alt />
+                        <img src="./images/02.svg" alt />
                       </a>
                     </div>
                   </div>
                 </div>
                 <div class="info-box-img">
-                  <img src="./imgs/o1.jpg" alt />
+                  <img src="./images/o1.jpg" alt />
                 </div>
               </div>
             </div>
@@ -333,23 +333,23 @@
                   <div class="action-list">
                     <div class="item like clickable">
                       <a href>
-                        <img src="./imgs/04.svg" alt />
+                        <img src="./images/04.svg" alt />
                       </a>
                     </div>
                     <div class="item like clickable">
                       <a href>
-                        <img src="./imgs/03.svg" alt />
+                        <img src="./images/03.svg" alt />
                       </a>
                     </div>
                     <div class="item like clickable">
                       <a href>
-                        <img src="./imgs/02.svg" alt />
+                        <img src="./images/02.svg" alt />
                       </a>
                     </div>
                   </div>
                 </div>
                 <div class="info-box-img">
-                  <img src="./imgs/o1.jpg" alt />
+                  <img src="./images/o1.jpg" alt />
                 </div>
               </div>
             </div>
@@ -375,23 +375,23 @@
                   <div class="action-list">
                     <div class="item like clickable">
                       <a href>
-                        <img src="./imgs/04.svg" alt />
+                        <img src="./images/04.svg" alt />
                       </a>
                     </div>
                     <div class="item like clickable">
                       <a href>
-                        <img src="./imgs/03.svg" alt />
+                        <img src="./images/03.svg" alt />
                       </a>
                     </div>
                     <div class="item like clickable">
                       <a href>
-                        <img src="./imgs/02.svg" alt />
+                        <img src="./images/02.svg" alt />
                       </a>
                     </div>
                   </div>
                 </div>
                 <div class="info-box-img">
-                  <img src="./imgs/o1.jpg" alt />
+                  <img src="./images/o1.jpg" alt />
                 </div>
               </div>
             </div>
