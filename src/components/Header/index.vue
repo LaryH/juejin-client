@@ -36,21 +36,27 @@
         </div>
       </div>
     </div>
+     <NavList />
     <div class="view-container">
       <router-view></router-view>
     </div>
-  </div>
 </template>
 
 <script>
+import NavList from '@/pages/Home/components/NavList'
+import Wu from '@/pages/Home/components/Wu'
 export default {
   name: "Header",
-  components: {},
+  components: {
+    NavList,
+    Wu
+  },
 };
 </script>
 
 <<<<<<< HEAD
 <style lang="less" scoped>
+<<<<<<< HEAD
 .header {
   width: 100%;
   height: 60px;
@@ -150,6 +156,4 @@ export default {
   }
 }
 </style>
-=======
-<style lang="less" scoped></style>
->>>>>>> 51fcf73d06c63346129196b7b02c897afa47f873
+
