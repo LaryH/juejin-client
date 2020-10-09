@@ -32,11 +32,11 @@
             <button class="add-button">写文章</button>
             <div class="more"></div>
           </div>
-          <button class="login-button">登录</button>
+          <button class="login-button" @click="login">登录</button>
         </div>
       </div>
     </div>
-    <NavList />
+    <LoginCart v-if="showLoginCart" @closeLoginCart="closeLoginCart" />
     <div class="view-container">
       <router-view></router-view>
     </div>
@@ -44,11 +44,24 @@
 </template>
 
 <script>
-import NavList from "@/components/NavList";
+import LoginCart from "@/components/LoginCart";
 export default {
   name: "Header",
   components: {
-    NavList,
+    LoginCart,
+  },
+  data() {
+    return {
+      showLoginCart: false,
+    };
+  },
+  methods: {
+    login() {
+      this.showLoginCart = true;
+    },
+    closeLoginCart() {
+      this.showLoginCart = false;
+    },
   },
 };
 </script>
@@ -100,6 +113,7 @@ export default {
         background-color: #fff;
         margin-left: 15px;
         color: #0371df;
+        cursor: pointer;
       }
 
       .add-button-container {
