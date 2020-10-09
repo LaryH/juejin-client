@@ -16,10 +16,12 @@
             <div>
               <img src="../image/2.jpg" class="imaget">
             </div>
-            <span class="name">小孩子4919</span>
+            <span class="name">小孩子4919 </span>
+
             <img src="../image/svg_xml_base64_PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMyIgaGVpZ2h0PSIxNCIgd.svg">
+
             <div>
-              <span>后端工程师 | 公众号 「我们都是小青</span>
+              <span> 后端工程师 | 公众号 「我们都是小青</span>
             </div>
           </div>
 
@@ -28,11 +30,12 @@
             <div class="other">
               <div class="price">￥29.9</div>
               <span class="message">
-                <span>29小节</span>
+                <span>29小节 .</span>
               </span>
               <span class="message">
                 <span>13629</span>
-                <span>人已购买</span>
+
+                <span> 人已购买</span>
               </span>
             </div>
           </div>
@@ -40,6 +43,99 @@
       </a>
     </div>
 
+
+
+
+
+     <div >
+      <a class="item" href="#">
+        <div class="poster">
+          <img src="../image/1.jpg" class="imagew">
+        </div>
+        <div class="info">
+          <div class="title">
+            <span class="">MySQL 是怎样运行的：从根儿上理解 MySQL</span>
+          </div>
+          <div class="desc">授人以鱼不如授人以渔，从根儿上理解 MySQL，让 MySQL 不再是一个黑盒。</div>
+
+
+          <div class="author">
+            <div>
+              <img src="../image/2.jpg" class="imaget">
+            </div>
+            <span class="name">小孩子4919 </span>
+
+            <img src="../image/svg_xml_base64_PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMyIgaGVpZ2h0PSIxNCIgd.svg">
+
+            <div>
+              <span> 后端工程师 | 公众号 「我们都是小青</span>
+            </div>
+          </div>
+
+
+          <div>
+            <div class="other">
+              <div class="price">￥29.9</div>
+              <span class="message">
+                <span>29小节 .</span>
+              </span>
+              <span class="message">
+                <span>13629</span>
+
+                <span> 人已购买</span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+
+
+
+
+
+     <div >
+      <a class="item" href="#">
+        <div class="poster">
+          <img src="../image/1.jpg" class="imagew">
+        </div>
+        <div class="info">
+          <div class="title">
+            <span class="">MySQL 是怎样运行的：从根儿上理解 MySQL</span>
+          </div>
+          <div class="desc">授人以鱼不如授人以渔，从根儿上理解 MySQL，让 MySQL 不再是一个黑盒。</div>
+
+
+          <div class="author">
+            <div>
+              <img src="../image/2.jpg" class="imaget">
+            </div>
+            <span class="name">小孩子4919 </span>
+
+            <img src="../image/svg_xml_base64_PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMyIgaGVpZ2h0PSIxNCIgd.svg">
+
+            <div>
+              <span> 后端工程师 | 公众号 「我们都是小青</span>
+            </div>
+          </div>
+
+
+          <div>
+            <div class="other">
+              <div class="price">￥29.9</div>
+              <span class="message">
+                <span>29小节 .</span>
+              </span>
+              <span class="message">
+                <span>13629</span>
+
+                <span> 人已购买</span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
   </div>
 </template>
 
@@ -50,10 +146,12 @@ export default {
 </script>
 
 <style lang="less" scoped>
+a{
+  text-decoration: none;
+}
 .books-list{
   height: 100%;
   width: 700px;
-  background-color: yellowgreen;
   margin:auto;
   margin-top: 106px;
 
@@ -61,6 +159,10 @@ export default {
     width: 700px;
     height: 191px;
     display: flex;
+    padding: 25px;
+    box-sizing: border-box;
+    background-color: #fff;
+    position: relative;
 
     .poster{
       height: 140px;
@@ -109,6 +211,12 @@ export default {
         margin-right: 8px;
       }
 
+      .name{
+        display: inline-block;
+        color: #000;
+        font-size: 15px;
+      }
+
       }
 
       .other{
@@ -121,6 +229,12 @@ export default {
           margin-right: 15px;
         }
 
+      .message{
+        opacity: .6;
+        font-size: 13px;
+        color: #71777c;
+
+      }
       }
     }
   }
