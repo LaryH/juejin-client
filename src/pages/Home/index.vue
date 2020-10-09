@@ -1,12 +1,16 @@
 <template>
   <div>
-    Home...
+    <NavList />
   </div>
 </template>
 
 <script>
+import NavList from "@/components/NavList";
 export default {
   name: "Home",
+  components: {
+    NavList,
+  },
 };
 </script>
 
