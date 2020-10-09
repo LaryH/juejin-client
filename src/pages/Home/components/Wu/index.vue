@@ -7,7 +7,7 @@
         </div>
         <div class="info">
           <div class="title">
-            <span class="">MySQL 是怎样运行的：从根儿上理解 MySQL</span>
+            <a class="">MySQL 是怎样运行的：从根儿上理解 MySQL</a>
           </div>
           <div class="desc">授人以鱼不如授人以渔，从根儿上理解 MySQL，让 MySQL 不再是一个黑盒。</div>
 
@@ -16,11 +16,12 @@
             <div>
               <img src="../image/2.jpg" class="imaget">
             </div>
-            <span class="name">小孩子4919 </span>
+            <span class="name">小孩子4919</span>
+            <div style="text-indent:1em">
+              <img src="../image/svg_xml_base64_PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMyIgaGVpZ2h0PSIxNCIgd.svg">
+            </div>
 
-            <img src="../image/svg_xml_base64_PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMyIgaGVpZ2h0PSIxNCIgd.svg">
-
-            <div>
+            <div style="text-indent:1em" class="selfDescription">
               <span> 后端工程师 | 公众号 「我们都是小青</span>
             </div>
           </div>
@@ -47,14 +48,14 @@
 
 
 
-     <div >
+    <div >
       <a class="item" href="#">
         <div class="poster">
           <img src="../image/1.jpg" class="imagew">
         </div>
         <div class="info">
           <div class="title">
-            <span class="">MySQL 是怎样运行的：从根儿上理解 MySQL</span>
+            <a class="">MySQL 是怎样运行的：从根儿上理解 MySQL</a>
           </div>
           <div class="desc">授人以鱼不如授人以渔，从根儿上理解 MySQL，让 MySQL 不再是一个黑盒。</div>
 
@@ -63,11 +64,12 @@
             <div>
               <img src="../image/2.jpg" class="imaget">
             </div>
-            <span class="name">小孩子4919 </span>
+            <span class="name">小孩子4919</span>
+            <div style="text-indent:1em">
+              <img src="../image/svg_xml_base64_PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMyIgaGVpZ2h0PSIxNCIgd.svg">
+            </div>
 
-            <img src="../image/svg_xml_base64_PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMyIgaGVpZ2h0PSIxNCIgd.svg">
-
-            <div>
+            <div style="text-indent:1em" class="selfDescription">
               <span> 后端工程师 | 公众号 「我们都是小青</span>
             </div>
           </div>
@@ -94,14 +96,14 @@
 
 
 
-     <div >
+    <div >
       <a class="item" href="#">
         <div class="poster">
           <img src="../image/1.jpg" class="imagew">
         </div>
         <div class="info">
           <div class="title">
-            <span class="">MySQL 是怎样运行的：从根儿上理解 MySQL</span>
+            <a class="">MySQL 是怎样运行的：从根儿上理解 MySQL</a>
           </div>
           <div class="desc">授人以鱼不如授人以渔，从根儿上理解 MySQL，让 MySQL 不再是一个黑盒。</div>
 
@@ -110,11 +112,12 @@
             <div>
               <img src="../image/2.jpg" class="imaget">
             </div>
-            <span class="name">小孩子4919 </span>
+            <span class="name">小孩子4919</span>
+            <div style="text-indent:1em">
+              <img src="../image/svg_xml_base64_PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMyIgaGVpZ2h0PSIxNCIgd.svg">
+            </div>
 
-            <img src="../image/svg_xml_base64_PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMyIgaGVpZ2h0PSIxNCIgd.svg">
-
-            <div>
+            <div style="text-indent:1em" class="selfDescription">
               <span> 后端工程师 | 公众号 「我们都是小青</span>
             </div>
           </div>
@@ -155,6 +158,10 @@ a{
   margin:auto;
   margin-top: 106px;
 
+  .item:hover{
+    background-color: rgb(90%,90%,90%,);
+  }
+
   .item{
     width: 700px;
     height: 191px;
@@ -163,6 +170,7 @@ a{
     box-sizing: border-box;
     background-color: #fff;
     position: relative;
+    border-bottom: 1px solid #e6e8e8;
 
     .poster{
       height: 140px;
@@ -215,6 +223,9 @@ a{
         display: inline-block;
         color: #000;
         font-size: 15px;
+      }
+      .selfDescription{
+        color: #71777c;
       }
 
       }
