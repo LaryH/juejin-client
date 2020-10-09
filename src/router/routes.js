@@ -13,8 +13,7 @@ export default [
   {
     path: "/home",
     component: Home,
-    children: [
-      
-    ]
+    redirect: "/",
+    children: [],
   },
 ];
