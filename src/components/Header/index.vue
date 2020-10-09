@@ -45,7 +45,6 @@
 
 <script>
 import NavList from "@/components/NavList";
-import Sidebar from "@/components/Sidebar";
 export default {
   name: "Header",
   components: {
