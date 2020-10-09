@@ -1,13 +1,17 @@
 <template>
   <div class="header">
     Header...
+    <Events />
   </div>
 </template>
 
 <script>
+import Events from "@/pages/Events";
 export default {
   name: "Header",
-  components: {},
+  components: {
+    Events,
+  },
 };
 </script>
 
