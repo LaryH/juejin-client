@@ -321,7 +321,7 @@ export default {
                         width: 45px;
                         height: 45px;
                         border-radius: 50%;
-                        background-image: url('../Folat/img/1.jpg');
+                        background-image: url('../Pins/img/1.jpg');
                         background-size: 45px;
                       }
                     }
@@ -370,7 +370,7 @@ export default {
                   .image-box {
                     .image {
                       margin-top: 4px;
-                      background: url('../Folat/img/f433295fd091456ba9e55bde14cadb56_tplv-k3u1fbpfcp-zoom-1.jpg');
+                      background: url('../Pins/img/f433295fd091456ba9e55bde14cadb56_tplv-k3u1fbpfcp-zoom-1.jpg');
                       background-repeat: no-repeat;
                       width: 200px;
                       height: 140px;
@@ -462,7 +462,7 @@ export default {
               width: 68px;
               height: 68px;
               //background-color: skyblue;
-              background-image: url('../Folat/img/7b54f66b14ea45eeb84846dc34e11598_tplv-k3u1fbpfcp-zoom-1.png');
+              background-image: url('../Pins/img/7b54f66b14ea45eeb84846dc34e11598_tplv-k3u1fbpfcp-zoom-1.png');
               background-size: cover;
               background-repeat: no-repeat;
             }
