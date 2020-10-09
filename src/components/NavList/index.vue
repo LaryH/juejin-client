@@ -95,9 +95,8 @@ ul {
 }
 .nav-item > a::before {
   content: "标签管理";
-  position: absolute;
-  top: 15.1px;
-  right: 480px;
-  bottom: 0;
+  float:right;
+  padding-left:310px;
+  text-align:center;
 }
 </style>
