@@ -32,12 +32,16 @@
         </nav>
         <div class="events-content">
           <div class="panel">
+            <!-- 轮播图 -->
             <div class="banner">
               <div class="swiper-container" ref="banner">
                 <div class="swiper-wrapper">
-                  <div class="swiper-slide">Slide 1</div>
-                  <div class="swiper-slide">Slide 2</div>
-                  <div class="swiper-slide">Slide 3</div>
+                  <div class="swiper-slide">
+                    <img src="./images/banner01.png" alt="" />
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="./images/banner02.png" alt="" />
+                  </div>
                 </div>
                 <!-- 如果需要分页器 -->
                 <div class="swiper-pagination"></div>
@@ -45,10 +49,11 @@
                 <!-- 如果需要导航按钮 -->
                 <div class="swiper-button-prev"></div>
                 <div class="swiper-button-next"></div>
-
-                <!-- 如果需要滚动条 -->
-                <div class="swiper-scrollbar"></div>
               </div>
+            </div>
+            <!-- 日历 -->
+            <div class="calendar">
+              <Calendar></Calendar>
             </div>
           </div>
         </div>
@@ -60,18 +65,33 @@
 <script>
 // 轮播图
 import Swiper from "swiper";
+// 日历
+import Calendar from "vue-calendar-component";
+
 export default {
   name: "Events",
+  components: {
+    Calendar,
+  },
   mounted() {
+    // 轮播图
     new Swiper(this.$refs.banner, {
-      // 如果需要分页器
+      // 循环模式选项
+      loop: true,
+      // 下面的小圆点
       pagination: {
         el: ".swiper-pagination",
+        clickable: true, // 小圆点点击
       },
       // 如果需要前进后退按钮
       navigation: {
         nextEl: ".swiper-button-next",
         prevEl: ".swiper-button-prev",
+      },
+
+      // 自动轮播
+      autoplay: {
+        disableOnInteraction: false, // 用户操作后，还可自动切换
       },
     });
   },
@@ -80,7 +100,6 @@ export default {
 
 <style lang="less" scoped>
 .events-container {
-  background: pink;
   position: relative;
   margin: 0 auto;
   width: 100%;
@@ -137,6 +156,23 @@ export default {
       width: 470px;
       min-width: 320px;
       height: 280px;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .calendar {
+      flex-shrink: 0;
+      width: 475px;
+      margin-left: 15px;
+      position: relative;
+      /deep/.wh_container {
+        width: 100%;
+        margin: 0 auto;
+      }
+      /deep/.wh_content_all {
+        background-color: white;
+      }
     }
   }
 }
