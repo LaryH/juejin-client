@@ -3,7 +3,7 @@
     <!-- 侧边栏组件 -->
     <div class="sidebar">
       <!-- 登录卡片 -->
-      <div class="sidebar-login">
+      <div class="sidebar-login" v-if="!isLogin">
         <div class="sidebar-login-box">
           <div class="login-title">掘金 - juejin.im</div>
           <div class="login-slogan">一个帮助开发者成长的社区</div>
@@ -64,11 +64,190 @@
         <div class="sidebar-author-box">
           <header class="author-block-header">🎖️作者榜</header>
           <ul class="author-list">
-            <li class="item"></li>
-            <li class="item"></li>
-            <li class="item"></li>
+            <li class="item">
+              <a href="" target="_blank" class="link">
+                <div
+                  class="author-avatar"
+                  style="background-image: url('https://sf3-ttcdn-tos.pstatp.com/img/user-avatar/74b5be48428b9a96c4bab53a176d842a~120x256.image')"
+                ></div>
+                <div class="user-info">
+                  <a href="" target="_blank" rel="" class="username "
+                    ><span class="name" style="max-width: 128px;">
+                      pingan8787
+                    </span>
+                    <a
+                      href="https://juejin.im/book/6844733795329900551/section/6844733795371843597"
+                      target="_blank"
+                      class="rank"
+                      ><img src="./images/vip3.svg" alt="lv-4"
+                    /></a>
+                  </a>
+                  <div class="position">
+                    🏅「前端自习课」公众号 @ EFT
+                  </div>
+                </div>
+              </a>
+            </li>
+            <li class="item">
+              <a href="" target="_blank" class="link">
+                <div
+                  class="author-avatar"
+                  style="background-image: url('https://sf3-ttcdn-tos.pstatp.com/img/user-avatar/74b5be48428b9a96c4bab53a176d842a~120x256.image')"
+                ></div>
+                <div class="user-info">
+                  <a href="" target="_blank" rel="" class="username "
+                    ><span class="name" style="max-width: 128px;">
+                      pingan8787
+                    </span>
+                    <a
+                      href="https://juejin.im/book/6844733795329900551/section/6844733795371843597"
+                      target="_blank"
+                      class="rank"
+                      ><img src="./images/vip3.svg" alt="lv-4"
+                    /></a>
+                  </a>
+                  <div class="position">
+                    🏅「前端自习课」公众号 @ EFT
+                  </div>
+                </div>
+              </a>
+            </li>
+            <li class="item">
+              <a href="" target="_blank" class="link">
+                <div
+                  class="author-avatar"
+                  style="background-image: url('https://sf3-ttcdn-tos.pstatp.com/img/user-avatar/74b5be48428b9a96c4bab53a176d842a~120x256.image')"
+                ></div>
+                <div class="user-info">
+                  <a href="" target="_blank" rel="" class="username "
+                    ><span class="name" style="max-width: 128px;">
+                      pingan8787
+                    </span>
+                    <a
+                      href="https://juejin.im/book/6844733795329900551/section/6844733795371843597"
+                      target="_blank"
+                      class="rank"
+                      ><img src="./images/vip3.svg" alt="lv-4"
+                    /></a>
+                  </a>
+                  <div class="position">
+                    🏅「前端自习课」公众号 @ EFT
+                  </div>
+                </div>
+              </a>
+            </li>
+            <li class="item">
+              <div data-v-a95047c4="" class="more">
+                <span>完整榜单</span>
+                <i>></i>
+              </div>
+            </li>
           </ul>
         </div>
+      </div>
+
+      <!-- 广告 -->
+      <div class="sidebar-ads">
+        <ul class="ads-list">
+          <li class="item">
+            <a class="link" href="/extension" target="_blank"
+              ><img
+                src="//s3.pstatp.com/toutiao/xitu_juejin_web/img/juejin-extension-icon.4b79fb4.png"
+                class="icon"
+              />
+              <span class="title">下载掘金浏览器插件</span></a
+            >
+          </li>
+          <li class="item">
+            <a
+              class="link"
+              href="https://github.com/xitu/gold-miner"
+              target="_blank"
+              ><img
+                src="//s3.pstatp.com/toutiao/xitu_juejin_web/img/juejin-miner.b78347c.png"
+                class="icon"
+              />
+              <span class="title">前往掘金翻译计划</span></a
+            >
+          </li>
+        </ul>
+      </div>
+
+      <!-- 其他 -->
+      <div class="sidebar-other">
+        <ul class="more-list clearfix">
+          <li class="item">
+            <a href="/dev-api/about" target="_blank">关于</a>
+          </li>
+          <li class="item">
+            <a href="/license" target="_blank" rel="">营业执照</a>
+          </li>
+          <li class="item">
+            <a href="/dev-api/links" target="_blank">友情链接</a>
+          </li>
+        </ul>
+        <ul class="more-list clearfix">
+          <li class="item">
+            <a href="/dev-api/terms" target="_blank">用户协议</a>
+          </li>
+          <li class="item">
+            <a href="/dev-api/privacy" target="_blank">隐私政策</a>
+          </li>
+          <li class="item">
+            <a href="/book/5c90640c5188252d7941f5bb" target="_blank">
+              使用指南
+            </a>
+          </li>
+        </ul>
+        <ul class="more-list">
+          <li class="item">
+            <a href="http://www.beian.miit.gov.cn" target="_blank">
+              津ICP备15003202号-2
+            </a>
+          </li>
+        </ul>
+        <ul class="more-list clearfix">
+          <li class="item">
+            <a
+              href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802026719"
+              target="_blank"
+            >
+              京公网安备11010802026719号
+            </a>
+          </li>
+        </ul>
+        <ul class="more-list clearfix">
+          <li class="item"><a>&copy;2020 掘金</a></li>
+        </ul>
+        <ul class="more-list account-list">
+          <li class="item weibo">
+            <a
+              href="http://weibo.com/xitucircle"
+              rel="nofollow noopener noreferrer"
+              target="_blank"
+              ><img
+                src="//s3.pstatp.com/toutiao/xitu_juejin_web/img/weibo.0cd39f5.png"
+                alt="微博"
+                class="icon"
+            /></a>
+          </li>
+          <li class="item wechat">
+            <img
+              src="//s3.pstatp.com/toutiao/xitu_juejin_web/img/wechat.ce329e6.png"
+              alt="微信"
+              class="icon"
+            />
+            <div class="qr-panel">
+              <div class="title">
+                微信扫一扫
+              </div>
+              <img
+                src="//s3.pstatp.com/toutiao/xitu_juejin_web/img/juejin-qr.b247fde.jpeg"
+                class="qr"
+              />
+            </div>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
@@ -77,6 +256,12 @@
 <script>
 export default {
   name: "Sidebar",
+  data() {
+    return {
+      // 是否登录
+      isLogin: false,
+    };
+  },
 };
 </script>
 
@@ -160,6 +345,11 @@ export default {
       transition: background-color 0.3s, color 0.3s;
       cursor: pointer;
     }
+    .submit-btn:hover {
+      background-color: #0371df;
+      color: #fff;
+    }
+
     .agreement {
       margin-top: 1.667rem;
       font-size: 1.167rem;
@@ -184,6 +374,168 @@ export default {
         margin-right: 0.5rem;
         width: 4.167rem;
         height: 4.167rem;
+      }
+      .headline {
+        font-size: 1.167rem;
+        font-weight: 600;
+        color: #333;
+      }
+      .desc {
+        margin-top: 0.5rem;
+        font-size: 1rem;
+        color: #909090;
+      }
+    }
+  }
+
+  .sidebar-author-box {
+    background-color: #fff;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    border-radius: 2px;
+    margin-bottom: 1.3rem;
+    font-size: 1.16rem;
+    line-height: 1.29;
+    color: #333;
+    .author-block-header {
+      padding: 1rem 1.3rem;
+      border-bottom: 1px solid hsla(0, 0%, 59.2%, 0.1);
+    }
+    .item {
+      cursor: pointer;
+    }
+    .link {
+      padding: 1rem 1.3rem;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      .author-avatar {
+        flex: 0 0 auto;
+        width: 3.8rem;
+        height: 3.8rem;
+        border-radius: 50%;
+        margin-right: 0.5rem;
+        background-size: cover;
+      }
+      .user-info {
+        overflow: hidden;
+        .username {
+          font-size: 1.16rem;
+          font-weight: 400;
+          color: #333;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          margin-bottom: 3px;
+          .rank {
+            margin-left: 0.33rem;
+            vertical-align: middle;
+            img {
+              width: auto;
+              height: auto;
+            }
+          }
+        }
+        .position {
+          color: #909090;
+          font-size: 1rem;
+          margin-bottom: 3px;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
+
+      &:hover {
+        background-color: hsla(0, 0%, 84.7%, 0.1);
+      }
+    }
+    .more {
+      color: #007fff;
+      padding: 1rem 0;
+      text-align: center;
+      border-top: 1px solid hsla(0, 0%, 59.2%, 0.1);
+      i {
+        margin-left: 5px;
+      }
+    }
+  }
+
+  .sidebar-ads {
+    background-color: #fff;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    border-radius: 2px;
+    margin-bottom: 1.3rem;
+    font-size: 1.16rem;
+    line-height: 1.29;
+    color: #333;
+    .link {
+      display: flex;
+      align-items: center;
+      padding: 1rem;
+      height: 100%;
+      .icon {
+        width: 3rem;
+        margin-right: 0.8rem;
+      }
+      .title {
+        position: relative;
+        font-size: 1.16rem;
+        line-height: 1;
+        color: #333;
+      }
+    }
+  }
+
+  .sidebar-other {
+    border-radius: 2px;
+    margin-bottom: 1.3rem;
+    font-size: 1.16rem;
+    line-height: 1.29;
+    color: #333;
+    .more-list {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #9aa3ab;
+      .item {
+        float: left;
+        &::after {
+          content: "·";
+          margin: 0 0.5rem;
+          color: #c6cfda;
+        }
+      }
+    }
+    .account-list {
+      position: relative;
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #9aa3ab;
+      img {
+        width: 24px;
+        cursor: pointer;
+      }
+      .qr-panel {
+        position: absolute;
+        background: #fff;
+        width: 10rem;
+        top: 30px;
+        left: 20px;
+        z-index: 2;
+        padding: 0.8rem 0 0;
+        opacity: 0;
+        border: 1px solid #ddd;
+        transform: translate(-24px);
+        .title {
+          text-align: center;
+        }
+        .qr {
+          width: 100%;
+        }
+      }
+      .wechat:hover {
+        .qr-panel {
+          opacity: 1;
+        }
       }
     }
   }

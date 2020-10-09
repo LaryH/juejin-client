@@ -42,6 +42,9 @@ textarea {
   word-break: break-word;
   text-rendering: optimizeLegibility;
   color: #333;
+}
+
+body {
   background-color: #f4f5f5;
 }
 
@@ -108,6 +111,8 @@ input,
 select,
 textarea {
   font-size: 100%; /* 使得表单元素在 ie 下能继承字体大小 */
+  border: none;
+  outline: none;
 }
 
 /* 重置表格元素 */
@@ -134,7 +139,6 @@ html {
 
 a:hover {
   color: rgb(79, 76, 212) !important;
-  text-decoration: underline;
 }
 
 /* 清除浮动 */
