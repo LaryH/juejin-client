@@ -1,36 +1,36 @@
 <template>
   <div>
     <main class="events-container">
+      <!-- 导航 -->
+      <nav class="events-nav">
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="" class="active">热门活动</a>
+          </li>
+          <li class="nav-item">
+            <a href="">北京</a>
+          </li>
+          <li class="nav-item">
+            <a href="">上海</a>
+          </li>
+          <li class="nav-item">
+            <a href="">广州</a>
+          </li>
+          <li class="nav-item">
+            <a href="">杭州</a>
+          </li>
+          <li class="nav-item more-city">
+            <div class="text">
+              <span>其他</span>
+            </div>
+            <div class="menu"></div>
+          </li>
+          <li class="nav-item right">
+            <a href="">活动合作</a>
+          </li>
+        </ul>
+      </nav>
       <div class="events-container-box">
-        <!-- 导航 -->
-        <nav class="events-nav">
-          <ul class="nav-list">
-            <li class="nav-item">
-              <a href="" class="active">热门活动</a>
-            </li>
-            <li class="nav-item">
-              <a href="">北京</a>
-            </li>
-            <li class="nav-item">
-              <a href="">上海</a>
-            </li>
-            <li class="nav-item">
-              <a href="">广州</a>
-            </li>
-            <li class="nav-item">
-              <a href="">杭州</a>
-            </li>
-            <li class="nav-item more-city">
-              <div class="text">
-                <span>其他</span>
-              </div>
-              <div class="menu"></div>
-            </li>
-            <li class="nav-item right">
-              <a href="">活动合作</a>
-            </li>
-          </ul>
-        </nav>
         <!-- 内容 -->
         <div class="events-content">
           <div class="panel">
@@ -249,18 +249,25 @@ export default {
 .events-container {
   position: relative;
   top: 0;
-  margin: 0 auto;
   width: 100%;
-  max-width: 960px;
 }
 .events-container-box {
-  margin-top: 4.67rem;
+  margin: 10px auto;
+  max-width: 960px;
 }
 
 .events-nav {
-  background: #fff;
-  height: 46px;
-  line-height: 46px;
+  top: 61px;
+  width: 100%;
+  height: 45px;
+  line-height: 45px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  background-color: #fff;
+  .nav-list {
+    max-width: 960px;
+    /* height: 100%; */
+    margin: auto;
+  }
   .nav-item {
     float: left;
     height: 100%;

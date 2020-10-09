@@ -5,6 +5,7 @@ const Pins = () => import("@/pages/Pins");
 const Topics = () => import("@/pages/Topics");
 const Books = () => import("@/pages/Books");
 const Events = () => import("@/pages/Events");
+const Subscribe = () => import("@/pages/Subscribe");
 export default [
   /* 
   在这里配置路由
@@ -13,7 +14,10 @@ export default [
     path: '/home',  路径
     component:
   }
-*/
+*/ {
+    path: "/subscribe",
+    component: Subscribe,
+  },
   {
     path: "/home",
     component: Home,
