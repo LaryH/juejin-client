@@ -35,8 +35,8 @@ export default [
     path: "/events",
     component: Events,
   },
-  // {
-  //   path: "/",
-  //   redirect: "/home",
-  // },
+  {
+    path: "/",
+    redirect: "/home",
+  },
 ];

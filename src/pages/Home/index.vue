@@ -1,15 +1,15 @@
 <template>
   <div>
-    <Container />
+    <NavList />
   </div>
 </template>
 
 <script>
-import Container from "@/components/Container";
+import NavList from "@/components/NavList";
 export default {
   name: "Home",
   components: {
-    Container,
+    NavList,
   },
 };
 </script>

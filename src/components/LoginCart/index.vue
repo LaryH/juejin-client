@@ -15,7 +15,7 @@
         <div class="logincart-title">
           <h1 v-if="isPhone">手机登录</h1>
           <h1 v-else>账密登录</h1>
-          <i title="关闭">x</i>
+          <i title="关闭" @click="close" class="close">x</i>
         </div>
         <!-- 手机号/验证码 -->
         <div class="logincart-input-group">
@@ -140,6 +140,10 @@ export default {
           break;
       }
     },
+    // 关闭登录框
+    close() {
+      this.$emit("closeLoginCart");
+    },
   },
 };
 </script>
@@ -212,6 +216,10 @@ export default {
       justify-content: space-between;
       font-size: 1.5rem;
       margin: 0 0 2rem;
+
+      .close {
+        cursor: pointer;
+      }
     }
     .logincart-input-group {
       .logincart-userInfo-box {
