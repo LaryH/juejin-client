@@ -1,5 +1,5 @@
 <template>
-  <div class="">
+  <div>
     <div class="header">
       <div class="header-nav">
         <div class="header-nav-left">
@@ -36,27 +36,25 @@
         </div>
       </div>
     </div>
-     <NavList />
+    <NavList />
     <div class="view-container">
       <router-view></router-view>
     </div>
+  </div>
 </template>
 
 <script>
-import NavList from '@/pages/Home/components/NavList'
-import Wu from '@/pages/Home/components/Wu'
+import NavList from "@/components/NavList";
+import Sidebar from "@/components/Sidebar";
 export default {
   name: "Header",
   components: {
     NavList,
-    Wu
   },
 };
 </script>
 
-<<<<<<< HEAD
 <style lang="less" scoped>
-<<<<<<< HEAD
 .header {
   width: 100%;
   height: 60px;
@@ -156,4 +154,3 @@ export default {
   }
 }
 </style>
-

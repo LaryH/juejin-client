@@ -100,7 +100,7 @@ export default {
 
 <style lang="less" scoped>
 .topics-container {
-  background: pink;
+  background: #fff;
   position: relative;
   margin: 0 auto;
   width: 100%;
