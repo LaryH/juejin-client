@@ -141,8 +141,30 @@ export default {
         border: 1px solid #ccc;
         line-height: 30px;
         text-indent: 1em;
-        color: #ccc;
         border-radius: 3px;
+
+        /* WebKit browsers */
+        input::-webkit-input-placeholder {
+          color: #ccc;
+          font-size: 14px;
+        }
+        /* Mozilla Firefox 4 to 18 */
+        input:-moz-placeholder {
+          color: #ccc;
+          opacity: 1;
+          font-size: 14px;
+        }
+        /* Mozilla Firefox 19+ */
+        input::-moz-placeholder {
+          color: #ccc;
+          opacity: 1;
+          font-size: 14px;
+        }
+        /* Internet Explorer 10+ */
+        input:-ms-input-placeholder {
+          color: #ccc;
+          font-size: 14px;
+        }
       }
     }
   }
