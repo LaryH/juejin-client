@@ -7,47 +7,16 @@
             <a href="#">推荐</a>
           </div>
         </li>
-        <li class="nav-item">
+        <li
+          class="nav-item"
+          v-for="item in categoryList"
+          :key="item.category_id"
+        >
           <div>
-            <a href="#">后端</a>
+            <a href="#" @click.prevent="get">{{ item.category_name }}</a>
           </div>
         </li>
-        <li class="nav-item">
-          <div>
-            <a href="#">前端</a>
-          </div>
-        </li>
-        <li class="nav-item">
-          <div>
-            <a href="#">Android</a>
-          </div>
-        </li>
-        <li class="nav-item">
-          <div>
-            <a href="#">iOS</a>
-          </div>
-        </li>
-        <li class="nav-item">
-          <div>
-            <a href="#">人工智能</a>
-          </div>
-        </li>
-        <li class="nav-item">
-          <div>
-            <a href="#">开发工具</a>
-          </div>
-        </li>
-        <li class="nav-item">
-          <div>
-            <a href="#">代码人生</a>
-          </div>
-        </li>
-        <li class="nav-item">
-          <div>
-            <a href="#">阅读</a>
-          </div>
-        </li>
-        <li class="nav-item right">
+        <li class="nav-item right" @click.prevent="toSubscribe">
           <a href="#"></a>
         </li>
       </ul>
@@ -59,6 +28,26 @@
 import Container from "@/components/Container";
 export default {
   name: "NavList",
+  data() {
+    return {
+      categoryList: [],
+    };
+  },
+  mounted() {
+    this.getCategoryList();
+  },
+  methods: {
+    async getCategoryList() {
+      const result = await this.$API.home.getCategoryBriefs();
+      if (result.err_msg === "success") {
+        this.categoryList = result.data;
+      }
+    },
+    toSubscribe() {
+      this.$router.push({ path: "subscribe" });
+    },
+    get() {},
+  },
 };
 </script>
 
