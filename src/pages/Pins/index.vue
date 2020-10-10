@@ -1,5 +1,5 @@
 <template>
- <div class="container">
+  <div class="container">
     <!-- 左侧导航栏 -->
     <div class="dock">
       <nav class="dock-nav" role="navigation">
@@ -39,7 +39,7 @@
       <div class="stream-wrapper">
         <div class="pin-list-view">
           <ul class="pin-list">
-            <li class="item shadow">
+            <li class="item shadow" v-for="home in homelist" :key="home.msg_id">
               <div class="pin">
                 <!-- 头部 -->
                 <div class="pin-header-row">
@@ -47,17 +47,18 @@
                     <!-- 图片 -->
                     <div class="user-popover-box">
                       <a href="javascript:;" class="user-link">
-                        <div class="lazy avatar avatar loaded"></div>
+                        <!--  <img class="lazy avatar avatar loaded"></div> -->
+                        <img :src="home.author_user_info.avatar_large" alt="" class="lazy avatar avatar loaded">
                       </a>
                     </div>
                     <!-- 用户名字和信息 -->
                     <div class="pin-header-content">
                       <div class="user-popover">
-                        <a href="" class="username">mlgg</a>
+                        <a href="" class="username">{{home.author_user_info.user_name}}</a>
                       </div>
                       <div class="meta-box">
-                        <div class="position ellipsis">前端</div>
-                        <div class="dot">.</div>
+                        <div class="position ellipsis">{{home.author_user_info.job_title}}</div>
+                        <div class="dot">@{{home.author_user_info.company}}.</div>
                         <a href="javascript">9小时前</a>
                       </div>
                     </div>
@@ -71,89 +72,25 @@
                 <!-- 标间 -->
                 <div class="pin-content-row">
                   <div class="content-box content-box">
-                    <span>养生牢记于心</span>
+                    <span>{{home.msg_Info.content}}</span>
                   </div>
                 </div>
                 <!-- 图片 -->
                 <div class="pin-image-row">
                   <div class="image-box-wrapper image-box">
                     <div class="image-box">
-                      <div class="image"></div>
+                      <!--    <div class="image"></div> -->
+                      <template v-if="home.msg_Info.pic_list.length > 0">
+                        <img v-for="(img,index) in home.msg_Info.pic_list" :src="home.msg_Info.pic_list[index]" alt="" class="image" :key="index">
+                      </template>
+
                     </div>
 
                   </div>
                 </div>
                 <!-- 添加的标签 -->
                 <div class="pin-topic-row">
-                  <a href="javascript" class="topic-title">一图胜千言</a>
-                </div>
-                <!-- 标签底部 -->
-                <div class="pin-action-row">
-                  <div class="action-box action-box">
-                    <div class="like-action action">
-                      <span class="iconfont icon-dianzan"></span>
-                      <span>2</span>
-                    </div>
-                    <div class="like-action action">
-                      <span class="iconfont icon-pinglun_huabanfuben"></span>
-                      <span>评论</span>
-                    </div>
-                    <div class="like-action action">
-                      <span class="iconfont icon-shangchuan"></span>
-                      <span>分享</span>
-                    </div>
-
-                  </div>
-                </div>
-              </div>
-            </li>
-            <li class="item shadow">
-              <div class="pin">
-                <!-- 头部 -->
-                <div class="pin-header-row">
-                  <div class="account-group">
-                    <!-- 图片 -->
-                    <div class="user-popover-box">
-                      <a href="javascript:;" class="user-link">
-                        <div class="lazy avatar avatar loaded"></div>
-                      </a>
-                    </div>
-                    <!-- 用户名字和信息 -->
-                    <div class="pin-header-content">
-                      <div class="user-popover">
-                        <a href="" class="username">mlgg</a>
-                      </div>
-                      <div class="meta-box">
-                        <div class="position ellipsis">前端</div>
-                        <div class="dot">.</div>
-                        <a href="javascript">9小时前</a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="header-action">
-                    <button class="subscribe-btn follow-button">
-                      <span>关注</span>
-                    </button>
-                  </div>
-                </div>
-                <!-- 标间 -->
-                <div class="pin-content-row">
-                  <div class="content-box content-box">
-                    <span>养生牢记于心</span>
-                  </div>
-                </div>
-                <!-- 图片 -->
-                <div class="pin-image-row">
-                  <div class="image-box-wrapper image-box">
-                    <div class="image-box">
-                      <div class="image"></div>
-                    </div>
-
-                  </div>
-                </div>
-                <!-- 添加的标签 -->
-                <div class="pin-topic-row">
-                  <a href="javascript" class="topic-title">一图胜千言</a>
+                  <a href="javascript" class="topic-title" v-if="home.topic.title">{{home.topic.title}}</a>
                 </div>
                 <!-- 标签底部 -->
                 <div class="pin-action-row">
@@ -185,48 +122,22 @@
       <div class="related-pin-block pin-block">
         <header class="">推荐浮点</header>
         <ul class="pin-list">
-          <li class="item">
+          <li class="item" v-for="left in leftnav" :key="left.msg_id">
             <a href="javascript:;" class="pin">
               <div class="content-box">
                 <div class="content with-picture">
-                  对不起大家，我是废物，在家打了5天游戏😭
+                  {{left.msg_Info.content}}
                 </div>
                 <div class="stat">
                   <span>3 赞 .</span>
                   <span>22 评论</span>
                 </div>
               </div>
-              <div class="image-box"></div>
+              <img :src="left.msg_Info.pic_list[0]" alt="" class="image-box">
+              <!--  <div class="image-box" style="{background-image:url('')}"></div> -->
             </a>
           </li>
-          <li class="item">
-            <a href="javascript:;" class="pin">
-              <div class="content-box">
-                <div class="content with-picture">
-                  对不起大家，我是废物，在家打了5天游戏😭
-                </div>
-                <div class="stat">
-                  <span>3 赞 .</span>
-                  <span>22 评论</span>
-                </div>
-              </div>
-              <div class="image-box"></div>
-            </a>
-          </li>
-          <li class="item">
-            <a href="javascript:;" class="pin">
-              <div class="content-box">
-                <div class="content with-picture">
-                  对不起大家，我是废物，在家打了5天游戏😭
-                </div>
-                <div class="stat">
-                  <span>3 赞 .</span>
-                  <span>22 评论</span>
-                </div>
-              </div>
-              <div class="image-box"></div>
-            </a>
-          </li>
+
         </ul>
       </div>
       <a href="javascript" class="guide-link shadow">
@@ -238,8 +149,36 @@
 </template>
 
 <script>
+import data from './data.json'
+import home from './home.json'
 export default {
   name: 'Pins',
+  data() {
+    return {
+      info: {
+        cursor: '0',
+        id_type: 4,
+        limit: 3,
+        sort_type: 400
+      },
+      leftnav: {},
+      homelist: {}
+    }
+  },
+  mounted() {
+    this.getinfo()
+  },
+  methods: {
+    getinfo() {
+      //  const result = await this.$API.pins.gethot(info)
+      //  if(result.code===200){
+      //     console.log(result.data)
+      //  }
+      this.leftnav = data.data
+      this.homelist = home.data
+      console.log(this.homelist)
+    }
+  }
 }
 </script>
 
@@ -318,10 +257,12 @@ export default {
 
                     .user-link {
                       .lazy {
+                        //
+                        display: block;
                         width: 45px;
                         height: 45px;
                         border-radius: 50%;
-                        background-image: url('../Pins/img/1.jpg');
+
                         background-size: 45px;
                       }
                     }
@@ -368,13 +309,17 @@ export default {
                 margin: 4px 48px 0 77px;
                 .image-box-wrapper {
                   .image-box {
+                    display: flex;
+                    flex-wrap: wrap;
                     .image {
+                      /*  */
+                      display: block;
                       margin-top: 4px;
-                      background: url('../Pins/img/f433295fd091456ba9e55bde14cadb56_tplv-k3u1fbpfcp-zoom-1.jpg');
-                      background-repeat: no-repeat;
-                      width: 200px;
-                      height: 140px;
-                      background-size: 200px;
+                      //background: url('../Pins/img/f433295fd091456ba9e55bde14cadb56_tplv-k3u1fbpfcp-zoom-1.jpg');
+                      //background-repeat: no-repeat;
+                      width: 120px;
+                      height: 110px;
+                      margin-right: 5px;
                     }
                   }
                 }
@@ -459,10 +404,11 @@ export default {
               }
             }
             .image-box {
+              display: block;
               width: 68px;
               height: 68px;
               //background-color: skyblue;
-              background-image: url('../Pins/img/7b54f66b14ea45eeb84846dc34e11598_tplv-k3u1fbpfcp-zoom-1.png');
+              // background-image: url('../Pins/img/7b54f66b14ea45eeb84846dc34e11598_tplv-k3u1fbpfcp-zoom-1.png');
               background-size: cover;
               background-repeat: no-repeat;
             }

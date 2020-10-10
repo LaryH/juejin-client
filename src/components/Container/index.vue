@@ -18,33 +18,47 @@
       </header>
       <div class="entry-list-wrap">
         <ul class="entry-list">
-          <li class="item">
+          <li
+            class="item"
+            v-for="art in articleList"
+            :key="art.article_id"
+          >
             <div class="entry-link">
               <div class="content-box">
                 <div class="info-box">
                   <ul class="meta-list">
                     <li class="item username clickable">
-                      <a style="color: #b2bac2">作者名字 .</a>
+                      <a style="color: #b2bac2"
+                        >{{ art.author_user_info.user_name }} .</a
+                      >
                     </li>
                     <li class="item">时间 .</li>
                     <li class="item tag">
-                      <a style="color: #b2bac2">内容</a>
+                      <a style="color: #b2bac2">
+                        {{ art.category.category_name }}</a
+                      >
                     </li>
                   </ul>
                   <div class="info-row title-row">
                     <span>
-                      <a class="title">适合Vue用户的React教程，你值得拥有</a>
+                      <a class="title">{{ art.article_info.title }}</a>
                     </span>
                   </div>
                   <div class="action-list">
                     <div class="item like clickable">
                       <a href>
-                        <img src="./images/04.svg" alt />
+                        <img src="./imgs/04.svg" alt />
+                        <span class="count">{{
+                          art.article_info.digg_count
+                        }}</span>
                       </a>
                     </div>
                     <div class="item like clickable">
                       <a href>
-                        <img src="./images/03.svg" alt />
+                        <img src="./imgs/03.svg" alt />
+                        <span class="count">{{
+                          art.article_info.comment_count
+                        }}</span>
                       </a>
                     </div>
                     <div class="item like clickable">
@@ -55,360 +69,46 @@
                   </div>
                 </div>
                 <div class="info-box-img">
-                  <img src="./images/o1.jpg" alt />
-                </div>
-              </div>
-            </div>
-          </li>
-          <li class="item">
-            <div class="entry-link">
-              <div class="content-box">
-                <div class="info-box">
-                  <ul class="meta-list">
-                    <li class="item username clickable">
-                      <a style="color: #b2bac2">作者名字 .</a>
-                    </li>
-                    <li class="item">时间 .</li>
-                    <li class="item tag">
-                      <a style="color: #b2bac2">内容</a>
-                    </li>
-                  </ul>
-                  <div class="info-row title-row">
-                    <span>
-                      <a class="title">适合Vue用户的React教程，你值得拥有</a>
-                    </span>
-                  </div>
-                  <div class="action-list">
-                    <div class="item like clickable">
-                      <a href>
-                        <img src="./images/04.svg" alt />
-                      </a>
-                    </div>
-                    <div class="item like clickable">
-                      <a href>
-                        <img src="./images/03.svg" alt />
-                      </a>
-                    </div>
-                    <div class="item like clickable">
-                      <a href>
-                        <img src="./images/02.svg" alt />
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="info-box-img">
-                  <img src="./images/o1.jpg" alt />
-                </div>
-              </div>
-            </div>
-          </li>
-          <li class="item">
-            <div class="entry-link">
-              <div class="content-box">
-                <div class="info-box">
-                  <ul class="meta-list">
-                    <li class="item username clickable">
-                      <a style="color: #b2bac2">作者名字 .</a>
-                    </li>
-                    <li class="item">时间 .</li>
-                    <li class="item tag">
-                      <a style="color: #b2bac2">内容</a>
-                    </li>
-                  </ul>
-                  <div class="info-row title-row">
-                    <span>
-                      <a class="title">适合Vue用户的React教程，你值得拥有</a>
-                    </span>
-                  </div>
-                  <div class="action-list">
-                    <div class="item like clickable">
-                      <a href>
-                        <img src="./images/04.svg" alt />
-                      </a>
-                    </div>
-                    <div class="item like clickable">
-                      <a href>
-                        <img src="./images/03.svg" alt />
-                      </a>
-                    </div>
-                    <div class="item like clickable">
-                      <a href>
-                        <img src="./images/02.svg" alt />
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="info-box-img">
-                  <img src="./images/o1.jpg" alt />
-                </div>
-              </div>
-            </div>
-          </li>
-          <li class="item">
-            <div class="entry-link">
-              <div class="content-box">
-                <div class="info-box">
-                  <ul class="meta-list">
-                    <li class="item username clickable">
-                      <a style="color: #b2bac2">作者名字 .</a>
-                    </li>
-                    <li class="item">时间 .</li>
-                    <li class="item tag">
-                      <a style="color: #b2bac2">内容</a>
-                    </li>
-                  </ul>
-                  <div class="info-row title-row">
-                    <span>
-                      <a class="title">适合Vue用户的React教程，你值得拥有</a>
-                    </span>
-                  </div>
-                  <div class="action-list">
-                    <div class="item like clickable">
-                      <a href>
-                        <img src="./images/04.svg" alt />
-                      </a>
-                    </div>
-                    <div class="item like clickable">
-                      <a href>
-                        <img src="./images/03.svg" alt />
-                      </a>
-                    </div>
-                    <div class="item like clickable">
-                      <a href>
-                        <img src="./images/02.svg" alt />
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="info-box-img">
-                  <img src="./images/o1.jpg" alt />
-                </div>
-              </div>
-            </div>
-          </li>
-          <li class="item">
-            <div class="entry-link">
-              <div class="content-box">
-                <div class="info-box">
-                  <ul class="meta-list">
-                    <li class="item username clickable">
-                      <a style="color: #b2bac2">作者名字 .</a>
-                    </li>
-                    <li class="item">时间 .</li>
-                    <li class="item tag">
-                      <a style="color: #b2bac2">内容</a>
-                    </li>
-                  </ul>
-                  <div class="info-row title-row">
-                    <span>
-                      <a class="title">适合Vue用户的React教程，你值得拥有</a>
-                    </span>
-                  </div>
-                  <div class="action-list">
-                    <div class="item like clickable">
-                      <a href>
-                        <img src="./images/04.svg" alt />
-                      </a>
-                    </div>
-                    <div class="item like clickable">
-                      <a href>
-                        <img src="./images/03.svg" alt />
-                      </a>
-                    </div>
-                    <div class="item like clickable">
-                      <a href>
-                        <img src="./images/02.svg" alt />
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="info-box-img">
-                  <img src="./images/o1.jpg" alt />
-                </div>
-              </div>
-            </div>
-          </li>
-          <li class="item">
-            <div class="entry-link">
-              <div class="content-box">
-                <div class="info-box">
-                  <ul class="meta-list">
-                    <li class="item username clickable">
-                      <a style="color: #b2bac2">作者名字 .</a>
-                    </li>
-                    <li class="item">时间 .</li>
-                    <li class="item tag">
-                      <a style="color: #b2bac2">内容</a>
-                    </li>
-                  </ul>
-                  <div class="info-row title-row">
-                    <span>
-                      <a class="title">适合Vue用户的React教程，你值得拥有</a>
-                    </span>
-                  </div>
-                  <div class="action-list">
-                    <div class="item like clickable">
-                      <a href>
-                        <img src="./images/04.svg" alt />
-                      </a>
-                    </div>
-                    <div class="item like clickable">
-                      <a href>
-                        <img src="./images/03.svg" alt />
-                      </a>
-                    </div>
-                    <div class="item like clickable">
-                      <a href>
-                        <img src="./images/02.svg" alt />
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="info-box-img">
-                  <img src="./images/o1.jpg" alt />
-                </div>
-              </div>
-            </div>
-          </li>
-          <li class="item">
-            <div class="entry-link">
-              <div class="content-box">
-                <div class="info-box">
-                  <ul class="meta-list">
-                    <li class="item username clickable">
-                      <a style="color: #b2bac2">作者名字 .</a>
-                    </li>
-                    <li class="item">时间 .</li>
-                    <li class="item tag">
-                      <a style="color: #b2bac2">内容</a>
-                    </li>
-                  </ul>
-                  <div class="info-row title-row">
-                    <span>
-                      <a class="title">适合Vue用户的React教程，你值得拥有</a>
-                    </span>
-                  </div>
-                  <div class="action-list">
-                    <div class="item like clickable">
-                      <a href>
-                        <img src="./images/04.svg" alt />
-                      </a>
-                    </div>
-                    <div class="item like clickable">
-                      <a href>
-                        <img src="./images/03.svg" alt />
-                      </a>
-                    </div>
-                    <div class="item like clickable">
-                      <a href>
-                        <img src="./images/02.svg" alt />
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="info-box-img">
-                  <img src="./images/o1.jpg" alt />
-                </div>
-              </div>
-            </div>
-          </li>
-          <li class="item">
-            <div class="entry-link">
-              <div class="content-box">
-                <div class="info-box">
-                  <ul class="meta-list">
-                    <li class="item username clickable">
-                      <a style="color: #b2bac2">作者名字 .</a>
-                    </li>
-                    <li class="item">时间 .</li>
-                    <li class="item tag">
-                      <a style="color: #b2bac2">内容</a>
-                    </li>
-                  </ul>
-                  <div class="info-row title-row">
-                    <span>
-                      <a class="title">适合Vue用户的React教程，你值得拥有</a>
-                    </span>
-                  </div>
-                  <div class="action-list">
-                    <div class="item like clickable">
-                      <a href>
-                        <img src="./images/04.svg" alt />
-                      </a>
-                    </div>
-                    <div class="item like clickable">
-                      <a href>
-                        <img src="./images/03.svg" alt />
-                      </a>
-                    </div>
-                    <div class="item like clickable">
-                      <a href>
-                        <img src="./images/02.svg" alt />
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="info-box-img">
-                  <img src="./images/o1.jpg" alt />
-                </div>
-              </div>
-            </div>
-          </li>
-          <li class="item">
-            <div class="entry-link">
-              <div class="content-box">
-                <div class="info-box">
-                  <ul class="meta-list">
-                    <li class="item username clickable">
-                      <a style="color: #b2bac2">作者名字 .</a>
-                    </li>
-                    <li class="item">时间 .</li>
-                    <li class="item tag">
-                      <a style="color: #b2bac2">内容</a>
-                    </li>
-                  </ul>
-                  <div class="info-row title-row">
-                    <span>
-                      <a class="title">适合Vue用户的React教程，你值得拥有</a>
-                    </span>
-                  </div>
-                  <div class="action-list">
-                    <div class="item like clickable">
-                      <a href>
-                        <img src="./images/04.svg" alt />
-                      </a>
-                    </div>
-                    <div class="item like clickable">
-                      <a href>
-                        <img src="./images/03.svg" alt />
-                      </a>
-                    </div>
-                    <div class="item like clickable">
-                      <a href>
-                        <img src="./images/02.svg" alt />
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="info-box-img">
-                  <img src="./images/o1.jpg" alt />
+                  <img :src="art.author_user_info.avatar_large" />
                 </div>
               </div>
             </div>
           </li>
         </ul>
       </div>
-      <Sidebar />
+      <Sidebar :categoryId="categoryId" />
     </div>
   </div>
 </template>
 
 <script>
+import article from "./art.json";
 import Sidebar from "@/components/Sidebar";
 export default {
   name: "Container",
   components: {
     Sidebar,
+  },
+  props: ["categoryId", "tagId"],
+  data() {
+    return {
+      articleList: [],
+    };
+  },
+  mounted() {
+    this.getRecommendFeed();
+  },
+  methods: {
+    async getRecommendFeed(tagId) {
+      // const result = await this.$API.home.getCategetRecommendFeed(
+      //   categoryId:this.categoryId,
+      //   tagId
+      // );
+      // if (result.err_msg === "success") {
+      // this.articleList = result.data;
+      // }
+      this.articleList = article.data;
+    },
   },
 };
 </script>
@@ -512,6 +212,7 @@ a {
                 // width: 136px;
                 height: 26px;
                 // background-color: aqua;
+
                 .item {
                   width: 30px;
                   float: left;
@@ -527,6 +228,16 @@ a {
                   color: #b2bac2;
                   border-radius: 1px;
                   border: 1px solid #edeeef;
+
+                  img {
+                    margin-bottom: -2px;
+                  }
+
+                  .count {
+                    color: #b2bac2;
+                    margin-left: 0.2em;
+                    font-weight: 700;
+                  }
                 }
                 // .action-list:not(.active) > .item.hover {
                 //   visibility: hidden;
