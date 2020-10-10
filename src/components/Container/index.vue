@@ -63,7 +63,7 @@
                     </div>
                     <div class="item like clickable">
                       <a href>
-                        <img src="./imgs/02.svg" alt />
+                        <img src="./images/02.svg" alt />
                       </a>
                     </div>
                   </div>
