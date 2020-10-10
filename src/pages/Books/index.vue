@@ -1,28 +1,28 @@
 <template>
   <div class="books-list">
-    <div >
+    <div  v-for="book in booklist" :key="book.booklet_id">
       <a class="item" href="#">
         <div class="poster">
-          <img src="./image/1.jpg" class="imagew">
+          <img :src="book.base_info.cover_img" class="imagew">
         </div>
         <div class="info">
           <div class="title">
-            <a class="">MySQL 是怎样运行的：从根儿上理解 MySQL</a>
+            <a class="">{{book.base_info.title}}</a>
           </div>
-          <div class="desc">授人以鱼不如授人以渔，从根儿上理解 MySQL，让 MySQL 不再是一个黑盒。</div>
+          <div class="desc">{{book.base_info.summary}}</div>
 
 
           <div class="author">
             <div>
-              <img src="./image/2.jpg" class="imaget">
+              <img :src="book.user_info.avatar_large" class="imaget">
             </div>
-            <span class="name">小孩子4919</span>
+            <span class="name">{{book.user_info.user_name}}</span>
             <div style="text-indent:1em">
               <img src="./image/svg_xml_base64_PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMyIgaGVpZ2h0PSIxNCIgd.svg">
             </div>
 
             <div style="text-indent:1em" class="selfDescription">
-              <span> 后端工程师 | 公众号 「我们都是小青</span>
+              <span> {{book.user_info.job_title}}</span>
             </div>
           </div>
 
@@ -31,103 +31,7 @@
             <div class="other">
               <div class="price">￥29.9</div>
               <span class="message">
-                <span>29小节 .</span>
-              </span>
-              <span class="message">
-                <span>13629</span>
-
-                <span> 人已购买</span>
-              </span>
-            </div>
-          </div>
-        </div>
-      </a>
-    </div>
-
-
-
-
-
-    <div >
-      <a class="item" href="#">
-        <div class="poster">
-          <img src="./image/1.jpg" class="imagew">
-        </div>
-        <div class="info">
-          <div class="title">
-            <a class="">MySQL 是怎样运行的：从根儿上理解 MySQL</a>
-          </div>
-          <div class="desc">授人以鱼不如授人以渔，从根儿上理解 MySQL，让 MySQL 不再是一个黑盒。</div>
-
-
-          <div class="author">
-            <div>
-              <img src="./image/2.jpg" class="imaget">
-            </div>
-            <span class="name">小孩子4919</span>
-            <div style="text-indent:1em">
-              <img src="./image/svg_xml_base64_PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMyIgaGVpZ2h0PSIxNCIgd.svg">
-            </div>
-
-            <div style="text-indent:1em" class="selfDescription">
-              <span> 后端工程师 | 公众号 「我们都是小青</span>
-            </div>
-          </div>
-
-
-          <div>
-            <div class="other">
-              <div class="price">￥29.9</div>
-              <span class="message">
-                <span>29小节 .</span>
-              </span>
-              <span class="message">
-                <span>13629</span>
-
-                <span> 人已购买</span>
-              </span>
-            </div>
-          </div>
-        </div>
-      </a>
-    </div>
-
-
-
-
-
-    <div >
-      <a class="item" href="#">
-        <div class="poster">
-          <img src="./image/1.jpg" class="imagew">
-        </div>
-        <div class="info">
-          <div class="title">
-            <a class="">MySQL 是怎样运行的：从根儿上理解 MySQL</a>
-          </div>
-          <div class="desc">授人以鱼不如授人以渔，从根儿上理解 MySQL，让 MySQL 不再是一个黑盒。</div>
-
-
-          <div class="author">
-            <div>
-              <img src="./image/2.jpg" class="imaget">
-            </div>
-            <span class="name">小孩子4919</span>
-            <div style="text-indent:1em">
-              <img src="./image/svg_xml_base64_PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMyIgaGVpZ2h0PSIxNCIgd.svg">
-            </div>
-
-            <div style="text-indent:1em" class="selfDescription">
-              <span> 后端工程师 | 公众号 「我们都是小青</span>
-            </div>
-          </div>
-
-
-          <div>
-            <div class="other">
-              <div class="price">￥29.9</div>
-              <span class="message">
-                <span>29小节 .</span>
+                <span>{{book.base_info.section_count}}小节 .</span>
               </span>
               <span class="message">
                 <span>13629</span>
@@ -143,8 +47,32 @@
 </template>
 
 <script>
+import books from './books.json'
 export default {
   name: 'Wu',
+  data(){
+    return{
+      category_id: "0",
+      cursor: "0",
+      limit: 20,
+       booklist:[]
+    }
+   
+  },
+
+  mounted(){
+    this.getCategoryWu()
+  },
+
+  methods:{
+     getCategoryWu(){
+      this.booklist=books.data
+      console.log(this.booklist)
+    }
+  },
+
+
+
 }
 </script>
 
