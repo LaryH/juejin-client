@@ -18,25 +18,17 @@
       </header>
       <div class="entry-list-wrap">
         <ul class="entry-list">
-          <li
-            class="item"
-            v-for="art in articleList"
-            :key="art.article_id"
-          >
+          <li class="item" v-for="art in articleList" :key="art.article_id">
             <div class="entry-link">
               <div class="content-box">
                 <div class="info-box">
                   <ul class="meta-list">
                     <li class="item username clickable">
-                      <a style="color: #b2bac2"
-                        >{{ art.author_user_info.user_name }} .</a
-                      >
+                      <a style="color: #b2bac2">{{ art.author_user_info.user_name }} .</a>
                     </li>
                     <li class="item">时间 .</li>
                     <li class="item tag">
-                      <a style="color: #b2bac2">
-                        {{ art.category.category_name }}</a
-                      >
+                      <a style="color: #b2bac2">{{ art.category.category_name }}</a>
                     </li>
                   </ul>
                   <div class="info-row title-row">
@@ -47,18 +39,22 @@
                   <div class="action-list">
                     <div class="item like clickable">
                       <a href>
-                        <img src="./imgs/04.svg" alt />
-                        <span class="count">{{
+                        <img src="./images/04.svg" alt />
+                        <span class="count">
+                          {{
                           art.article_info.digg_count
-                        }}</span>
+                          }}
+                        </span>
                       </a>
                     </div>
                     <div class="item like clickable">
                       <a href>
-                        <img src="./imgs/03.svg" alt />
-                        <span class="count">{{
+                        <img src="./images/03.svg" alt />
+                        <span class="count">
+                          {{
                           art.article_info.comment_count
-                        }}</span>
+                          }}
+                        </span>
                       </a>
                     </div>
                     <div class="item like clickable">
@@ -126,6 +122,7 @@ a {
   left: 0;
   right: 0;
   margin: 10px auto;
+  z-index: -1;
 
   .entry-list-container {
     width: 700px;

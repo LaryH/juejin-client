@@ -118,6 +118,24 @@
 <script>
 export default {
   name: "Subscribe",
+  data() {
+    return {
+      followList: [],
+    };
+  },
+  mounted() {
+    this.getFollow();
+  },
+  methods: {
+    async getFollow() {
+      const result = await this.$API.subscribe.getFollow({
+        cursor: "0",
+        limit: 20,
+      });
+      console.log(result);
+      this.followList = result.data;
+    },
+  },
 };
 </script>
 

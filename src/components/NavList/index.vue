@@ -7,20 +7,18 @@
             <a href="#">推荐</a>
           </div>
         </li>
-        <li
-          class="nav-item"
-          v-for="item in categoryList"
-          :key="item.category_id"
-        >
-          <div>
+        <li class="nav-item" v-for="item in categoryList" :key="item.category_id">
+          <div class="posi">
             <a href="#" @click.prevent="get">{{ item.category_name }}</a>
             <div class="category-popover">
               <nav class="tag-nav">
                 <ul class="tag-list">
                   <li class="tag" v-for="tag in tagList" :key="tag.tag_id">
-                    <a href="" @click="getRecommendFeed(tag.tag_id)">{{
+                    <a href @click="getRecommendFeed(tag.tag_id)">
+                      {{
                       tag.tag_name
-                    }}</a>
+                      }}
+                    </a>
                   </li>
                 </ul>
               </nav>
@@ -115,6 +113,9 @@ ul {
   padding: 0 1rem;
   // position: relative;
 }
+.view-nav .nav-list .nav-item .posi {
+  position: relative;
+}
 .nav-item > a::before {
   content: "标签管理";
   position: absolute;
@@ -124,6 +125,9 @@ ul {
   z-index: 20;
 }
 .nav-item .category-popover {
+  position: absolute;
+  top: 29px;
+  left: 0;
   display: none;
   width: 350px;
   height: 160px;
@@ -133,8 +137,6 @@ ul {
   box-sizing: border-box;
   border-radius: 2px;
   padding: 14px 14px 2px 14px;
-  position: absolute;
-  top: 45px;
 }
 .nav-item .category-popover .tag-nav .tag-list {
   display: flex;
@@ -155,5 +157,6 @@ ul {
 }
 .nav-item:hover .category-popover {
   display: block;
+  z-index: 100;
 }
 </style>
