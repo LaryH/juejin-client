@@ -38,11 +38,14 @@
             <div class="banner">
               <div class="swiper-container" ref="banner">
                 <div class="swiper-wrapper">
-                  <div class="swiper-slide">
-                    <img src="./images/banner01.png" alt="" />
-                  </div>
-                  <div class="swiper-slide">
-                    <img src="./images/banner02.png" alt="" />
+                  <div
+                    class="swiper-slide"
+                    v-for="banner in eventsBanner"
+                    :key="banner.id"
+                  >
+                    <img :src="banner.screenshot" />
+
+                    <!-- <img src="./images/banner01.png" alt="" /> -->
                   </div>
                 </div>
                 <!-- 如果需要分页器 -->
@@ -62,16 +65,20 @@
           <div class="events-wrap">
             <div class="eventsList">
               <a
-                href="https://pingcap.com/community-cn/high-performance-tidb-challenge/?utm_source=ad&utm_medium=juejin&utm_campaign=xnds"
+                :href="event.url"
                 class="events"
+                v-for="event in eventList"
+                :key="event.id"
               >
                 <div class="events-inner">
                   <div
                     class="banner"
-                    style="background-image: url('https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b5a2686aca054004910fcb8e8bb1a67f~tplv-k3u1fbpfcp-zoom-1.image'); background-size: cover"
+                    :style="
+                      `background-image: url('${event.screenshot}'); background-size: cover`
+                    "
                   ></div>
                   <div class="message">
-                    <div class="title">TiDB 性能竞赛</div>
+                    <div class="title">{{ event.title }}</div>
                     <div class="date">
                       <span class="icon icon-calendar"></span>
                       <span>09-17 周四</span>
@@ -79,107 +86,7 @@
                     <div class="bottom">
                       <div class="address">
                         <span class="icon icon-location"></span>
-                        <span>不限</span>
-                      </div>
-                      <div class="btn-join">报名参加</div>
-                    </div>
-                  </div>
-                </div>
-              </a>
-              <a
-                href="https://pingcap.com/community-cn/high-performance-tidb-challenge/?utm_source=ad&utm_medium=juejin&utm_campaign=xnds"
-                class="events"
-              >
-                <div class="events-inner">
-                  <div
-                    class="banner"
-                    style="background-image: url('https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b5a2686aca054004910fcb8e8bb1a67f~tplv-k3u1fbpfcp-zoom-1.image'); background-size: cover"
-                  ></div>
-                  <div class="message">
-                    <div class="title">TiDB 性能竞赛</div>
-                    <div class="date">
-                      <span class="icon icon-calendar"></span>
-                      <span>09-17 周四</span>
-                    </div>
-                    <div class="bottom">
-                      <div class="address">
-                        <span class="icon icon-location"></span>
-                        <span>不限</span>
-                      </div>
-                      <div class="btn-join">报名参加</div>
-                    </div>
-                  </div>
-                </div>
-              </a>
-              <a
-                href="https://pingcap.com/community-cn/high-performance-tidb-challenge/?utm_source=ad&utm_medium=juejin&utm_campaign=xnds"
-                class="events"
-              >
-                <div class="events-inner">
-                  <div
-                    class="banner"
-                    style="background-image: url('https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b5a2686aca054004910fcb8e8bb1a67f~tplv-k3u1fbpfcp-zoom-1.image'); background-size: cover"
-                  ></div>
-                  <div class="message">
-                    <div class="title">TiDB 性能竞赛</div>
-                    <div class="date">
-                      <span class="icon icon-calendar"></span>
-                      <span>09-17 周四</span>
-                    </div>
-                    <div class="bottom">
-                      <div class="address">
-                        <span class="icon icon-location"></span>
-                        <span>不限</span>
-                      </div>
-                      <div class="btn-join">报名参加</div>
-                    </div>
-                  </div>
-                </div>
-              </a>
-              <a
-                href="https://pingcap.com/community-cn/high-performance-tidb-challenge/?utm_source=ad&utm_medium=juejin&utm_campaign=xnds"
-                class="events"
-              >
-                <div class="events-inner">
-                  <div
-                    class="banner"
-                    style="background-image: url('https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b5a2686aca054004910fcb8e8bb1a67f~tplv-k3u1fbpfcp-zoom-1.image'); background-size: cover"
-                  ></div>
-                  <div class="message">
-                    <div class="title">TiDB 性能竞赛</div>
-                    <div class="date">
-                      <span class="icon icon-calendar"></span>
-                      <span>09-17 周四</span>
-                    </div>
-                    <div class="bottom">
-                      <div class="address">
-                        <span class="icon icon-location"></span>
-                        <span>不限</span>
-                      </div>
-                      <div class="btn-join">报名参加</div>
-                    </div>
-                  </div>
-                </div>
-              </a>
-              <a
-                href="https://pingcap.com/community-cn/high-performance-tidb-challenge/?utm_source=ad&utm_medium=juejin&utm_campaign=xnds"
-                class="events"
-              >
-                <div class="events-inner">
-                  <div
-                    class="banner"
-                    style="background-image: url('https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b5a2686aca054004910fcb8e8bb1a67f~tplv-k3u1fbpfcp-zoom-1.image'); background-size: cover"
-                  ></div>
-                  <div class="message">
-                    <div class="title">TiDB 性能竞赛</div>
-                    <div class="date">
-                      <span class="icon icon-calendar"></span>
-                      <span>09-17 周四</span>
-                    </div>
-                    <div class="bottom">
-                      <div class="address">
-                        <span class="icon icon-location"></span>
-                        <span>不限</span>
+                        <span>{{ event.city }}</span>
                       </div>
                       <div class="btn-join">报名参加</div>
                     </div>
@@ -217,30 +124,79 @@ import Calendar from "vue-calendar-component";
 
 export default {
   name: "Events",
+  data() {
+    return {
+      // 轮播图
+      eventsBanner: {},
+      // event列表
+      eventListParams: {
+        count: 20,
+        cursor: 0,
+      },
+      eventList: {},
+    };
+  },
   components: {
     Calendar,
   },
   mounted() {
-    // 轮播图
-    new Swiper(this.$refs.banner, {
-      // 循环模式选项
-      loop: true,
-      // 下面的小圆点
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true, // 小圆点点击
-      },
-      // 如果需要前进后退按钮
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
+    // 获取轮播图数据
+    this.getEventsBanner();
+    // 获取event列表数据
+    this.getEventList(this.eventListParams);
+  },
 
-      // 自动轮播
-      autoplay: {
-        disableOnInteraction: false, // 用户操作后，还可自动切换
+  methods: {
+    // 获取轮播图数据
+    async getEventsBanner() {
+      const result = await this.$API.events.getEventsBanner();
+      if (result.err_msg === "success") {
+        this.eventsBanner = result.data;
+      }
+      // console.log(result);
+    },
+
+    // 获取event列表数据
+    async getEventList(eventListParams) {
+      const result = await this.$API.events.getEventList(eventListParams);
+      if (result.err_msg === "success") {
+        this.eventList = result.data;
+        if (result.event_end_time) {
+        }
+      }
+      console.log(result);
+    },
+
+    // 日期转换
+  },
+
+  watch: {
+    eventsBanner: {
+      handler(newVal, oldVal) {
+        this.$nextTick(() => {
+          // 轮播图
+          new Swiper(this.$refs.banner, {
+            // 循环模式选项
+            loop: true,
+            // 下面的小圆点
+            pagination: {
+              el: ".swiper-pagination",
+              clickable: true, // 小圆点点击
+            },
+            // 如果需要前进后退按钮
+            navigation: {
+              nextEl: ".swiper-button-next",
+              prevEl: ".swiper-button-prev",
+            },
+
+            // 自动轮播
+            autoplay: {
+              disableOnInteraction: false, // 用户操作后，还可自动切换
+            },
+          });
+        });
       },
-    });
+    },
   },
 };
 </script>

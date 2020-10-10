@@ -95,10 +95,33 @@
 <script>
 export default {
   name: "Topics",
+  data() {
+    return {
+      // topicListParams: {
+      //   limit: 21,
+      //   cursor: "0",
+      //   sort_type: 7,
+      // },
+    };
+  },
+
+  mounted() {
+    // this.getTopicList(this.topicListParams);
+  },
+
+  methods: {
+    // 获取话题列表
+    // async getTopicList(topicListParams) {
+    //   const result = await this.$API.topics.getTopicList(topicListParams);
+    // },
+  },
 };
 </script>
 
 <style lang="less" scoped>
+body {
+  background: white;
+}
 .topics-container {
   background: #fff;
   position: relative;
