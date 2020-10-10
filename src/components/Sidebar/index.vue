@@ -64,16 +64,20 @@
         <div class="sidebar-author-box">
           <header class="author-block-header">🎖️作者榜</header>
           <ul class="author-list">
-            <li class="item">
+            <li
+              class="item"
+              v-for="aurthor in aurthorList"
+              :key="aurthor.user_id"
+            >
               <a href="" target="_blank" class="link">
                 <div
                   class="author-avatar"
-                  style="background-image: url('https://sf3-ttcdn-tos.pstatp.com/img/user-avatar/74b5be48428b9a96c4bab53a176d842a~120x256.image')"
+                  :style="`background-image: url(${aurthor.avatar_large})`"
                 ></div>
                 <div class="user-info">
                   <a href="" target="_blank" rel="" class="username "
                     ><span class="name" style="max-width: 128px;">
-                      pingan8787
+                      {{ aurthor.user_name }}
                     </span>
                     <a
                       href="https://juejin.im/book/6844733795329900551/section/6844733795371843597"
@@ -83,55 +87,9 @@
                     /></a>
                   </a>
                   <div class="position">
-                    🏅「前端自习课」公众号 @ EFT
-                  </div>
-                </div>
-              </a>
-            </li>
-            <li class="item">
-              <a href="" target="_blank" class="link">
-                <div
-                  class="author-avatar"
-                  style="background-image: url('https://sf3-ttcdn-tos.pstatp.com/img/user-avatar/74b5be48428b9a96c4bab53a176d842a~120x256.image')"
-                ></div>
-                <div class="user-info">
-                  <a href="" target="_blank" rel="" class="username "
-                    ><span class="name" style="max-width: 128px;">
-                      pingan8787
-                    </span>
-                    <a
-                      href="https://juejin.im/book/6844733795329900551/section/6844733795371843597"
-                      target="_blank"
-                      class="rank"
-                      ><img src="./images/vip3.svg" alt="lv-4"
-                    /></a>
-                  </a>
-                  <div class="position">
-                    🏅「前端自习课」公众号 @ EFT
-                  </div>
-                </div>
-              </a>
-            </li>
-            <li class="item">
-              <a href="" target="_blank" class="link">
-                <div
-                  class="author-avatar"
-                  style="background-image: url('https://sf3-ttcdn-tos.pstatp.com/img/user-avatar/74b5be48428b9a96c4bab53a176d842a~120x256.image')"
-                ></div>
-                <div class="user-info">
-                  <a href="" target="_blank" rel="" class="username "
-                    ><span class="name" style="max-width: 128px;">
-                      pingan8787
-                    </span>
-                    <a
-                      href="https://juejin.im/book/6844733795329900551/section/6844733795371843597"
-                      target="_blank"
-                      class="rank"
-                      ><img src="./images/vip3.svg" alt="lv-4"
-                    /></a>
-                  </a>
-                  <div class="position">
-                    🏅「前端自习课」公众号 @ EFT
+                    {{ aurthor.job_title }}&nbsp;&nbsp;&nbsp;&nbsp;{{
+                      aurthor.company
+                    }}
                   </div>
                 </div>
               </a>
@@ -256,11 +214,27 @@
 <script>
 export default {
   name: "Sidebar",
+  props: ["categoryId"],
   data() {
     return {
       // 是否登录
       isLogin: false,
+      aurthorList: [],
     };
+  },
+  mounted() {
+    this.getRecommendAuthor();
+  },
+  methods: {
+    async getRecommendAuthor() {
+      const result = await this.$API.home.getRecommendAuthor(this.categoryId);
+      if (result.err_msg === "success") {
+        this.moreAurthorList = result.data;
+        this.aurthorList = this.moreAurthorList.filter(
+          (item, index) => index < 3
+        );
+      }
+    },
   },
 };
 </script>
