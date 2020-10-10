@@ -17,26 +17,10 @@
             <div class="category-popover">
               <nav class="tag-nav">
                 <ul class="tag-list">
-                  <li class="tag">
-                    <a href="">java</a>
-                  </li>
-                  <li class="tag">
-                    <a href="">java</a>
-                  </li>
-                  <li class="tag">
-                    <a href="">java</a>
-                  </li>
-                  <li class="tag">
-                    <a href="">java</a>
-                  </li>
-                  <li class="tag">
-                    <a href="">java</a>
-                  </li>
-                  <li class="tag">
-                    <a href="">java</a>
-                  </li>
-                  <li class="tag">
-                    <a href="">java</a>
+                  <li class="tag" v-for="tag in tagList" :key="tag.tag_id">
+                    <a href="" @click="getRecommendFeed(tag.tag_id)">{{
+                      tag.tag_name
+                    }}</a>
                   </li>
                 </ul>
               </nav>
@@ -48,17 +32,24 @@
         </li>
       </ul>
     </nav>
+    <Container :categoryId="categoryId" :tagId="tagId" />
   </div>
 </template>
 
 <script>
+import tag from "./tag.json";
 import Container from "@/components/Container";
 export default {
   name: "NavList",
+  components: {
+    Container,
+  },
   data() {
     return {
       categoryList: [],
+      categoryId: "",
       tagList: [],
+      tagId: "",
     };
   },
   mounted() {
@@ -70,15 +61,19 @@ export default {
       const result = await this.$API.home.getCategoryBriefs();
       if (result.err_msg === "success") {
         this.categoryList = result.data;
-        this.getTagList(this.categoryList[0].category_id);
+        this.categoryId = this.categoryList[0].category_id;
+        this.getTagList(this.categoryId);
       }
     },
     // 获取首页二级路由tag列表
     async getTagList(categoryId) {
-      const result = await this.$API.home.getRecommendTagList(categoryId);
-      if (result.err_msg === "success") {
-        this.tagList = result.data;
-      }
+      // const result = await this.$API.home.getRecommendTagList(categoryId);
+      // console.log(result);
+      // if (result.err_msg === "success") {
+      //   this.tagList = result.data;
+      // }
+      this.tagList = tag.data;
+      this.tagId = tag.data[0].tag_id;
     },
 
     toSubscribe() {
@@ -130,8 +125,8 @@ ul {
 }
 .nav-item .category-popover {
   display: none;
-  width: 329px;
-  height: 144px;
+  width: 350px;
+  height: 160px;
   background-color: #fff;
   border: 1px solid #ebebeb;
   box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.15);

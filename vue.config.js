@@ -7,15 +7,18 @@ module.exports = {
       errors: true,
     },
     proxy: {
-      "/tag_api": {
+      "/juejin": {
         // 匹配所有以 '/dev-api'开头的请求路径
         target: "https://apinew.juejin.im", // 代理目标的基础路径
         changeOrigin: true, // 支持跨域
-        // pathRewrite: { "^/dev-api": "" },
+        pathRewrite: { "^/juejin": "" },
       },
-      "/recommend_api": {
-        target: "https://juejin.im", // 代理目标的基础路径
-        changeOrigin: true, // 支持跨域
+      "/zhuanfa": {
+        target: "http://192.168.26.35:3000", // 代理目标的基础路径
+        changeOrigin: true, // 支持跨域,
+        pathRewrite: {
+          "^/zhuanfa": "",
+        },
       },
     },
   },
