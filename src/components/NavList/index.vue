@@ -14,6 +14,33 @@
         >
           <div>
             <a href="#" @click.prevent="get">{{ item.category_name }}</a>
+            <div class="category-popover">
+              <nav class="tag-nav">
+                <ul class="tag-list">
+                  <li class="tag">
+                    <a href="">java</a>
+                  </li>
+                  <li class="tag">
+                    <a href="">java</a>
+                  </li>
+                  <li class="tag">
+                    <a href="">java</a>
+                  </li>
+                  <li class="tag">
+                    <a href="">java</a>
+                  </li>
+                  <li class="tag">
+                    <a href="">java</a>
+                  </li>
+                  <li class="tag">
+                    <a href="">java</a>
+                  </li>
+                  <li class="tag">
+                    <a href="">java</a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
           </div>
         </li>
         <li class="nav-item right" @click.prevent="toSubscribe">
@@ -31,22 +58,32 @@ export default {
   data() {
     return {
       categoryList: [],
+      tagList: [],
     };
   },
   mounted() {
     this.getCategoryList();
   },
   methods: {
+    // 获取首页二级路由列表
     async getCategoryList() {
       const result = await this.$API.home.getCategoryBriefs();
       if (result.err_msg === "success") {
         this.categoryList = result.data;
+        this.getTagList(this.categoryList[0].category_id);
       }
     },
+    // 获取首页二级路由tag列表
+    async getTagList(categoryId) {
+      const result = await this.$API.home.getRecommendTagList(categoryId);
+      if (result.err_msg === "success") {
+        this.tagList = result.data;
+      }
+    },
+
     toSubscribe() {
       this.$router.push({ path: "subscribe" });
     },
-    get() {},
   },
 };
 </script>
@@ -81,6 +118,7 @@ ul {
   font-size: 1.16rem;
   color: #71777c;
   padding: 0 1rem;
+  // position: relative;
 }
 .nav-item > a::before {
   content: "标签管理";
@@ -88,5 +126,39 @@ ul {
   top: 15.1px;
   right: 480px;
   bottom: 0;
+  z-index: 20;
+}
+.nav-item .category-popover {
+  display: none;
+  width: 329px;
+  height: 144px;
+  background-color: #fff;
+  border: 1px solid #ebebeb;
+  box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.15);
+  box-sizing: border-box;
+  border-radius: 2px;
+  padding: 14px 14px 2px 14px;
+  position: absolute;
+  top: 45px;
+}
+.nav-item .category-popover .tag-nav .tag-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+.nav-item .category-popover .tag-nav .tag-list .tag {
+  margin: 0 12px 12px 0;
+  padding: 0 10px;
+  background-color: #f4f5f5;
+  border-radius: 1rem;
+  font-size: 1.1rem;
+  color: #71777d;
+  border-radius: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 2rem;
+}
+.nav-item:hover .category-popover {
+  display: block;
 }
 </style>
