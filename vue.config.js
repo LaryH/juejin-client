@@ -14,7 +14,7 @@ module.exports = {
         // pathRewrite: { "^/dev-api": "" },
       },
       "/recommend_api": {
-        target: "https://juejin.im", // 代理目标的基础路径
+        target: "https://apinew.juejin.im", // 代理目标的基础路径
         changeOrigin: true, // 支持跨域
       },
     },
