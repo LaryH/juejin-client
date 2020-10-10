@@ -123,7 +123,6 @@ export default {
       // 排他
       for (let i = 0; i < pandeImgs.length; i++) {
         pandeImgs[i].style.display = "none";
-        console.log(pandeImgs[i].className);
       }
       switch (Type) {
         case "phone":
