@@ -32,7 +32,24 @@
             <button class="add-button">写文章</button>
             <div class="more"></div>
           </div>
-          <button class="login-button" @click="login">登录</button>
+          <button class="login-button" @click="login" v-if="!isLogin">
+            登录
+          </button>
+          <div class="user-information" v-else>
+            <div class="notification">
+              <a class="app-link" href="" target="_blank">
+                <i class="iconfont icon-tongzhi"></i>
+              </a>
+            </div>
+            <div class="menu">
+              <div class="avatar">
+                <img src="./img/head.jpg" alt="用户头像" class="avatarImg" />
+              </div>
+              <!-- <ul class="user-dropdown-list">
+                <li class="nav-menu-item-group"></li>
+              </ul> -->
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -52,6 +69,7 @@ export default {
   },
   data() {
     return {
+      isLogin: true,
       showLoginCart: false,
     };
   },
@@ -115,6 +133,22 @@ export default {
         margin-left: 15px;
         color: #0371df;
         cursor: pointer;
+      }
+
+      .user-information {
+        display: flex;
+        align-items: center;
+        .notification {
+          color: #71777c;
+        }
+        .menu {
+          .avatarImg {
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
+            background-size: cover;
+          }
+        }
       }
 
       .add-button-container {
