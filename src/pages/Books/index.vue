@@ -56,8 +56,8 @@ export default {
       category_id: "0",
       cursor: "0",
       limit: 20,
+      },
       booklist:[]
-      }
     }
    
   },
@@ -91,6 +91,7 @@ a{
   width: 700px;
   margin:auto;
   margin-top: 106px;
+  
 
   .item:hover{
     background-color: rgb(90%,90%,90%,);
