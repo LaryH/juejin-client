@@ -52,24 +52,34 @@ export default {
   name: 'Wu',
   data(){
     return{
+      //info:{
       category_id: "0",
       cursor: "0",
       limit: 20,
-       booklist:[]
+      booklist:[]
+     // }
     }
    
   },
 
   mounted(){
+    //this.getCategoryWu(this.info)
     this.getCategoryWu()
   },
 
   methods:{
-     getCategoryWu(){
+      getCategoryWu(){
       this.booklist=books.data
       console.log(this.booklist)
+     // const result = await this.$API.books.getListbycAtegory(info);
+     // if(result.err_masg === "success") {
+     //   this.getLimitId = result.data;
+     // }
     }
   },
+
+
+
 
 
 
