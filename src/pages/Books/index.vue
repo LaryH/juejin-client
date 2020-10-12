@@ -1,67 +1,110 @@
 <template>
-  <div class="books-list">
-    <div>
-      <a class="item" href="#">
-        <div class="poster">
-          <img src="./image/1.jpg" class="imagew" />
-        </div>
-        <div class="info">
-          <div class="title">
-            <span class="">MySQL 是怎样运行的：从根儿上理解 MySQL</span>
+  <div>
+    <navList />
+    <div class="books-list">
+      <div v-for="book in booklist" :key="book.booklet_id">
+        <a class="item" href="#">
+          <div class="poster">
+            <img :src="book.base_info.cover_img" class="imagew" />
           </div>
-          <div class="desc">
-            授人以鱼不如授人以渔，从根儿上理解 MySQL，让 MySQL 不再是一个黑盒。
-          </div>
+          <div class="info">
+            <div class="title">
+              <a class="">{{ book.base_info.title }}</a>
+            </div>
+            <div class="desc">{{ book.base_info.summary }}</div>
 
-          <div class="author">
-            <div>
-              <img src="./image/2.jpg" class="imaget" />
-            </div>
-            <span class="name">小孩子4919</span>
-            <img
-              src="./image/svg_xml_base64_PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMyIgaGVpZ2h0PSIxNCIgd.svg"
-            />
-            <div>
-              <span>后端工程师 | 公众号 「我们都是小青</span>
-            </div>
-          </div>
+            <div class="author">
+              <div>
+                <img :src="book.user_info.avatar_large" class="imaget" />
+              </div>
+              <span class="name">{{ book.user_info.user_name }}</span>
+              <div style="text-indent:1em">
+                <img
+                  src="./image/svg_xml_base64_PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMyIgaGVpZ2h0PSIxNCIgd.svg"
+                />
+              </div>
 
-          <div>
-            <div class="other">
-              <div class="price">￥29.9</div>
-              <span class="message">
-                <span>29小节</span>
-              </span>
-              <span class="message">
-                <span>13629</span>
-                <span>人已购买</span>
-              </span>
+              <div style="text-indent:1em" class="selfDescription">
+                <span> {{ book.user_info.job_title }}</span>
+              </div>
+            </div>
+
+            <div>
+              <div class="other">
+                <div class="price">￥29.9</div>
+                <span class="message">
+                  <span>{{ book.section_count }}小节 .</span>
+                </span>
+                <span class="message">
+                  <span>13629</span>
+
+                  <span> 人已购买</span>
+                </span>
+              </div>
             </div>
           </div>
-        </div>
-      </a>
+        </a>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import NavList from "@/components/NavList";
 export default {
-  name: "Wu",
+  name: "Books",
+  components: {
+    NavList,
+  },
+  data() {
+    return {
+      info: {
+        category_id: "0",
+        cursor: "0",
+        limit: 20,
+      },
+      booklist: [],
+    };
+  },
+
+  mounted() {
+    this.getCategoryWu();
+  },
+
+  methods: {
+    async getCategoryWu() {
+      const result = await this.$API.books.getListbycAtegory(this.info);
+      if (result.err_msg === "success") {
+        this.booklist = result.data;
+      }
+    },
+  },
 };
 </script>
 
 <style lang="less" scoped>
+a {
+  text-decoration: none;
+}
 .books-list {
   height: 100%;
   width: 700px;
-  background-color: yellowgreen;
   margin: auto;
   margin-top: 106px;
+
+  .item:hover {
+    background-color: rgb(90%, 90%, 90%);
+  }
 
   .item {
     width: 700px;
     height: 191px;
     display: flex;
+    padding: 25px;
+    box-sizing: border-box;
+    background-color: #fff;
+    position: relative;
+    border-bottom: 1px solid #e6e8e8;
 
     .poster {
       height: 140px;
@@ -108,6 +151,15 @@ export default {
           border-radius: 50%;
           margin-right: 8px;
         }
+
+        .name {
+          display: inline-block;
+          color: #000;
+          font-size: 15px;
+        }
+        .selfDescription {
+          color: #71777c;
+        }
       }
 
       .other {
@@ -118,6 +170,12 @@ export default {
           color: #ed7b11;
           font-size: 18px;
           margin-right: 15px;
+        }
+
+        .message {
+          opacity: 0.6;
+          font-size: 13px;
+          color: #71777c;
         }
       }
     }

@@ -7,23 +7,25 @@
           <li class="nav-item">
             <a href="" class="active">热门活动</a>
           </li>
-          <li class="nav-item">
-            <a href="">北京</a>
-          </li>
-          <li class="nav-item">
-            <a href="">上海</a>
-          </li>
-          <li class="nav-item">
-            <a href="">广州</a>
-          </li>
-          <li class="nav-item">
-            <a href="">杭州</a>
+          <li
+            class="nav-item"
+            v-for="city in citysList.banner_citys"
+            :key="city.city_alias"
+          >
+            <a href="">{{ city.city_name }}</a>
           </li>
           <li class="nav-item more-city">
             <div class="text">
               <span>其他</span>
             </div>
-            <div class="menu"></div>
+            <div class="menu">
+              <span
+                class="city"
+                v-for="city in citysList.other_citys"
+                :key="city.city_alias"
+                >{{ city.city_name }}</span
+              >
+            </div>
           </li>
           <li class="nav-item right">
             <a href="">活动合作</a>
@@ -71,17 +73,22 @@
                 :key="event.id"
               >
                 <div class="events-inner">
-                  <div
+                  <!-- <div
                     class="banner"
                     :style="
                       `background-image: url('${event.screenshot}'); background-size: cover`
                     "
-                  ></div>
+                  ></div> -->
+                  <img
+                    :src="event.screenshot"
+                    :alt="event.title"
+                    class="banner"
+                  />
                   <div class="message">
                     <div class="title">{{ event.title }}</div>
                     <div class="date">
                       <span class="icon icon-calendar"></span>
-                      <span>09-17 周四</span>
+                      <span>{{ event.event_start_time | changeTimer }}</span>
                     </div>
                     <div class="bottom">
                       <div class="address">
@@ -121,6 +128,11 @@
 import Swiper from "swiper";
 // 日历
 import Calendar from "vue-calendar-component";
+// 日期
+import dayjs from "dayjs";
+// 按需加载 中文
+import "dayjs/locale/zh-cn";
+dayjs.locale("zh-cn");
 
 export default {
   name: "Events",
@@ -128,12 +140,14 @@ export default {
     return {
       // 轮播图
       eventsBanner: {},
-      // event列表
       eventListParams: {
-        count: 20,
+        count: 10,
         cursor: 0,
       },
+      // event列表
       eventList: {},
+      // 城市列表
+      citysList: {},
     };
   },
   components: {
@@ -144,6 +158,8 @@ export default {
     this.getEventsBanner();
     // 获取event列表数据
     this.getEventList(this.eventListParams);
+    // 获取citys列表数据
+    this.getcitysList();
   },
 
   methods: {
@@ -161,13 +177,16 @@ export default {
       const result = await this.$API.events.getEventList(eventListParams);
       if (result.err_msg === "success") {
         this.eventList = result.data;
-        if (result.event_end_time) {
-        }
       }
-      console.log(result);
     },
 
-    // 日期转换
+    // 获取citys列表数据
+    async getcitysList() {
+      const result = await this.$API.events.getCitysBanner();
+      if (result.err_msg === "success") {
+        this.citysList = result.data;
+      }
+    },
   },
 
   watch: {
@@ -196,6 +215,15 @@ export default {
           });
         });
       },
+    },
+  },
+
+  filters: {
+    changeTimer: function(value) {
+      if (!value) return "";
+      return dayjs(value * 1000)
+        .locale("zh-cn")
+        .format("MM-DD dddd");
     },
   },
 };
@@ -253,6 +281,38 @@ export default {
       border-color: #72777b transparent transparent;
       border-style: solid;
       border-width: 6px 6px 0;
+    }
+    &:hover {
+      .menu {
+        display: block;
+      }
+      &::after {
+        transform: rotateZ(-180deg);
+        transition: transform 0.3s linear;
+      }
+    }
+    .menu {
+      display: none;
+      position: absolute;
+      left: 0;
+      top: 100%;
+      min-width: 100px;
+      border-radius: 2px;
+      background-color: #fff;
+      box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.15);
+      z-index: 99;
+      span {
+        padding-left: 10px;
+        display: block;
+        height: 30px;
+        line-height: 30px;
+        font-size: 14px;
+        cursor: pointer;
+        &:hover {
+          background-color: #f9f9f9;
+          color: #007fff;
+        }
+      }
     }
   }
 }

@@ -48,17 +48,27 @@
                     <div class="user-popover-box">
                       <a href="javascript:;" class="user-link">
                         <!--  <img class="lazy avatar avatar loaded"></div> -->
-                        <img :src="home.author_user_info.avatar_large" alt="" class="lazy avatar avatar loaded">
+                        <img
+                          :src="home.author_user_info.avatar_large"
+                          alt=""
+                          class="lazy avatar avatar loaded"
+                        />
                       </a>
                     </div>
                     <!-- 用户名字和信息 -->
                     <div class="pin-header-content">
                       <div class="user-popover">
-                        <a href="" class="username">{{home.author_user_info.user_name}}</a>
+                        <a href="" class="username">{{
+                          home.author_user_info.user_name
+                        }}</a>
                       </div>
                       <div class="meta-box">
-                        <div class="position ellipsis">{{home.author_user_info.job_title}}</div>
-                        <div class="dot">@{{home.author_user_info.company}}.</div>
+                        <div class="position ellipsis">
+                          {{ home.author_user_info.job_title }}
+                        </div>
+                        <div class="dot">
+                          @{{ home.author_user_info.company }}.
+                        </div>
                         <a href="javascript">9小时前</a>
                       </div>
                     </div>
@@ -72,7 +82,7 @@
                 <!-- 标间 -->
                 <div class="pin-content-row">
                   <div class="content-box content-box">
-                    <span>{{home.msg_Info.content}}</span>
+                    <span>{{ home.msg_Info.content }}</span>
                   </div>
                 </div>
                 <!-- 图片 -->
@@ -81,16 +91,25 @@
                     <div class="image-box">
                       <!--    <div class="image"></div> -->
                       <template v-if="home.msg_Info.pic_list.length > 0">
-                        <img v-for="(img,index) in home.msg_Info.pic_list" :src="home.msg_Info.pic_list[index]" alt="" class="image" :key="index">
+                        <img
+                          v-for="(img, index) in home.msg_Info.pic_list"
+                          :src="home.msg_Info.pic_list[index]"
+                          alt=""
+                          class="image"
+                          :key="index"
+                        />
                       </template>
-
                     </div>
-
                   </div>
                 </div>
                 <!-- 添加的标签 -->
                 <div class="pin-topic-row">
-                  <a href="javascript" class="topic-title" v-if="home.topic.title">{{home.topic.title}}</a>
+                  <a
+                    href="javascript"
+                    class="topic-title"
+                    v-if="home.topic.title"
+                    >{{ home.topic.title }}</a
+                  >
                 </div>
                 <!-- 标签底部 -->
                 <div class="pin-action-row">
@@ -107,12 +126,10 @@
                       <span class="iconfont icon-shangchuan"></span>
                       <span>分享</span>
                     </div>
-
                   </div>
                 </div>
               </div>
             </li>
-
           </ul>
         </div>
       </div>
@@ -126,22 +143,25 @@
             <a href="javascript:;" class="pin">
               <div class="content-box">
                 <div class="content with-picture">
-                  {{left.msg_Info.content}}
+                  {{ left.msg_Info.content }}
                 </div>
                 <div class="stat">
                   <span>3 赞 .</span>
                   <span>22 评论</span>
                 </div>
               </div>
-              <img :src="left.msg_Info.pic_list[0]" alt="" class="image-box">
+              <img :src="left.msg_Info.pic_list[0]" alt="" class="image-box" v-if="left.msg_Info.pic_list.length>0">
               <!--  <div class="image-box" style="{background-image:url('')}"></div> -->
             </a>
           </li>
-
         </ul>
       </div>
       <a href="javascript" class="guide-link shadow">
-        <img src="./img/svg_xml_base64_PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzNiIgaGVpZ2h0PSIzNiIgd.svg" alt="" class="icon">
+        <img
+          src="./img/svg_xml_base64_PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzNiIgaGVpZ2h0PSIzNiIgd.svg"
+          alt=""
+          class="icon"
+        />
         <span class="title">如何玩转沸点</span>
       </a>
     </div>
@@ -149,24 +169,50 @@
 </template>
 
 <script>
-import data from './data.json'
-import home from './home.json'
 export default {
-  name: 'Pins',
+  name: "Pins",
   data() {
     return {
       info: {
-        cursor: '0',
+        cursor: "0",
         id_type: 4,
         limit: 3,
-        sort_type: 400
+        sort_type: 400,
       },
       leftnav: {},
-      homelist: {}
+      homelist: {},
+      isAchiveBottom: false, //滚动条是否到底部标志,
+      addlist: null
     }
   },
+  created() {
+    //使用window.onscroll = function(){}this指向出现问题
+    //故应该使用箭头函数，因为箭头函数无this，会从上一级找，故会找到vue实例的this
+    window.onscroll = () => {
+      //变量scrollTop是滚动条滚动时，距离顶部的距离
+      var scrollTop =
+        document.documentElement.scrollTop || document.body.scrollTop
+      //变量windowHeight是可视区的高度
+      var windowHeight =
+        document.documentElement.clientHeight || document.body.clientHeight
+      //变量scrollHeight是滚动条的总高度
+      var scrollHeight =
+        document.documentElement.scrollHeight || document.body.scrollHeight
+      //滚动条到底部的条件(距底部20px时触发加载)
+      if (
+        scrollTop + windowHeight >= scrollHeight - 20 &&
+        !this.isAchiveBottom
+      ) {
+        console.log(111)
+        this.isAchiveBottom = true
+      }
+    }
+  },
+
   mounted() {
-    this.getinfo()
+    this.getinfo();
+    this.getinfos(this.info);
+    this.gethomes(this.info);
   },
   methods: {
     getinfo() {
@@ -174,22 +220,45 @@ export default {
       //  if(result.code===200){
       //     console.log(result.data)
       //  }
-      this.leftnav = data.data
-      this.homelist = home.data
-      console.log(this.homelist)
+      this.leftnav = data.data;
+      this.homelist = home.data;
+    },
+    async getinfos(info) {
+      const result = await this.$API.pins.gethot(info)
+
+      this.leftnav = result.data
+    },
+    async gethomes(info) {
+      const result = await this.$API.pins.gethome(info)
+      this.homelist = result.data
+    },
+    async add(info) {
+     if(this.isAchiveBottom){
+        let add = []
+      const result = await this.$API.pins.gethome(info)
+      this.addlist = result.data
+      add = [...this.homelist, ...this.addlist]
+      this.homelist = add
+      this.isAchiveBottom = !this.isAchiveBottom
+     }
+    }
+  },
+  watch: {
+    isAchiveBottom() {
+      this.add()
     }
   }
 }
 </script>
 
-<style lang='less' scoped>
+<style lang="less" scoped>
 .container {
   display: flex;
   width: 960px;
   height: 1800px;
   margin: 0 auto;
 
-  background-color: #ffffff;
+  background-color: #f4f5f5;
   margin-top: 20px;
   margin-bottom: 72px;
   position: relative;
@@ -197,9 +266,9 @@ export default {
     width: 112px;
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
     .dock-nav {
-      background-color: skyblue;
+      background-color: #ffffff;
       border-radius: 2px;
-      //background-color: yellow;
+
       position: fixed;
       left: 280px;
       top: 80px;
@@ -232,10 +301,10 @@ export default {
   }
   .stream {
     width: 570px;
-    height: 800px;
-    // background-color: skyblue;
+
     margin-right: 15px;
     .stream-wrapper {
+      background-color: #ffffff;
       .pin-list-view {
         .pin-list {
           .item {
@@ -350,7 +419,7 @@ export default {
                       display: block;
                       position: relative;
                       top: -30px;
-                      content: '';
+                      content: "";
                       width: 1px;
                       height: 24px;
                       background-color: #ebebeb;
@@ -368,8 +437,8 @@ export default {
     width: 263px;
     height: 400px;
     position: fixed;
-    right: 278px;
-    //background-color: pink;
+    right: 280px;
+    background-color: #ffffff;
     .related-pin-block {
       border: 1px solid hsla(0, 0%, 59.2%, 0.1);
       margin-bottom: 8px;

@@ -24,16 +24,22 @@
                 <div class="info-box">
                   <ul class="meta-list">
                     <li class="item username clickable">
-                      <a style="color: #b2bac2">{{ art.author_user_info.user_name }} .</a>
+                      <a style="color: #b2bac2"
+                        >{{ art.author_user_info.user_name }} .</a
+                      >
                     </li>
                     <li class="item">时间 .</li>
                     <li class="item tag">
-                      <a style="color: #b2bac2">{{ art.category.category_name }}</a>
+                      <a style="color: #b2bac2">{{
+                        art.category.category_name
+                      }}</a>
                     </li>
                   </ul>
                   <div class="info-row title-row">
                     <span>
-                      <router-link :to="'/detail'" class="title">{{ art.article_info.title }}</router-link>
+                      <router-link :to="'/detail'" class="title">{{
+                        art.article_info.title
+                      }}</router-link>
                       <!-- <a class="title">{{ art.article_info.title }}</a> -->
                     </span>
                   </div>
@@ -41,28 +47,16 @@
                     <div class="item like clickable">
                       <a href>
                         <img src="./images/04.svg" alt />
-<<<<<<< HEAD
                         <span class="count">
-                          {{
-=======
-                        <span class="count">{{
->>>>>>> 2ab022b781671f3342940e552a59f12d5ce0b801
-                          art.article_info.digg_count
-                          }}
+                          {{ art.article_info.digg_count }}
                         </span>
                       </a>
                     </div>
                     <div class="item like clickable">
                       <a href>
                         <img src="./images/03.svg" alt />
-<<<<<<< HEAD
-                        <span class="count">
-                          {{
-=======
-                        <span class="count">{{
->>>>>>> 2ab022b781671f3342940e552a59f12d5ce0b801
-                          art.article_info.comment_count
-                          }}
+                        <span class="count"
+                          >{{ art.article_info.comment_count }}
                         </span>
                       </a>
                     </div>
@@ -87,7 +81,6 @@
 </template>
 
 <script>
-import article from "./art.json";
 import Sidebar from "@/components/Sidebar";
 export default {
   name: "Container",
@@ -97,21 +90,29 @@ export default {
   props: ["categoryId", "tagId"],
   data() {
     return {
+      categoryId: this.$route.query.categoryId || "",
+      tagId: this.$route.query.tagId || "",
       articleList: [],
     };
   },
   mounted() {
+    console.log(this.$route.query);
     this.getRecommendFeed();
   },
   methods: {
-    async getRecommendFeed(tagId) {
-      const result = await this.$API.home.getRecommendFeed(
-        this.categoryId,
-        tagId
-      );
-      if (result.err_msg === "success") {
-        this.articleList = result.data;
+    async getFeed() {
+      if (this.tagId) {
+        const result = await this.$API.home.getRecommendTagFeed(
+          this.categoryId,
+          this.tagId
+        );
+      } else {
+        const result = await this.$API.home.getRecommendFeed(this.categoryId);
+        if (result.err_msg === "success") {
+          this.articleList = result.data;
+        }
       }
+
       // this.articleList = article.data;
     },
   },

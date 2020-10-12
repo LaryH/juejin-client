@@ -7,18 +7,35 @@
             <a href="#">推荐</a>
           </div>
         </li>
-        <li class="nav-item" v-for="item in categoryList" :key="item.category_id">
+        <li
+          class="nav-item"
+          v-for="item in categoryList"
+          :key="item.category_id"
+        >
           <div class="posi">
-            <a href="#" @click.prevent="get">{{ item.category_name }}</a>
+            <!-- <router-link :to="'/' + item.category_url">{{
+              item.category_name
+            }}</router-link> -->
+            <i @click="getRecommendFeed(item.category_url, category_id)">{{
+              item.category_name
+            }}</i>
             <div class="category-popover">
               <nav class="tag-nav">
                 <ul class="tag-list">
                   <li class="tag" v-for="tag in tagList" :key="tag.tag_id">
-                    <a href @click="getRecommendFeed(tag.tag_id)">
-                      {{
-                      tag.tag_name
-                      }}
-                    </a>
+                    <!-- <router-link :to="'/' + item.category_url">
+                      {{ tag.tag_name }}</router-link
+                    > -->
+                    <i
+                      @click="
+                        getRecommendFeed(
+                          item.category_url,
+                          item.category_id,
+                          tag.tag_id
+                        )
+                      "
+                      >{{ tag.tag_name }}</i
+                    >
                   </li>
                 </ul>
               </nav>
@@ -30,18 +47,13 @@
         </li>
       </ul>
     </nav>
-    <Container :categoryId="categoryId" :tagId="tagId" />
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import tag from "./tag.json";
-import Container from "@/components/Container";
 export default {
   name: "NavList",
-  components: {
-    Container,
-  },
   data() {
     return {
       categoryList: [],
@@ -59,19 +71,43 @@ export default {
       const result = await this.$API.home.getCategoryBriefs();
       if (result.err_msg === "success") {
         this.categoryList = result.data;
-        this.categoryId = this.categoryList[0].category_id;
+        this.$router.addRoutes([
+          {
+            path: "/home",
+            component: () => import("@/pages/Home"),
+            children: [
+              ...this.categoryList.map((item) => {
+                return {
+                  path: "/" + item.category_url,
+                  // component: () => import(`@/pages/Home/${item.category_url}`),
+                  component: () => import(`@/components/Container`),
+                };
+              }),
+            ],
+          },
+        ]);
+        this.categoryId =
+          result.data !== null ? this.categoryList[0].category_id : "";
         this.getTagList(this.categoryId);
       }
     },
     // 获取首页二级路由tag列表
     async getTagList(categoryId) {
       const result = await this.$API.home.getRecommendTagList(categoryId);
-      console.log(result);
       if (result.err_msg === "success") {
         this.tagList = result.data;
       }
-      // this.tagList = tag.data;
-      this.tagId = result.data[0].tag_id;
+      this.tagId = result.data !== null ? result.data[0].tag_id : "";
+    },
+    // 获取
+    getRecommendFeed(categoryUrl, categoryId, tagId) {
+      this.$router.push({
+        path: `/${categoryUrl}`,
+        query: {
+          categoryId,
+          tagId,
+        },
+      });
     },
 
     toSubscribe() {
@@ -115,6 +151,9 @@ ul {
 }
 .view-nav .nav-list .nav-item .posi {
   position: relative;
+  i {
+    cursor: pointer;
+  }
 }
 .nav-item > a::before {
   content: "标签管理";
