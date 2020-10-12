@@ -169,7 +169,6 @@ export default {
       if (result.err_msg === "success") {
         this.eventsBanner = result.data;
       }
-      // console.log(result);
     },
 
     // 获取event列表数据
