@@ -18,11 +18,7 @@
       </header>
       <div class="entry-list-wrap">
         <ul class="entry-list">
-          <li
-            class="item"
-            v-for="art in articleList"
-            :key="art.article_id"
-          >
+          <li class="item" v-for="art in articleList" :key="art.article_id">
             <div class="entry-link">
               <div class="content-box">
                 <div class="info-box">
@@ -100,14 +96,14 @@ export default {
   },
   methods: {
     async getRecommendFeed(tagId) {
-      // const result = await this.$API.home.getCategetRecommendFeed(
-      //   categoryId:this.categoryId,
-      //   tagId
-      // );
-      // if (result.err_msg === "success") {
-      // this.articleList = result.data;
-      // }
-      this.articleList = article.data;
+      const result = await this.$API.home.getRecommendFeed(
+        this.categoryId,
+        tagId
+      );
+      if (result.err_msg === "success") {
+        this.articleList = result.data;
+      }
+      // this.articleList = article.data;
     },
   },
 };
