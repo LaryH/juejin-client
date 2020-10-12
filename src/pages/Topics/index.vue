@@ -6,81 +6,30 @@
         <div class="title">全部话题</div>
         <!-- 全部话题列表 -->
         <div class="list">
-          <div class="topics-item">
+          <div
+            class="topics-item"
+            v-for="topic in topicList"
+            :key="topic.topic_id"
+          >
             <a
-              href="https://juejin.im/topic/6824710203301167112"
+              :href="`https://juejin.im/topic/${topic.topic_id}`"
               title="来分享下你上班看到的好东西吧~"
               class="icon"
+              target="_blank"
             >
-              <img class="icon-img" src="./images/01.png" alt="" />
+              <img class="icon-img" :src="topic.topic.icon" alt="" />
             </a>
             <div class="topics-content">
               <a
-                href="https://juejin.im/topic/6824710203301167112"
-                title="来分享下你上班看到的好东西吧~"
-                >上班摸鱼</a
+                :href="`https://juejin.im/topic/${topic.topic_id}`"
+                :title="topic.topic.description"
+                target="_blank"
+                >{{ topic.topic.title }}</a
               >
-              <span>5156 关注 · 16845 沸点</span>
-              <span class="followed">
-                + 关注
-              </span>
-            </div>
-          </div>
-          <div class="topics-item">
-            <a
-              href="https://juejin.im/topic/6824710203301167112"
-              title="来分享下你上班看到的好东西吧~"
-              class="icon"
-            >
-              <img class="icon-img" src="./images/01.png" alt="" />
-            </a>
-            <div class="topics-content">
-              <a
-                href="https://juejin.im/topic/6824710203301167112"
-                title="来分享下你上班看到的好东西吧~"
-                >上班摸鱼</a
+              <span
+                >{{ topic.topic.follower_count }} 关注 ·
+                {{ topic.topic.attender_count }} 沸点</span
               >
-              <span>5156 关注 · 16845 沸点</span>
-              <span class="followed">
-                + 关注
-              </span>
-            </div>
-          </div>
-          <div class="topics-item">
-            <a
-              href="https://juejin.im/topic/6824710203301167112"
-              title="来分享下你上班看到的好东西吧~"
-              class="icon"
-            >
-              <img class="icon-img" src="./images/01.png" alt="" />
-            </a>
-            <div class="topics-content">
-              <a
-                href="https://juejin.im/topic/6824710203301167112"
-                title="来分享下你上班看到的好东西吧~"
-                >上班摸鱼</a
-              >
-              <span>5156 关注 · 16845 沸点</span>
-              <span class="followed">
-                + 关注
-              </span>
-            </div>
-          </div>
-          <div class="topics-item">
-            <a
-              href="https://juejin.im/topic/6824710203301167112"
-              title="来分享下你上班看到的好东西吧~"
-              class="icon"
-            >
-              <img class="icon-img" src="./images/01.png" alt="" />
-            </a>
-            <div class="topics-content">
-              <a
-                href="https://juejin.im/topic/6824710203301167112"
-                title="来分享下你上班看到的好东西吧~"
-                >上班摸鱼</a
-              >
-              <span>5156 关注 · 16845 沸点</span>
               <span class="followed">
                 + 关注
               </span>
@@ -97,23 +46,27 @@ export default {
   name: "Topics",
   data() {
     return {
-      // topicListParams: {
-      //   limit: 21,
-      //   cursor: "0",
-      //   sort_type: 7,
-      // },
+      topicListParams: {
+        limit: 21,
+        cursor: "0",
+        sort_type: 7,
+      },
+      topicList: {},
     };
   },
 
   mounted() {
-    // this.getTopicList(this.topicListParams);
+    this.getTopicList(this.topicListParams);
   },
 
   methods: {
     // 获取话题列表
-    // async getTopicList(topicListParams) {
-    //   const result = await this.$API.topics.getTopicList(topicListParams);
-    // },
+    async getTopicList(topicListParams) {
+      const result = await this.$API.topics.getTopicList(topicListParams);
+      if (result.err_msg === "success") {
+        this.topicList = result.data;
+      }
+    },
   },
 };
 </script>

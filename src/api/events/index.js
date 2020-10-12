@@ -16,8 +16,16 @@ export default {
       // url: "/test",
       // method: "GET",
       url: "/zhuanfa/event_api/v1/event/event_list",
-      method: "GET",
+      method: "POST",
       data: eventListParams,
+    });
+  },
+
+  // 获取citys列表
+  getCitysBanner() {
+    return request({
+      url: "/juejin/event_api/v1/event/citys",
+      method: "GET",
     });
   },
 };
