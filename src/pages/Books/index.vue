@@ -1,6 +1,7 @@
 <template>
-  <div class="books-list">
-    <div>
+  <div>
+    <navList />
+    <div class="books-list">
       <a class="item" href="#">
         <div class="poster">
           <img src="./image/1.jpg" class="imagew" />
@@ -45,8 +46,12 @@
 </template>
 
 <script>
+import NavList from "@/components/NavList";
 export default {
   name: "Wu",
+  components: {
+    NavList,
+  },
 };
 </script>
 

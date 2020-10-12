@@ -100,14 +100,19 @@ export default {
     this.getRecommendFeed();
   },
   methods: {
-    async getRecommendFeed(tagId) {
-      const result = await this.$API.home.getRecommendFeed(
-        this.categoryId,
-        tagId
-      );
-      if (result.err_msg === "success") {
-        this.articleList = result.data;
+    async getFeed() {
+      if (this.tagId) {
+        const result = await this.$API.home.getRecommendTagFeed(
+          this.categoryId,
+          this.tagId
+        );
+      } else {
+        const result = await this.$API.home.getRecommendFeed(this.categoryId);
+        if (result.err_msg === "success") {
+          this.articleList = result.data;
+        }
       }
+
       // this.articleList = article.data;
     },
   },
