@@ -18,11 +18,7 @@
       </header>
       <div class="entry-list-wrap">
         <ul class="entry-list">
-          <li
-            class="item"
-            v-for="art in articleList"
-            :key="art.article_id"
-          >
+          <li class="item" v-for="art in articleList" :key="art.article_id">
             <div class="entry-link">
               <div class="content-box">
                 <div class="info-box">
@@ -47,7 +43,7 @@
                   <div class="action-list">
                     <div class="item like clickable">
                       <a href>
-                        <img src="./imgs/04.svg" alt />
+                        <img src="./images/04.svg" alt />
                         <span class="count">{{
                           art.article_info.digg_count
                         }}</span>
@@ -55,7 +51,7 @@
                     </div>
                     <div class="item like clickable">
                       <a href>
-                        <img src="./imgs/03.svg" alt />
+                        <img src="./images/03.svg" alt />
                         <span class="count">{{
                           art.article_info.comment_count
                         }}</span>
