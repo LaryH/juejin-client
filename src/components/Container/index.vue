@@ -33,7 +33,8 @@
                   </ul>
                   <div class="info-row title-row">
                     <span>
-                      <a class="title">{{ art.article_info.title }}</a>
+                      <router-link :to="'/detail'" class="title">{{ art.article_info.title }}</router-link>
+                      <!-- <a class="title">{{ art.article_info.title }}</a> -->
                     </span>
                   </div>
                   <div class="action-list">
