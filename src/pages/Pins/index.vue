@@ -162,7 +162,9 @@ export default {
         sort_type: 400
       },
       leftnav: {},
-      homelist: {}
+      homelist: {},
+      isAchiveBottom: false, //滚动条是否到底部标志,
+      addlist: null
     }
   },
   created() {
@@ -181,19 +183,10 @@ export default {
       //滚动条到底部的条件(距底部20px时触发加载)
       if (
         scrollTop + windowHeight >= scrollHeight - 20 &&
-        !this.isAchiveBottom &&
-        !this.noMore
+        !this.isAchiveBottom
       ) {
-        // console.log(
-        //   "距顶部" +
-        //     scrollTop +
-        //     "可视区高度" +
-        //     windowHeight +
-        //     "滚动条总高度" +
-        //     scrollHeight
-        // );
+        console.log(111)
         this.isAchiveBottom = true
-     
       }
     }
   },
@@ -214,12 +207,27 @@ export default {
     },
     async getinfos(info) {
       const result = await this.$API.pins.gethot(info)
-      console.log(result)
+
       this.leftnav = result.data
     },
     async gethomes(info) {
       const result = await this.$API.pins.gethome(info)
       this.homelist = result.data
+    },
+    async add(info) {
+     if(this.isAchiveBottom){
+        let add = []
+      const result = await this.$API.pins.gethome(info)
+      this.addlist = result.data
+      add = [...this.homelist, ...this.addlist]
+      this.homelist = add
+      this.isAchiveBottom = !this.isAchiveBottom
+     }
+    }
+  },
+  watch: {
+    isAchiveBottom() {
+      this.add()
     }
   }
 }
