@@ -7,6 +7,7 @@ const Books = () => import("@/pages/Books");
 const Events = () => import("@/pages/Events");
 const Subscribe = () => import("@/pages/Subscribe");
 const Detail = () => import("@/pages/Detail");
+
 export default [
   /* 
   在这里配置路由
@@ -34,6 +35,25 @@ export default [
   {
     path: "/pins",
     component: Pins,
+    children: [
+      {
+        path: '/pins/recommended',
+        component: () => import('@/pages/Pins/recommended')
+      },
+      {
+        path: '/pins/hot',
+        component:()=> import("@/pages/Pins/hot")
+      },
+        {
+          path: '/pins/following',
+          component: () => import("@/pages/Pins/following")
+        },
+
+      {
+        path: '/pins',
+        redirect: '/pins/recommended'
+      }
+    ]
   },
   {
     path: "/topics",

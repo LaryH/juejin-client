@@ -3,137 +3,41 @@
     <!-- 左侧导航栏 -->
     <div class="dock">
       <nav class="dock-nav" role="navigation">
-        <ul class="nav-list">
-          <li class="nav-item one active">
-            <a href="javascript:;">推荐</a>
+        <ul class="nav-list" @click="addactive">
+          <li class="nav-item one" :class="{active:show===1}">
+            <router-link to="/pins/recommended" :data-index='1'>推荐</router-link>
+            <!--     <a href="javascript:;">推荐</a> -->
           </li>
-          <li class="nav-item">
-            <a href="javascript:;">热门</a>
+          <li class="nav-item" :class="{active:show===9}">
+            <router-link to="/pins/hot" :data-index='9'>热门</router-link>
           </li>
-          <li class="nav-item">
-            <a href="javascript:;">关注</a>
+          <li class="nav-item" :class="{active:show===2}">
+            <router-link to="/pins/following" :data-index='2'>关注</router-link>
           </li>
-          <li class="nav-item">
-            <a href="javascript:;">上班摸鱼</a>
+          <li class="nav-item" :class="{active:show===3}">
+            <a href="javascript:;" :data-index='3'>上班摸鱼</a>
           </li>
-          <li class="nav-item">
-            <a href="javascript:;">内推招聘</a>
+          <li class="nav-item" :class="{active:show===4}">
+            <a href="javascript:;" :data-index='4'>内推招聘</a>
           </li>
-          <li class="nav-item">
-            <a href="javascript:;">一图胜千言</a>
+          <li class="nav-item" :class="{active:show===5}">
+            <a href="javascript:;" :data-index='5'>一图胜千言</a>
           </li>
-          <li class="nav-item">
-            <a href="javascript:;">今天学到了</a>
+          <li class="nav-item" :class="{active:show===6}">
+            <a href="javascript:;" :data-index='6'>今天学到了</a>
           </li>
-          <li class="nav-item">
-            <a href="javascript:;">每天一到...</a>
+          <li class="nav-item" :class="{active:show===7}">
+            <a href="javascript:;" :data-index='7'>每天一到...</a>
           </li>
-          <li class="nav-item">
-            <a href="javascript:;">开发工具</a>
+          <li class="nav-item" :class="{active:show===8}">
+            <a href="javascript:;" :data-index='8'>开发工具</a>
           </li>
         </ul>
       </nav>
     </div>
     <!-- 内容区 -->
-    <div class="stream">
-      <div class="stream-wrapper">
-        <div class="pin-list-view">
-          <ul class="pin-list">
-            <li class="item shadow" v-for="home in homelist" :key="home.msg_id">
-              <div class="pin">
-                <!-- 头部 -->
-                <div class="pin-header-row">
-                  <div class="account-group">
-                    <!-- 图片 -->
-                    <div class="user-popover-box">
-                      <a href="javascript:;" class="user-link">
-                        <!--  <img class="lazy avatar avatar loaded"></div> -->
-                        <img
-                          :src="home.author_user_info.avatar_large"
-                          alt=""
-                          class="lazy avatar avatar loaded"
-                        />
-                      </a>
-                    </div>
-                    <!-- 用户名字和信息 -->
-                    <div class="pin-header-content">
-                      <div class="user-popover">
-                        <a href="" class="username">{{
-                          home.author_user_info.user_name
-                        }}</a>
-                      </div>
-                      <div class="meta-box">
-                        <div class="position ellipsis">
-                          {{ home.author_user_info.job_title }}
-                        </div>
-                        <div class="dot">
-                          @{{ home.author_user_info.company }}.
-                        </div>
-                        <a href="javascript">9小时前</a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="header-action">
-                    <button class="subscribe-btn follow-button">
-                      <span>关注</span>
-                    </button>
-                  </div>
-                </div>
-                <!-- 标间 -->
-                <div class="pin-content-row">
-                  <div class="content-box content-box">
-                    <span>{{ home.msg_Info.content }}</span>
-                  </div>
-                </div>
-                <!-- 图片 -->
-                <div class="pin-image-row">
-                  <div class="image-box-wrapper image-box">
-                    <div class="image-box">
-                      <!--    <div class="image"></div> -->
-                      <template v-if="home.msg_Info.pic_list.length > 0">
-                        <img
-                          v-for="(img, index) in home.msg_Info.pic_list"
-                          :src="home.msg_Info.pic_list[index]"
-                          alt=""
-                          class="image"
-                          :key="index"
-                        />
-                      </template>
-                    </div>
-                  </div>
-                </div>
-                <!-- 添加的标签 -->
-                <div class="pin-topic-row">
-                  <a
-                    href="javascript"
-                    class="topic-title"
-                    v-if="home.topic.title"
-                    >{{ home.topic.title }}</a
-                  >
-                </div>
-                <!-- 标签底部 -->
-                <div class="pin-action-row">
-                  <div class="action-box action-box">
-                    <div class="like-action action">
-                      <span class="iconfont icon-dianzan"></span>
-                      <span>2</span>
-                    </div>
-                    <div class="like-action action">
-                      <span class="iconfont icon-pinglun_huabanfuben"></span>
-                      <span>评论</span>
-                    </div>
-                    <div class="like-action action">
-                      <span class="iconfont icon-shangchuan"></span>
-                      <span>分享</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
+    <router-view></router-view>
+
     <!-- 右侧导航 -->
     <div class="pin__side sidebar">
       <div class="related-pin-block pin-block">
@@ -157,32 +61,27 @@
         </ul>
       </div>
       <a href="javascript" class="guide-link shadow">
-        <img
-          src="./img/svg_xml_base64_PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzNiIgaGVpZ2h0PSIzNiIgd.svg"
-          alt=""
-          class="icon"
-        />
+        <img src="./img/svg_xml_base64_PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzNiIgaGVpZ2h0PSIzNiIgd.svg" alt="" class="icon" />
         <span class="title">如何玩转沸点</span>
       </a>
     </div>
+
   </div>
 </template>
 
 <script>
 export default {
-  name: "Pins",
+  name: 'Pins',
   data() {
     return {
       info: {
-        cursor: "0",
-        id_type: 4,
-        limit: 3,
-        sort_type: 400,
+        cursor: '0',
+        id_type: 2,
+        limit: 6,
+        sort_type: 400
       },
       leftnav: {},
-      homelist: {},
-      isAchiveBottom: false, //滚动条是否到底部标志,
-      addlist: null
+      show: 1
     }
   },
   created() {
@@ -199,53 +98,23 @@ export default {
       var scrollHeight =
         document.documentElement.scrollHeight || document.body.scrollHeight
       //滚动条到底部的条件(距底部20px时触发加载)
-      if (
-        scrollTop + windowHeight >= scrollHeight - 20 &&
-        !this.isAchiveBottom
-      ) {
-        console.log(111)
-        this.isAchiveBottom = true
+      if (scrollTop + windowHeight >= scrollHeight - 20) {
+        this.$bus.$emit('add')
       }
     }
   },
 
   mounted() {
-    this.getinfo();
-    this.getinfos(this.info);
-    this.gethomes(this.info);
+    this.getinfos(this.info)
   },
   methods: {
-    getinfo() {
-      //  const result = await this.$API.pins.gethot(info)
-      //  if(result.code===200){
-      //     console.log(result.data)
-      //  }
-      this.leftnav = data.data;
-      this.homelist = home.data;
-    },
     async getinfos(info) {
       const result = await this.$API.pins.gethot(info)
-
       this.leftnav = result.data
     },
-    async gethomes(info) {
-      const result = await this.$API.pins.gethome(info)
-      this.homelist = result.data
-    },
-    async add(info) {
-     if(this.isAchiveBottom){
-        let add = []
-      const result = await this.$API.pins.gethome(info)
-      this.addlist = result.data
-      add = [...this.homelist, ...this.addlist]
-      this.homelist = add
-      this.isAchiveBottom = !this.isAchiveBottom
-     }
-    }
-  },
-  watch: {
-    isAchiveBottom() {
-      this.add()
+    addactive(event) {
+      console.log(event.target.dataset)
+      this.show = event.target.dataset.index * 1
     }
   }
 }
@@ -270,7 +139,7 @@ export default {
       border-radius: 2px;
 
       position: fixed;
-      left: 280px;
+
       top: 80px;
       .nav-list {
         display: flex;
@@ -301,7 +170,6 @@ export default {
   }
   .stream {
     width: 570px;
-
     margin-right: 15px;
     .stream-wrapper {
       background-color: #ffffff;
@@ -419,7 +287,7 @@ export default {
                       display: block;
                       position: relative;
                       top: -30px;
-                      content: "";
+                      content: '';
                       width: 1px;
                       height: 24px;
                       background-color: #ebebeb;
@@ -437,7 +305,7 @@ export default {
     width: 263px;
     height: 400px;
     position: fixed;
-    right: 280px;
+    margin-left: 700px;
     background-color: #ffffff;
     .related-pin-block {
       border: 1px solid hsla(0, 0%, 59.2%, 0.1);
