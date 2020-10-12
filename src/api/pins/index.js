@@ -6,7 +6,7 @@ export default {
     console.log(hotInfo)
     return request({
       url: '/zhuanfa/recommend_api/v1/short_msg/hot',
-      method: 'GET',
+      method: 'post',
       data: {
         cursor: '0',
         id_type: 4,
@@ -15,15 +15,15 @@ export default {
       }
     })
   },
- 
+
   gethome(info) {
     return request({
       url: '/zhuanfa/recommend_api/v1/short_msg/recommend',
-      method: 'GET',
+      method: 'post',
       data: {
         cursor: '0',
         id_type: 4,
-        limit: 3,
+        limit: 20,
         sort_type: 400
       }
     })

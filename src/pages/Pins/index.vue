@@ -133,7 +133,7 @@
                   <span>22 评论</span>
                 </div>
               </div>
-              <img :src="left.msg_Info.pic_list[0]" alt="" class="image-box">
+              <img :src="left.msg_Info.pic_list[0]" alt="" class="image-box" v-if="left.msg_Info.pic_list.length>0">
               <!--  <div class="image-box" style="{background-image:url('')}"></div> -->
             </a>
           </li>
@@ -165,6 +165,39 @@ export default {
       homelist: {}
     }
   },
+  created() {
+    //使用window.onscroll = function(){}this指向出现问题
+    //故应该使用箭头函数，因为箭头函数无this，会从上一级找，故会找到vue实例的this
+    window.onscroll = () => {
+      //变量scrollTop是滚动条滚动时，距离顶部的距离
+      var scrollTop =
+        document.documentElement.scrollTop || document.body.scrollTop
+      //变量windowHeight是可视区的高度
+      var windowHeight =
+        document.documentElement.clientHeight || document.body.clientHeight
+      //变量scrollHeight是滚动条的总高度
+      var scrollHeight =
+        document.documentElement.scrollHeight || document.body.scrollHeight
+      //滚动条到底部的条件(距底部20px时触发加载)
+      if (
+        scrollTop + windowHeight >= scrollHeight - 20 &&
+        !this.isAchiveBottom &&
+        !this.noMore
+      ) {
+        // console.log(
+        //   "距顶部" +
+        //     scrollTop +
+        //     "可视区高度" +
+        //     windowHeight +
+        //     "滚动条总高度" +
+        //     scrollHeight
+        // );
+        this.isAchiveBottom = true
+     
+      }
+    }
+  },
+
   mounted() {
     this.getinfo()
     this.getinfos(this.info)
@@ -182,10 +215,11 @@ export default {
     async getinfos(info) {
       const result = await this.$API.pins.gethot(info)
       console.log(result)
+      this.leftnav = result.data
     },
     async gethomes(info) {
       const result = await this.$API.pins.gethome(info)
-      console.log(result)
+      this.homelist = result.data
     }
   }
 }
@@ -241,10 +275,10 @@ export default {
   }
   .stream {
     width: 570px;
-    height: 800px;
-    background-color: #ffffff;
+
     margin-right: 15px;
     .stream-wrapper {
+      background-color: #ffffff;
       .pin-list-view {
         .pin-list {
           .item {
