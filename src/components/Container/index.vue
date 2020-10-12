@@ -24,37 +24,46 @@
                 <div class="info-box">
                   <ul class="meta-list">
                     <li class="item username clickable">
-                      <a style="color: #b2bac2"
-                        >{{ art.author_user_info.user_name }} .</a
-                      >
+                      <a style="color: #b2bac2">{{ art.author_user_info.user_name }} .</a>
                     </li>
                     <li class="item">时间 .</li>
                     <li class="item tag">
-                      <a style="color: #b2bac2">
-                        {{ art.category.category_name }}</a
-                      >
+                      <a style="color: #b2bac2">{{ art.category.category_name }}</a>
                     </li>
                   </ul>
                   <div class="info-row title-row">
                     <span>
-                      <a class="title">{{ art.article_info.title }}</a>
+                      <router-link :to="'/detail'" class="title">{{ art.article_info.title }}</router-link>
+                      <!-- <a class="title">{{ art.article_info.title }}</a> -->
                     </span>
                   </div>
                   <div class="action-list">
                     <div class="item like clickable">
                       <a href>
                         <img src="./images/04.svg" alt />
+<<<<<<< HEAD
+                        <span class="count">
+                          {{
+=======
                         <span class="count">{{
+>>>>>>> 2ab022b781671f3342940e552a59f12d5ce0b801
                           art.article_info.digg_count
-                        }}</span>
+                          }}
+                        </span>
                       </a>
                     </div>
                     <div class="item like clickable">
                       <a href>
                         <img src="./images/03.svg" alt />
+<<<<<<< HEAD
+                        <span class="count">
+                          {{
+=======
                         <span class="count">{{
+>>>>>>> 2ab022b781671f3342940e552a59f12d5ce0b801
                           art.article_info.comment_count
-                        }}</span>
+                          }}
+                        </span>
                       </a>
                     </div>
                     <div class="item like clickable">
@@ -122,6 +131,7 @@ a {
   left: 0;
   right: 0;
   margin: 10px auto;
+  z-index: -1;
 
   .entry-list-container {
     width: 700px;

@@ -118,6 +118,24 @@
 <script>
 export default {
   name: "Subscribe",
+  data() {
+    return {
+      followList: [],
+    };
+  },
+  mounted() {
+    this.getFollow();
+  },
+  methods: {
+    async getFollow() {
+      const result = await this.$API.subscribe.getFollow({
+        cursor: "0",
+        limit: 20,
+      });
+      console.log(result);
+      this.followList = result.data;
+    },
+  },
 };
 </script>
 
@@ -127,6 +145,9 @@ ul {
 }
 div {
   display: block;
+}
+a {
+  text-decoration: none;
 }
 .view {
   // width: 960px;
@@ -175,17 +196,17 @@ div {
       // .nav-item-second {
       //   color: #007fff;
       // }
-      .nav-item-t :hover {
+      .nav-item-t:hover {
         color: #007fff;
         height: 100%;
         align-items: center;
         display: flex;
-        font-size: 1.16rem;
-        // // 文字加粗
-        font-weight: 600;
-        padding: 0 2.5rem;
-        border-bottom: 2px solid transparent;
-        transition: border-bottom 0.3s, color 0.3s;
+        // font-size: 1.16rem;
+        // // // 文字加粗
+        // font-weight: 600;
+        // padding: 0 2.5rem;
+        border-bottom: 2px solid #007fff;
+        // transition: border-bottom 0.3s, color 0.3s;
         border-bottom-color: #007fff;
       }
     }
