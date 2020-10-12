@@ -71,17 +71,22 @@
                 :key="event.id"
               >
                 <div class="events-inner">
-                  <div
+                  <!-- <div
                     class="banner"
                     :style="
                       `background-image: url('${event.screenshot}'); background-size: cover`
                     "
-                  ></div>
+                  ></div> -->
+                  <img
+                    :src="event.screenshot"
+                    :alt="event.title"
+                    class="banner"
+                  />
                   <div class="message">
                     <div class="title">{{ event.title }}</div>
                     <div class="date">
                       <span class="icon icon-calendar"></span>
-                      <span>09-17 周四</span>
+                      <span>{{ event.event_end_time | changeTimer }}</span>
                     </div>
                     <div class="bottom">
                       <div class="address">
@@ -121,7 +126,8 @@
 import Swiper from "swiper";
 // 日历
 import Calendar from "vue-calendar-component";
-
+// 日期
+import dayjs from "dayjs";
 export default {
   name: "Events",
   data() {
@@ -130,7 +136,7 @@ export default {
       eventsBanner: {},
       // event列表
       eventListParams: {
-        count: 20,
+        count: 10,
         cursor: 0,
       },
       eventList: {},
@@ -166,8 +172,6 @@ export default {
       }
       console.log(result);
     },
-
-    // 日期转换
   },
 
   watch: {
@@ -196,6 +200,15 @@ export default {
           });
         });
       },
+    },
+  },
+
+  filters: {
+    changeTimer: function(value) {
+      if (!value) return "";
+      console.log(value);
+      console.log(dayjs(value));
+      return dayjs(value).format("YYYY-MM-DD");
     },
   },
 };

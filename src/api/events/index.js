@@ -4,7 +4,7 @@ export default {
   // 获取轮播图
   getEventsBanner() {
     return request({
-      url: "/tag_api/event_api/v1/event/banner_list",
+      url: "/juejin/event_api/v1/event/banner_list",
       method: "GET",
     });
   },
@@ -12,10 +12,10 @@ export default {
   // 获取event列表
   getEventList(eventListParams) {
     return request({
-      url: "/test",
+      // url: "/test",
+      // method: "GET",
+      url: "/zhuanfa/event_api/v1/event/event_list",
       method: "GET",
-      // url: "/tag_api/event_api/v1/event/event_list",
-      // method: "POST",
       data: eventListParams,
     });
   },
