@@ -178,17 +178,15 @@ export default {
       //  }
       this.leftnav = data.data
       this.homelist = home.data
-   
     },
-   async getinfos(info){
-       const result = await this.$API.pins.gethot(info)
-       console.log(result)
+    async getinfos(info) {
+      const result = await this.$API.pins.gethot(info)
+      console.log(result)
     },
-      async gethomes(info){
-       const result = await this.$API.pins.gethome(info)
-       console.log(result)
+    async gethomes(info) {
+      const result = await this.$API.pins.gethome(info)
+      console.log(result)
     }
-    
   }
 }
 </script>
@@ -200,7 +198,7 @@ export default {
   height: 1800px;
   margin: 0 auto;
 
-  background-color: #ffffff;
+  background-color: #f4f5f5;
   margin-top: 20px;
   margin-bottom: 72px;
   position: relative;
@@ -208,9 +206,9 @@ export default {
     width: 112px;
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
     .dock-nav {
-      background-color: skyblue;
+      background-color: #ffffff;
       border-radius: 2px;
-      //background-color: yellow;
+
       position: fixed;
       left: 280px;
       top: 80px;
@@ -244,7 +242,7 @@ export default {
   .stream {
     width: 570px;
     height: 800px;
-    // background-color: skyblue;
+    background-color: #ffffff;
     margin-right: 15px;
     .stream-wrapper {
       .pin-list-view {
@@ -379,8 +377,8 @@ export default {
     width: 263px;
     height: 400px;
     position: fixed;
-    right: 278px;
-    //background-color: pink;
+    right: 280px;
+    background-color: #ffffff;
     .related-pin-block {
       border: 1px solid hsla(0, 0%, 59.2%, 0.1);
       margin-bottom: 8px;
