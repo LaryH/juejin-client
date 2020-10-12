@@ -90,31 +90,45 @@ export default {
   props: ["categoryId", "tagId"],
   data() {
     return {
-      categoryId: this.$route.query.categoryId || "",
-      tagId: this.$route.query.tagId || "",
+      // categoryId:  || "",
+      // tagId:  || "",
       articleList: [],
+      oldTagId: "",
     };
   },
+  props: [""],
   mounted() {
-    console.log(this.$route.query);
-    this.getRecommendFeed();
+    this.getFeed();
   },
   methods: {
     async getFeed() {
-      if (this.tagId) {
+      if (this.tagId && this.oldTagId !== this.tagId) {
         const result = await this.$API.home.getRecommendTagFeed(
           this.categoryId,
           this.tagId
         );
+        if (result.err_msg === "success") {
+          this.articleList = result.data;
+        }
       } else {
         const result = await this.$API.home.getRecommendFeed(this.categoryId);
         if (result.err_msg === "success") {
           this.articleList = result.data;
         }
       }
-
-      // this.articleList = article.data;
+      this.oldTagId = this.tagId;
     },
+  },
+  computed: {
+    categoryId() {
+      return this.$route.query.categoryId;
+    },
+    tagId() {
+      return this.$route.query.tagId;
+    },
+  },
+  watch: {
+    $route: "getFeed",
   },
 };
 </script>
