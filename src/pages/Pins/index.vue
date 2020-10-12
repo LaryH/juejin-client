@@ -48,17 +48,27 @@
                     <div class="user-popover-box">
                       <a href="javascript:;" class="user-link">
                         <!--  <img class="lazy avatar avatar loaded"></div> -->
-                        <img :src="home.author_user_info.avatar_large" alt="" class="lazy avatar avatar loaded">
+                        <img
+                          :src="home.author_user_info.avatar_large"
+                          alt=""
+                          class="lazy avatar avatar loaded"
+                        />
                       </a>
                     </div>
                     <!-- 用户名字和信息 -->
                     <div class="pin-header-content">
                       <div class="user-popover">
-                        <a href="" class="username">{{home.author_user_info.user_name}}</a>
+                        <a href="" class="username">{{
+                          home.author_user_info.user_name
+                        }}</a>
                       </div>
                       <div class="meta-box">
-                        <div class="position ellipsis">{{home.author_user_info.job_title}}</div>
-                        <div class="dot">@{{home.author_user_info.company}}.</div>
+                        <div class="position ellipsis">
+                          {{ home.author_user_info.job_title }}
+                        </div>
+                        <div class="dot">
+                          @{{ home.author_user_info.company }}.
+                        </div>
                         <a href="javascript">9小时前</a>
                       </div>
                     </div>
@@ -72,7 +82,7 @@
                 <!-- 标间 -->
                 <div class="pin-content-row">
                   <div class="content-box content-box">
-                    <span>{{home.msg_Info.content}}</span>
+                    <span>{{ home.msg_Info.content }}</span>
                   </div>
                 </div>
                 <!-- 图片 -->
@@ -81,16 +91,25 @@
                     <div class="image-box">
                       <!--    <div class="image"></div> -->
                       <template v-if="home.msg_Info.pic_list.length > 0">
-                        <img v-for="(img,index) in home.msg_Info.pic_list" :src="home.msg_Info.pic_list[index]" alt="" class="image" :key="index">
+                        <img
+                          v-for="(img, index) in home.msg_Info.pic_list"
+                          :src="home.msg_Info.pic_list[index]"
+                          alt=""
+                          class="image"
+                          :key="index"
+                        />
                       </template>
-
                     </div>
-
                   </div>
                 </div>
                 <!-- 添加的标签 -->
                 <div class="pin-topic-row">
-                  <a href="javascript" class="topic-title" v-if="home.topic.title">{{home.topic.title}}</a>
+                  <a
+                    href="javascript"
+                    class="topic-title"
+                    v-if="home.topic.title"
+                    >{{ home.topic.title }}</a
+                  >
                 </div>
                 <!-- 标签底部 -->
                 <div class="pin-action-row">
@@ -107,12 +126,10 @@
                       <span class="iconfont icon-shangchuan"></span>
                       <span>分享</span>
                     </div>
-
                   </div>
                 </div>
               </div>
             </li>
-
           </ul>
         </div>
       </div>
@@ -126,22 +143,25 @@
             <a href="javascript:;" class="pin">
               <div class="content-box">
                 <div class="content with-picture">
-                  {{left.msg_Info.content}}
+                  {{ left.msg_Info.content }}
                 </div>
                 <div class="stat">
                   <span>3 赞 .</span>
                   <span>22 评论</span>
                 </div>
               </div>
-              <img :src="left.msg_Info.pic_list[0]" alt="" class="image-box">
+              <img :src="left.msg_Info.pic_list[0]" alt="" class="image-box" />
               <!--  <div class="image-box" style="{background-image:url('')}"></div> -->
             </a>
           </li>
-
         </ul>
       </div>
       <a href="javascript" class="guide-link shadow">
-        <img src="./img/svg_xml_base64_PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzNiIgaGVpZ2h0PSIzNiIgd.svg" alt="" class="icon">
+        <img
+          src="./img/svg_xml_base64_PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzNiIgaGVpZ2h0PSIzNiIgd.svg"
+          alt=""
+          class="icon"
+        />
         <span class="title">如何玩转沸点</span>
       </a>
     </div>
@@ -149,26 +169,24 @@
 </template>
 
 <script>
-import data from './data.json'
-import home from './home.json'
 export default {
-  name: 'Pins',
+  name: "Pins",
   data() {
     return {
       info: {
-        cursor: '0',
+        cursor: "0",
         id_type: 4,
         limit: 3,
-        sort_type: 400
+        sort_type: 400,
       },
       leftnav: {},
-      homelist: {}
-    }
+      homelist: {},
+    };
   },
   mounted() {
-    this.getinfo()
-    this.getinfos(this.info)
-    this.gethomes(this.info)
+    this.getinfo();
+    this.getinfos(this.info);
+    this.gethomes(this.info);
   },
   methods: {
     getinfo() {
@@ -176,22 +194,22 @@ export default {
       //  if(result.code===200){
       //     console.log(result.data)
       //  }
-      this.leftnav = data.data
-      this.homelist = home.data
+      this.leftnav = data.data;
+      this.homelist = home.data;
     },
     async getinfos(info) {
-      const result = await this.$API.pins.gethot(info)
-      console.log(result)
+      const result = await this.$API.pins.gethot(info);
+      console.log(result);
     },
     async gethomes(info) {
-      const result = await this.$API.pins.gethome(info)
-      console.log(result)
-    }
-  }
-}
+      const result = await this.$API.pins.gethome(info);
+      console.log(result);
+    },
+  },
+};
 </script>
 
-<style lang='less' scoped>
+<style lang="less" scoped>
 .container {
   display: flex;
   width: 960px;
@@ -359,7 +377,7 @@ export default {
                       display: block;
                       position: relative;
                       top: -30px;
-                      content: '';
+                      content: "";
                       width: 1px;
                       height: 24px;
                       background-color: #ebebeb;

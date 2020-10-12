@@ -10,19 +10,22 @@ export default {
 
   getRecommendTagList(categoryId) {
     console.log(categoryId);
+    const data = { cate_id: categoryId };
     return request({
       url: `/zhuanfa/recommend_api/v1/tag/recommend_tag_list`,
-      method: "get",
-      data: {
-        cate_id: categoryId,
-      },
+      method: "post",
+      data,
     });
   },
-  // 文章列表
-  getRecommendFeed(categoryId, tagId) {
+  // 推荐文章
+  getRecommendFeed(){
+    
+  },
+  // 标签文章列表
+  getRecommendTagFeed(categoryId, tagId) {
     return request({
       url: "/zhuanfa/recommend_api/v1/article/recommend_cate_tag_feed",
-      method: "get",
+      method: "post",
       data: {
         cate_id: categoryId,
         cursor: "0",

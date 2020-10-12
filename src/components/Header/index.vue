@@ -55,9 +55,7 @@ export default {
       showLoginCart: false,
     };
   },
-  mounted() {
-    this.$API.home.getRecommendTagList();
-  },
+  mounted() {},
   methods: {
     login() {
       this.showLoginCart = true;
