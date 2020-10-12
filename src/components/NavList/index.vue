@@ -67,6 +67,7 @@ export default {
     },
     // 获取首页二级路由tag列表
     async getTagList(categoryId) {
+      console.log(categoryId);
       const result = await this.$API.home.getRecommendTagList(categoryId);
       console.log(result);
       if (result.err_msg === "success") {

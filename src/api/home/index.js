@@ -9,8 +9,9 @@ export default {
   },
 
   getRecommendTagList(categoryId) {
+    console.log(categoryId);
     return request({
-      url: "/zhuanfa/recommend_api/v1/tag/recommend_tag_list",
+      url: `/zhuanfa/recommend_api/v1/tag/recommend_tag_list`,
       method: "get",
       data: {
         cate_id: categoryId,
