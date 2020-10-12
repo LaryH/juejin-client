@@ -167,6 +167,8 @@ export default {
   },
   mounted() {
     this.getinfo()
+    this.getinfos(this.info)
+    this.gethomes(this.info)
   },
   methods: {
     getinfo() {
@@ -176,8 +178,17 @@ export default {
       //  }
       this.leftnav = data.data
       this.homelist = home.data
-      console.log(this.homelist)
+   
+    },
+   async getinfos(info){
+       const result = await this.$API.pins.gethot(info)
+       console.log(result)
+    },
+      async gethomes(info){
+       const result = await this.$API.pins.gethome(info)
+       console.log(result)
     }
+    
   }
 }
 </script>
