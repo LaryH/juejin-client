@@ -150,7 +150,12 @@
                   <span>22 评论</span>
                 </div>
               </div>
-              <img :src="left.msg_Info.pic_list[0]" alt="" class="image-box" v-if="left.msg_Info.pic_list.length>0">
+              <img
+                :src="left.msg_Info.pic_list[0]"
+                alt=""
+                class="image-box"
+                v-if="left.msg_Info.pic_list.length > 0"
+              />
               <!--  <div class="image-box" style="{background-image:url('')}"></div> -->
             </a>
           </li>
@@ -182,8 +187,8 @@ export default {
       leftnav: {},
       homelist: {},
       isAchiveBottom: false, //滚动条是否到底部标志,
-      addlist: null
-    }
+      addlist: null,
+    };
   },
   created() {
     //使用window.onscroll = function(){}this指向出现问题
@@ -191,64 +196,55 @@ export default {
     window.onscroll = () => {
       //变量scrollTop是滚动条滚动时，距离顶部的距离
       var scrollTop =
-        document.documentElement.scrollTop || document.body.scrollTop
+        document.documentElement.scrollTop || document.body.scrollTop;
       //变量windowHeight是可视区的高度
       var windowHeight =
-        document.documentElement.clientHeight || document.body.clientHeight
+        document.documentElement.clientHeight || document.body.clientHeight;
       //变量scrollHeight是滚动条的总高度
       var scrollHeight =
-        document.documentElement.scrollHeight || document.body.scrollHeight
+        document.documentElement.scrollHeight || document.body.scrollHeight;
       //滚动条到底部的条件(距底部20px时触发加载)
       if (
         scrollTop + windowHeight >= scrollHeight - 20 &&
         !this.isAchiveBottom
       ) {
-        console.log(111)
-        this.isAchiveBottom = true
+        console.log(111);
+        this.isAchiveBottom = true;
       }
-    }
+    };
   },
 
   mounted() {
-    this.getinfo();
     this.getinfos(this.info);
     this.gethomes(this.info);
   },
   methods: {
-    getinfo() {
-      //  const result = await this.$API.pins.gethot(info)
-      //  if(result.code===200){
-      //     console.log(result.data)
-      //  }
-      this.leftnav = data.data;
-      this.homelist = home.data;
-    },
     async getinfos(info) {
-      const result = await this.$API.pins.gethot(info)
+      const result = await this.$API.pins.gethot(info);
 
-      this.leftnav = result.data
+      this.leftnav = result.data;
     },
     async gethomes(info) {
-      const result = await this.$API.pins.gethome(info)
-      this.homelist = result.data
+      const result = await this.$API.pins.gethome(info);
+      this.homelist = result.data;
     },
     async add(info) {
-     if(this.isAchiveBottom){
-        let add = []
-      const result = await this.$API.pins.gethome(info)
-      this.addlist = result.data
-      add = [...this.homelist, ...this.addlist]
-      this.homelist = add
-      this.isAchiveBottom = !this.isAchiveBottom
-     }
-    }
+      if (this.isAchiveBottom) {
+        let add = [];
+        const result = await this.$API.pins.gethome(info);
+        this.addlist = result.data;
+        add = [...this.homelist, ...this.addlist];
+        this.homelist = add;
+        this.isAchiveBottom = !this.isAchiveBottom;
+      }
+    },
   },
   watch: {
     isAchiveBottom() {
-      this.add()
-    }
-  }
-}
+      this.add();
+    },
+  },
+};
 </script>
 
 <style lang="less" scoped>

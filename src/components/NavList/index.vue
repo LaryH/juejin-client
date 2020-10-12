@@ -19,7 +19,7 @@
             <i @click="getRecommendFeed(item.category_url, category_id)">{{
               item.category_name
             }}</i>
-            <div class="category-popover">
+            <div class="category-popover" v-if="!showTag">
               <nav class="tag-nav">
                 <ul class="tag-list">
                   <li class="tag" v-for="tag in tagList" :key="tag.tag_id">
@@ -54,6 +54,7 @@
 <script>
 export default {
   name: "NavList",
+  props: ["showTag"],
   data() {
     return {
       categoryList: [],
