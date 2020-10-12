@@ -31,7 +31,7 @@
             <div class="other">
               <div class="price">￥29.9</div>
               <span class="message">
-                <span>{{book.base_info.section_count}}小节 .</span>
+                <span>{{book.section_count}}小节 .</span>
               </span>
               <span class="message">
                 <span>13629</span>
@@ -47,38 +47,34 @@
 </template>
 
 <script>
-import books from './books.json'
+//import books from './books.json'
 export default {
-  name: 'Wu',
+  name: 'Books',
   data(){
     return{
-      //info:{
+      info:{
       category_id: "0",
       cursor: "0",
       limit: 20,
       booklist:[]
-     // }
+      }
     }
    
   },
 
   mounted(){
-    //this.getCategoryWu(this.info)
     this.getCategoryWu()
   },
 
   methods:{
-      getCategoryWu(){
-      this.booklist=books.data
-      console.log(this.booklist)
-     // const result = await this.$API.books.getListbycAtegory(info);
-     // if(result.err_masg === "success") {
-     //   this.getLimitId = result.data;
-     // }
-    }
+      async getCategoryWu(){
+        const result = await this.$API.books.getListbycAtegory(this.info);
+        if(result.err_msg === "success") {
+          this.booklist = result.data;  
+        }
+    },
+
   },
-
-
 
 
 
