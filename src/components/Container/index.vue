@@ -41,8 +41,12 @@
                     <div class="item like clickable">
                       <a href>
                         <img src="./images/04.svg" alt />
+<<<<<<< HEAD
                         <span class="count">
                           {{
+=======
+                        <span class="count">{{
+>>>>>>> 2ab022b781671f3342940e552a59f12d5ce0b801
                           art.article_info.digg_count
                           }}
                         </span>
@@ -51,8 +55,12 @@
                     <div class="item like clickable">
                       <a href>
                         <img src="./images/03.svg" alt />
+<<<<<<< HEAD
                         <span class="count">
                           {{
+=======
+                        <span class="count">{{
+>>>>>>> 2ab022b781671f3342940e552a59f12d5ce0b801
                           art.article_info.comment_count
                           }}
                         </span>
@@ -97,14 +105,14 @@ export default {
   },
   methods: {
     async getRecommendFeed(tagId) {
-      // const result = await this.$API.home.getCategetRecommendFeed(
-      //   categoryId:this.categoryId,
-      //   tagId
-      // );
-      // if (result.err_msg === "success") {
-      // this.articleList = result.data;
-      // }
-      this.articleList = article.data;
+      const result = await this.$API.home.getRecommendFeed(
+        this.categoryId,
+        tagId
+      );
+      if (result.err_msg === "success") {
+        this.articleList = result.data;
+      }
+      // this.articleList = article.data;
     },
   },
 };

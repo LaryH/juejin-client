@@ -65,13 +65,13 @@ export default {
     },
     // 获取首页二级路由tag列表
     async getTagList(categoryId) {
-      // const result = await this.$API.home.getRecommendTagList(categoryId);
-      // console.log(result);
-      // if (result.err_msg === "success") {
-      //   this.tagList = result.data;
-      // }
-      this.tagList = tag.data;
-      this.tagId = tag.data[0].tag_id;
+      const result = await this.$API.home.getRecommendTagList(categoryId);
+      console.log(result);
+      if (result.err_msg === "success") {
+        this.tagList = result.data;
+      }
+      // this.tagList = tag.data;
+      this.tagId = result.data[0].tag_id;
     },
 
     toSubscribe() {

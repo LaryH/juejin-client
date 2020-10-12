@@ -27,7 +27,9 @@ export default [
   {
     path: "/home",
     component: Home,
-    children: [],
+    children: [
+      
+    ],
   },
   {
     path: "/pins",
