@@ -32,7 +32,94 @@
             <button class="add-button">写文章</button>
             <div class="more"></div>
           </div>
-          <button class="login-button" @click="login">登录</button>
+          <button class="login-button" @click="login" v-if="!userInfo.nickName">
+            登录
+          </button>
+          <div class="user-information" v-else>
+            <div class="notification">
+              <a class="app-link" href="" target="_blank">
+                <i class="iconfont icontongzhi"></i>
+              </a>
+            </div>
+            <div class="menu">
+              <div class="avatar" @click="clickUserImg(true)">
+                <img src="./img/head.jpg" alt="用户头像" class="avatarImg" />
+              </div>
+              <ul
+                class="user-dropdown-list"
+                :style="`display:${isSetNav ? 'block' : 'none'}`"
+              >
+                <div class="nav-menu-item-group">
+                  <li class="nav-menu-item">
+                    <a href="">
+                      <i class="iconfont iconqianbipencil82"></i>
+                      <span>写文章</span></a
+                    >
+                  </li>
+                  <li class="nav-menu-item">
+                    <a href="">
+                      <i class="iconfont iconcaogaoxiang"></i>
+                      <span>草稿</span></a
+                    >
+                  </li>
+                </div>
+                <div class="nav-menu-item-group">
+                  <li class="nav-menu-item">
+                    <a href="">
+                      <i class="iconfont iconcaogaoxiang"></i>
+                      <span>我的主页</span></a
+                    >
+                  </li>
+                  <li class="nav-menu-item">
+                    <a href="">
+                      <i class="iconfont icondianzan"></i>
+                      <span>我赞过的</span></a
+                    >
+                  </li>
+                  <li class="nav-menu-item">
+                    <a href="">
+                      <i class="iconfont iconai-book"></i>
+                      <span>我的小册</span></a
+                    >
+                  </li>
+                  <li class="nav-menu-item">
+                    <a href="">
+                      <i class="iconfont iconshoucang"></i>
+                      <span>我的收藏集</span></a
+                    >
+                  </li>
+                  <li class="nav-menu-item">
+                    <a href="">
+                      <i class="iconfont iconbiaoqian"></i>
+                      <span>标签管理</span></a
+                    >
+                  </li>
+                </div>
+                <div class="nav-menu-item-group">
+                  <li class="nav-menu-item">
+                    <a href="">
+                      <i class="iconfont iconshezhi"></i>
+                      <span>设置</span></a
+                    >
+                  </li>
+                  <li class="nav-menu-item">
+                    <a href="">
+                      <i class="iconfont iconguanyu"></i>
+                      <span>关于</span></a
+                    >
+                  </li>
+                </div>
+                <div class="nav-menu-item-group">
+                  <li class="nav-menu-item" @click="logout">
+                    <a href="javascript:;">
+                      <i class="iconfont icontuichu"></i>
+                      <span>登出</span></a
+                    >
+                  </li>
+                </div>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -52,7 +139,9 @@ export default {
   },
   data() {
     return {
+      isSetNav: false,
       showLoginCart: false,
+      userInfo: JSON.parse(localStorage.getItem("USERINFO_KEY")) || {},
     };
   },
   mounted() {},
@@ -63,7 +152,25 @@ export default {
     closeLoginCart() {
       this.showLoginCart = false;
     },
+    // 点击用户头像，显示设置栏
+    clickUserImg(Type) {
+      this.isSetNav = !this.isSetNav;
+    },
+
+    // 退出登录
+    async logout() {
+      console.log(111);
+      const result = await this.$API.login.reqLogout();
+      console.log(result);
+      if (result.code === 200) {
+        //  清空数据
+        localStorage.removeItem("USERINFO_KEY");
+        this.userInfo = {};
+        return "ok";
+      }
+    },
   },
+
 };
 </script>
 
@@ -115,6 +222,65 @@ export default {
         margin-left: 15px;
         color: #0371df;
         cursor: pointer;
+      }
+
+      .user-information {
+        display: flex;
+        align-items: center;
+        .notification {
+          color: #71777c;
+          margin: 0 25px;
+          font-size: 16px;
+        }
+        .menu {
+          position: relative;
+          .avatarImg {
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
+            background-size: cover;
+            cursor: pointer;
+          }
+          .user-dropdown-list {
+            position: absolute;
+            width: 13rem;
+            right: 0;
+            top: 92px;
+            background-color: #fff;
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(177, 180, 185, 0.45);
+            border-radius: 4px;
+            font-size: 1.2rem;
+            z-index: 998;
+
+            .nav-menu-item-group {
+              border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+              padding: 1rem 0;
+            }
+            .nav-menu-item {
+              font-size: 1.3rem;
+              cursor: pointer;
+              & > a {
+                display: flex;
+                align-items: center;
+                padding: 0.5rem 1rem;
+                color: #71777c;
+              }
+              &:hover {
+                background-color: hsla(0, 0%, 94.9%, 0.5);
+              }
+              .iconfont {
+                display: inline-block;
+                width: 1em;
+                height: 1em;
+                margin-right: 0.8rem;
+                font-size: 1.2em;
+                vertical-align: middle;
+                color: #b2bac2;
+              }
+            }
+          }
+        }
       }
 
       .add-button-container {
