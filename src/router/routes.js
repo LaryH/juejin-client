@@ -27,8 +27,6 @@ export default [
   {
     path: "/home",
     component: Home,
-    // redirect: "/",
-    children: [],
   },
   {
     path: "/pins",

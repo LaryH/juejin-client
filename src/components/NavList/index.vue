@@ -87,7 +87,6 @@ export default {
                 ...this.categoryList.map((item) => {
                   return {
                     path: "/" + item.category_url,
-                    // component: () => import(`@/pages/Home/${item.category_url}`),
                     component: () => import(`@/components/Container`),
                   };
                 }),
@@ -99,8 +98,7 @@ export default {
           this.getTagList(this.categoryId);
           this.getRecommendFeed(this.recommendedUrl, this.categoryId);
         }
-      }else{
-        
+      } else {
       }
     },
     // 获取首页二级路由tag列表
