@@ -173,6 +173,7 @@ export default {
           alert('恭喜你登录成功~~');
           location.reload()
           this.close()
+          this.$store.dispatch("getIsLogin",true)
          }else{
              return Promise.reject(new Error('failed'))
         }
