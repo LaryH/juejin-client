@@ -18,8 +18,18 @@ export default {
     });
   },
   // 推荐文章
-  getRecommendFeed(){
-    
+  getRecommendFeed(categoryId) {
+    return request({
+      url: "/zhuanfa/recommend_api/v1/article/recommend_cate_tag_feed",
+      method: "post",
+      data: {
+        cate_id: categoryId,
+        cursor: "0",
+        id_type: 2,
+        limit: 20,
+        sort_type: 200,
+      },
+    });
   },
   // 标签文章列表
   getRecommendTagFeed(categoryId, tagId) {

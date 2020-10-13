@@ -1,6 +1,6 @@
 <template>
   <div>
-    <navList />
+    <navList :showTag="true" />
     <div class="books-list">
       <div v-for="book in booklist" :key="book.booklet_id">
         <a class="item" href="#">

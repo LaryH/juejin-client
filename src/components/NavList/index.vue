@@ -16,10 +16,10 @@
             <!-- <router-link :to="'/' + item.category_url">{{
               item.category_name
             }}</router-link> -->
-            <i @click="getRecommendFeed(item.category_url, category_id)">{{
+            <i @click="getRecommendFeed(item.category_url, item.category_id)">{{
               item.category_name
             }}</i>
-            <div class="category-popover">
+            <div class="category-popover" v-if="!showTag">
               <nav class="tag-nav">
                 <ul class="tag-list">
                   <li class="tag" v-for="tag in tagList" :key="tag.tag_id">
@@ -54,6 +54,7 @@
 <script>
 export default {
   name: "NavList",
+  props: ["showTag"],
   data() {
     return {
       categoryList: [],
@@ -99,7 +100,7 @@ export default {
       }
       this.tagId = result.data !== null ? result.data[0].tag_id : "";
     },
-    // 获取
+    //
     getRecommendFeed(categoryUrl, categoryId, tagId) {
       this.$router.push({
         path: `/${categoryUrl}`,
