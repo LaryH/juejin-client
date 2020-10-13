@@ -213,6 +213,210 @@ basil.reset();
         </div>
       </article>
     </div>
+    <!-- 右侧边栏 -->
+    <div class="sidebar sidebar">
+      <!-- 关于作者 -->
+      <div class="sidebar-block author-block shadow">
+        <div class="block-title">关于作者</div>
+        <div class="block-body">
+          <!-- 头像 -->
+          <a href="#" class="user-item item">
+            <div class="lazy avatar avatar loaded">
+              <img src="./image/02.jpg" />
+            </div>
+            <div class="info-box">
+              <a href="#" class="username">
+                <span class="name" style="max-width: 128px;">杭州程序员张张</span>
+                <a href="#" class="rank">
+                  <img
+                    src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMyIgaGVpZ2h0PSIxNCIgdmlld0JveD0iMCAwIDIzIDE0Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZmlsbD0iI0ZGQTAwMCIgZD0iTTMgMWgxN2EyIDIgMCAwIDEgMiAydjhhMiAyIDAgMCAxLTIgMkgzYTIgMiAwIDAgMS0yLTJWM2EyIDIgMCAwIDEgMi0yeiIvPgogICAgICAgIDxwYXRoIGZpbGw9IiNGRkYiIGQ9Ik0zIDRoMnY3SDN6TTggNmgybDIgNWgtMnoiLz4KICAgICAgICA8cGF0aCBmaWxsPSIjRkZGIiBkPSJNMTQgNmgtMmwtMiA1aDJ6TTMgOWg1djJIM3pNMTggOGgydjNoLTJ6TTE1IDNoNXYyaC01ek0xNSA5aDN2MmgtM3pNMTYgNmgzdjJoLTN6Ii8+CiAgICAgICAgPHBhdGggZmlsbD0iI0ZGRiIgZD0iTTE4IDZoMnYyaC0yek0xNSA1aDJ2M2gtMnoiLz4KICAgIDwvZz4KPC9zdmc+Cg=="
+                    alt="lv-5"
+                  />
+                </a>
+              </a>
+              <div title="公众号 @ 前端全栈开发者" class="position">公众号 @ 前端全栈开发者</div>
+            </div>
+          </a>
+          <!-- 点赞 -->
+          <div data-v-52d07ee0 data-v-71f2d09e class="stat-item item">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="25"
+              height="26"
+              viewBox="0 0 25 26"
+              class="zan"
+            >
+              <g fill="none" fill-rule="evenodd" transform="translate(0 .57)">
+                <ellipse cx="12.5" cy="12.57" fill="#E1EFFF" rx="12.5" ry="12.57" />
+                <path
+                  fill="#7BB9FF"
+                  d="M8.596 11.238V19H7.033C6.463 19 6 18.465 6 17.807v-5.282c0-.685.483-1.287 1.033-1.287h1.563zm4.275-4.156A1.284 1.284 0 0 1 14.156 6c.885.016 1.412.722 1.595 1.07.334.638.343 1.687.114 2.361-.207.61-.687 1.412-.687 1.412h3.596c.38 0 .733.178.969.488.239.317.318.728.21 1.102l-1.628 5.645a1.245 1.245 0 0 1-1.192.922h-7.068v-7.889c1.624-.336 2.623-2.866 2.806-4.029z"
+                />
+              </g>
+            </svg>
+            <span class="content">
+              获得点赞
+              <span class="count">6,760</span>
+            </span>
+          </div>
+          <!-- 阅读 -->
+          <div class="stat-item item">
+            <svg width="25" height="25" viewBox="0 0 25 25" class="icon stat-view-icon">
+              <g fill="none" fill-rule="evenodd">
+                <circle cx="12.5" cy="12.5" r="12.5" fill="#E1EFFF" />
+                <path
+                  fill="#7BB9FF"
+                  d="M4 12.5S6.917 7 12.75 7s8.75 5.5 8.75 5.5-2.917 5.5-8.75 5.5S4 12.5 4 12.5zm8.75 2.292c1.208 0 2.188-1.026 2.188-2.292 0-1.266-.98-2.292-2.188-2.292-1.208 0-2.188 1.026-2.188 2.292 0 1.266.98 2.292 2.188 2.292z"
+                />
+              </g>
+            </svg>
+            <span class="content">
+              文章被阅读
+              <span class="count">367,050</span>
+            </span>
+          </div>
+        </div>
+      </div>
+      <!-- 相关文章 -->
+      <div class="sidebar-block related-entry-sidebar-block shadow">
+        <div class="block-title">相关文章</div>
+        <div class="block-body">
+          <div class="entry-list">
+            <a href="#" class="item">
+              <div class="entry-title">Vue.js中 watch 的高级用法</div>
+              <div class="entry-meta-box">
+                <div class="entry-meta">
+                  <img
+                    src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMGgxNnYxNkgweiIvPgogICAgICAgIDxwYXRoIGZpbGw9IiNCMkJBQzIiIGQ9Ik00LjIzNCA2LjY5M3Y3LjI0M0gyLjg4MWMtLjQ4NiAwLS44ODEtLjQ5Mi0uODgxLTEuMDk1VjcuODc1YzAtLjYzLjQxMi0xLjE4Mi44OC0xLjE4MmgxLjM1NHptMy42ODgtMy43QzguMDEgMi40MDQgOC40OSAxLjk5IDkuMDE4IDJjLjc1NC4wMTUgMS4yMDQuNjYzIDEuMzYuOTgzLjI4NC41ODUuMjkyIDEuNTQ5LjA5NyAyLjE2Ny0uMTc3LjU2LS41ODYgMS4yOTYtLjU4NiAxLjI5NmgzLjA2NmMuMzI0IDAgLjYyNS4xNjQuODI2LjQ0OS4yMDQuMjkuMjcuNjY4LjE3OCAxLjAxMWwtMS4zODcgNS4xODNjLS4xMjYuNDk5LS41NDQuODQ3LTEuMDE2Ljg0N0g1LjUzVjYuNjkzYzEuMzg1LS4zMDkgMi4yMzYtMi42MzIgMi4zOTItMy43eiIvPgogICAgPC9nPgo8L3N2Zz4K"
+                    class="icon"
+                  />
+                  <span class="count">821</span>
+                </div>
+                <div class="entry-meta">
+                  <img
+                    src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMGgxNnYxNkgweiIvPgogICAgICAgIDxwYXRoIGZpbGw9IiNCMkJBQzIiIGQ9Ik0yIDR2OC4wMzhoNC40NDRMMTEuMTExIDE1di0yLjk2MkgxNFY0eiIvPgogICAgPC9nPgo8L3N2Zz4K"
+                    class="icon"
+                  />
+                  <span class="count">35</span>
+                </div>
+              </div>
+            </a>
+            <a href="#" class="item">
+              <div class="entry-title">Vue.js中 watch 的高级用法</div>
+              <div class="entry-meta-box">
+                <div class="entry-meta">
+                  <img
+                    src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMGgxNnYxNkgweiIvPgogICAgICAgIDxwYXRoIGZpbGw9IiNCMkJBQzIiIGQ9Ik00LjIzNCA2LjY5M3Y3LjI0M0gyLjg4MWMtLjQ4NiAwLS44ODEtLjQ5Mi0uODgxLTEuMDk1VjcuODc1YzAtLjYzLjQxMi0xLjE4Mi44OC0xLjE4MmgxLjM1NHptMy42ODgtMy43QzguMDEgMi40MDQgOC40OSAxLjk5IDkuMDE4IDJjLjc1NC4wMTUgMS4yMDQuNjYzIDEuMzYuOTgzLjI4NC41ODUuMjkyIDEuNTQ5LjA5NyAyLjE2Ny0uMTc3LjU2LS41ODYgMS4yOTYtLjU4NiAxLjI5NmgzLjA2NmMuMzI0IDAgLjYyNS4xNjQuODI2LjQ0OS4yMDQuMjkuMjcuNjY4LjE3OCAxLjAxMWwtMS4zODcgNS4xODNjLS4xMjYuNDk5LS41NDQuODQ3LTEuMDE2Ljg0N0g1LjUzVjYuNjkzYzEuMzg1LS4zMDkgMi4yMzYtMi42MzIgMi4zOTItMy43eiIvPgogICAgPC9nPgo8L3N2Zz4K"
+                    class="icon"
+                  />
+                  <span class="count">821</span>
+                </div>
+                <div class="entry-meta">
+                  <img
+                    src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMGgxNnYxNkgweiIvPgogICAgICAgIDxwYXRoIGZpbGw9IiNCMkJBQzIiIGQ9Ik0yIDR2OC4wMzhoNC40NDRMMTEuMTExIDE1di0yLjk2MkgxNFY0eiIvPgogICAgPC9nPgo8L3N2Zz4K"
+                    class="icon"
+                  />
+                  <span class="count">35</span>
+                </div>
+              </div>
+            </a>
+            <a href="#" class="item">
+              <div class="entry-title">Vue.js中 watch 的高级用法</div>
+              <div class="entry-meta-box">
+                <div class="entry-meta">
+                  <img
+                    src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMGgxNnYxNkgweiIvPgogICAgICAgIDxwYXRoIGZpbGw9IiNCMkJBQzIiIGQ9Ik00LjIzNCA2LjY5M3Y3LjI0M0gyLjg4MWMtLjQ4NiAwLS44ODEtLjQ5Mi0uODgxLTEuMDk1VjcuODc1YzAtLjYzLjQxMi0xLjE4Mi44OC0xLjE4MmgxLjM1NHptMy42ODgtMy43QzguMDEgMi40MDQgOC40OSAxLjk5IDkuMDE4IDJjLjc1NC4wMTUgMS4yMDQuNjYzIDEuMzYuOTgzLjI4NC41ODUuMjkyIDEuNTQ5LjA5NyAyLjE2Ny0uMTc3LjU2LS41ODYgMS4yOTYtLjU4NiAxLjI5NmgzLjA2NmMuMzI0IDAgLjYyNS4xNjQuODI2LjQ0OS4yMDQuMjkuMjcuNjY4LjE3OCAxLjAxMWwtMS4zODcgNS4xODNjLS4xMjYuNDk5LS41NDQuODQ3LTEuMDE2Ljg0N0g1LjUzVjYuNjkzYzEuMzg1LS4zMDkgMi4yMzYtMi42MzIgMi4zOTItMy43eiIvPgogICAgPC9nPgo8L3N2Zz4K"
+                    class="icon"
+                  />
+                  <span class="count">821</span>
+                </div>
+                <div class="entry-meta">
+                  <img
+                    src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMGgxNnYxNkgweiIvPgogICAgICAgIDxwYXRoIGZpbGw9IiNCMkJBQzIiIGQ9Ik0yIDR2OC4wMzhoNC40NDRMMTEuMTExIDE1di0yLjk2MkgxNFY0eiIvPgogICAgPC9nPgo8L3N2Zz4K"
+                    class="icon"
+                  />
+                  <span class="count">35</span>
+                </div>
+              </div>
+            </a>
+            <a href="#" class="item">
+              <div class="entry-title">Vue.js中 watch 的高级用法</div>
+              <div class="entry-meta-box">
+                <div class="entry-meta">
+                  <img
+                    src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMGgxNnYxNkgweiIvPgogICAgICAgIDxwYXRoIGZpbGw9IiNCMkJBQzIiIGQ9Ik00LjIzNCA2LjY5M3Y3LjI0M0gyLjg4MWMtLjQ4NiAwLS44ODEtLjQ5Mi0uODgxLTEuMDk1VjcuODc1YzAtLjYzLjQxMi0xLjE4Mi44OC0xLjE4MmgxLjM1NHptMy42ODgtMy43QzguMDEgMi40MDQgOC40OSAxLjk5IDkuMDE4IDJjLjc1NC4wMTUgMS4yMDQuNjYzIDEuMzYuOTgzLjI4NC41ODUuMjkyIDEuNTQ5LjA5NyAyLjE2Ny0uMTc3LjU2LS41ODYgMS4yOTYtLjU4NiAxLjI5NmgzLjA2NmMuMzI0IDAgLjYyNS4xNjQuODI2LjQ0OS4yMDQuMjkuMjcuNjY4LjE3OCAxLjAxMWwtMS4zODcgNS4xODNjLS4xMjYuNDk5LS41NDQuODQ3LTEuMDE2Ljg0N0g1LjUzVjYuNjkzYzEuMzg1LS4zMDkgMi4yMzYtMi42MzIgMi4zOTItMy43eiIvPgogICAgPC9nPgo8L3N2Zz4K"
+                    class="icon"
+                  />
+                  <span class="count">821</span>
+                </div>
+                <div class="entry-meta">
+                  <img
+                    src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMGgxNnYxNkgweiIvPgogICAgICAgIDxwYXRoIGZpbGw9IiNCMkJBQzIiIGQ9Ik0yIDR2OC4wMzhoNC40NDRMMTEuMTExIDE1di0yLjk2MkgxNFY0eiIvPgogICAgPC9nPgo8L3N2Zz4K"
+                    class="icon"
+                  />
+                  <span class="count">35</span>
+                </div>
+              </div>
+            </a>
+            <a href="#" class="item">
+              <div class="entry-title">Vue.js中 watch 的高级用法</div>
+              <div class="entry-meta-box">
+                <div class="entry-meta">
+                  <img
+                    src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMGgxNnYxNkgweiIvPgogICAgICAgIDxwYXRoIGZpbGw9IiNCMkJBQzIiIGQ9Ik00LjIzNCA2LjY5M3Y3LjI0M0gyLjg4MWMtLjQ4NiAwLS44ODEtLjQ5Mi0uODgxLTEuMDk1VjcuODc1YzAtLjYzLjQxMi0xLjE4Mi44OC0xLjE4MmgxLjM1NHptMy42ODgtMy43QzguMDEgMi40MDQgOC40OSAxLjk5IDkuMDE4IDJjLjc1NC4wMTUgMS4yMDQuNjYzIDEuMzYuOTgzLjI4NC41ODUuMjkyIDEuNTQ5LjA5NyAyLjE2Ny0uMTc3LjU2LS41ODYgMS4yOTYtLjU4NiAxLjI5NmgzLjA2NmMuMzI0IDAgLjYyNS4xNjQuODI2LjQ0OS4yMDQuMjkuMjcuNjY4LjE3OCAxLjAxMWwtMS4zODcgNS4xODNjLS4xMjYuNDk5LS41NDQuODQ3LTEuMDE2Ljg0N0g1LjUzVjYuNjkzYzEuMzg1LS4zMDkgMi4yMzYtMi42MzIgMi4zOTItMy43eiIvPgogICAgPC9nPgo8L3N2Zz4K"
+                    class="icon"
+                  />
+                  <span class="count">821</span>
+                </div>
+                <div class="entry-meta">
+                  <img
+                    src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMGgxNnYxNkgweiIvPgogICAgICAgIDxwYXRoIGZpbGw9IiNCMkJBQzIiIGQ9Ik0yIDR2OC4wMzhoNC40NDRMMTEuMTExIDE1di0yLjk2MkgxNFY0eiIvPgogICAgPC9nPgo8L3N2Zz4K"
+                    class="icon"
+                  />
+                  <span class="count">35</span>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- 目录 -->
+      <div class="sticky-block-box">
+        <div class="catalog-block pure">
+          <nav class="article-catalog">
+            <div class="catalog-title">目录</div>
+            <div class="catalog-body">
+              <ul class="catalog-list" style="margin-top: 0px;">
+                <li class="item d1 active">
+                  <a href="#" title="Local Storage Bridge">Local Storage Bridge</a>
+                </li>
+                <li class="item d1">
+                  <a href="#" title="Basil.js">Basil.js</a>
+                </li>
+                <li class="item d1">
+                  <a href="#" title="store.js">store.js</a>
+                </li>
+                <li class="item d1">
+                  <a href="#" title="lscache">lscache</a>
+                </li>
+                <li class="item d1">
+                  <a href="#" title="Lockr">Lockr</a>
+                </li>
+                <li class="item d1">
+                  <a href="#" title="Barn">Barn</a>
+                </li>
+                <li class="item d1">
+                  <a href="#" title="localForage">localForage</a>
+                </li>
+                <li class="item d1">
+                  <a href="#" title="crypt.io">::before crypt.io</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -226,7 +430,7 @@ export default {
 a {
   text-decoration: none;
   cursor: pointer;
-  color: #909090;
+  color: #000;
 }
 .timeline-entry-list {
   width: 960px;
@@ -235,10 +439,9 @@ a {
   left: 0;
   right: 0;
   margin: 1.767rem auto;
-  // z-index: -1;
-  // margin-top: 1.767rem;
-  background-color: rgb(228, 248, 232);
+  // background-color: rgb(228, 248, 232);
 
+  // 中间内容
   .entry-list-container {
     width: 652px;
     background-color: #fff;
@@ -325,7 +528,7 @@ a {
         font-size: 15px;
         overflow-x: hidden;
         blockquote {
-          color: #666;
+          color: #000;
           padding: 1px 23px;
           margin: 22px 0;
           border-left: 4px solid #cbcbcb;
@@ -393,7 +596,7 @@ a {
           a {
             text-decoration: none;
             cursor: pointer;
-            color: #909090;
+            // color: #909090;
           }
           .tag-icon > img {
             width: 1.75rem;
@@ -517,6 +720,180 @@ a {
                   cursor: pointer;
                 }
               }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // 右侧边栏
+  .sidebar {
+    width: 20rem;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    // background-color: lime;
+
+    // 关于作者  右侧相关文章
+    .sidebar-block {
+      background-color: #fff;
+      position: relative;
+      margin-bottom: 1.5rem;
+      border-radius: 2px;
+      width: 20rem;
+      // height: 200px;
+      .block-title {
+        padding: 1rem 1.3rem;
+        font-size: 1.16rem;
+        color: #333;
+        border-bottom: 1px solid hsla(0, 0%, 58.8%, 0.1);
+      }
+      .block-body {
+        padding-bottom: 10px;
+        // 头像
+        .user-item {
+          padding: 1.3rem;
+          .avatar > img {
+            flex: 0 0 auto;
+            margin-right: 1rem;
+            width: 4.167rem;
+            height: 4.167rem;
+            border-radius: 50%;
+          }
+          .info-box {
+            flex: 1 1 auto;
+            min-width: 0;
+            .username {
+              font-size: 1.333rem;
+              font-weight: 600;
+              color: #000;
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              white-space: pre-wrap;
+            }
+            .position {
+              margin-top: 0.8rem;
+              font-size: 1.25rem;
+              color: #72777b;
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+            }
+          }
+        }
+        // 点赞-阅读
+        .stat-item {
+          margin-bottom: 0.8rem;
+          padding: 0 1.3rem;
+          .zan {
+            margin-right: 1rem;
+          }
+          .content {
+            font-size: 1.25rem;
+            color: #000;
+          }
+        }
+        // 右侧相关文章
+        .entry-list {
+          .item {
+            display: block;
+            padding: 0.8rem 1.3rem;
+            .entry-title {
+              font-size: 1.16rem;
+              color: #333;
+            }
+            .entry-meta-box {
+              margin-top: 0.4rem;
+              .entry-meta {
+                display: inline-block;
+                margin-right: 1.5rem;
+                font-size: 1.1rem;
+                color: #c2c2c2;
+              }
+            }
+          }
+        }
+        .item {
+          display: flex;
+          align-items: center;
+        }
+      }
+    }
+    .shadow {
+      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    }
+    nav {
+      display: block;
+    }
+    //目录
+    .sticky-block-box {
+      .catalog-block {
+        position: relative;
+        margin-bottom: 1.5rem;
+        border-radius: 2px;
+        .article-catalog {
+          .catalog-title {
+            font-size: 1.167rem;
+            color: #000;
+          }
+          .catalog-body {
+            margin: 6px 0;
+            overflow: hidden;
+            .catalog-body > ul {
+              padding: 0;
+              margin: 0;
+              display: block;
+              list-style-type: disc;
+              margin-block-start: 1em;
+              margin-block-end: 1em;
+              margin-inline-start: 0px;
+              margin-inline-end: 0px;
+              padding-inline-start: 40px;
+            }
+            .catalog-list .item.d1 {
+              font-weight: 600;
+              color: #000;
+            }
+            .catalog-list .item {
+              margin: 0;
+              padding: 0;
+              font-size: 1.167rem;
+              font-weight: 400;
+              line-height: 1.3;
+              color: #333;
+              list-style: none;
+            }
+            .catalog-list .item.d1 > a {
+              margin: 6px 0;
+              padding: 4px 0 4px 21px;
+            }
+            .catalog-list .item a {
+              display: block;
+              position: relative;
+              padding: 4px 0 4px 12px;
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+            }
+            .catalog-list .item.d1 > a:before {
+              left: 5px;
+              margin-top: -3px;
+              width: 6px;
+              height: 6px;
+            }
+            .catalog-list .item a:before {
+              content: "";
+              position: absolute;
+              top: 50%;
+              left: 0;
+              margin-top: -2px;
+              width: 4px;
+              height: 4px;
+              background-color: currentColor;
+              border-radius: 50%;
             }
           }
         }
