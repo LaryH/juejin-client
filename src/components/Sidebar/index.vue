@@ -3,7 +3,7 @@
     <!-- 侧边栏组件 -->
     <div class="sidebar">
       <!-- 登录卡片 -->
-      <div class="sidebar-login" v-if="!isLogin">
+      <div class="sidebar-login" v-if="!userInfo.user_name">
         <div class="sidebar-login-box">
           <div class="login-title">掘金 - juejin.im</div>
           <div class="login-slogan">一个帮助开发者成长的社区</div>
@@ -217,9 +217,8 @@ export default {
   props: ["categoryId"],
   data() {
     return {
-      // 是否登录
-      isLogin: false,
       aurthorList: [],
+      userInfo: JSON.parse(localStorage.getItem("USERINFO_KEY")) || {},
     };
   },
   mounted() {
