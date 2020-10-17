@@ -32,7 +32,11 @@
             <button class="add-button">写文章</button>
             <div class="more"></div>
           </div>
-          <button class="login-button" @click="login" v-if="!userInfo.nickName">
+          <button
+            class="login-button"
+            @click="login"
+            v-if="!userInfo.user_name"
+          >
             登录
           </button>
           <div class="user-information" v-else>
@@ -159,18 +163,19 @@ export default {
 
     // 退出登录
     async logout() {
-      console.log(111);
-      const result = await this.$API.login.reqLogout();
-      console.log(result);
-      if (result.code === 200) {
-        //  清空数据
-        localStorage.removeItem("USERINFO_KEY");
-        this.userInfo = {};
-        return "ok";
-      }
+      // const result = await this.$API.login.reqLogout();
+      // if (result.code === 200) {
+      //   //  清空数据
+      //   localStorage.removeItem("USERINFO_KEY");
+      //   this.userInfo = {};
+      //   return "ok";
+      // }
+
+      //  清空数据
+      localStorage.removeItem("USERINFO_KEY");
+      this.userInfo = {};
     },
   },
-
 };
 </script>
 

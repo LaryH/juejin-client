@@ -3,7 +3,7 @@ export default {
   // 登录
   reqLogin(userInfo) {
     return request({
-      url: "/api/user/passport/login",
+      url: "/zhuanfa/user/login",
       method: "POST",
       data: userInfo,
     });

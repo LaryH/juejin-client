@@ -165,7 +165,7 @@ export default {
         alert('手机或密码不正确~~请重新输入')
       }
       try {
-        let result = await this.$API.login.reqLogin({mobile,password})
+        let result = await this.$API.login.reqLogin({user_name:mobile,password})
          console.log(result)
          if(result.code === 200){
           // 数据存入localstorage中
