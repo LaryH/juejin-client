@@ -132,7 +132,6 @@ export default {
         cursor: "0",
         limit: 20,
       });
-      console.log(result);
       this.followList = result.data;
     },
   },

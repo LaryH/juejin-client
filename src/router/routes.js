@@ -27,9 +27,6 @@ export default [
   {
     path: "/home",
     component: Home,
-    children: [
-      
-    ],
   },
   {
     path: "/pins",
@@ -47,8 +44,8 @@ export default [
     path: "/events",
     component: Events,
   },
-  {
-    path: "/",
-    redirect: "/home",
-  },
+  // {
+  //   path: "/",
+  //   redirect: "/home",
+  // },
 ];

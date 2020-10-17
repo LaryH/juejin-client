@@ -1,13 +1,15 @@
 export default {
-  state:{
-    homeRouteList:[],
+  state: {
+    isLogin: false,
   },
-  mutations:{
-    GETHOMEROUTELIST(state, payload){
-      state.homeRouteList = payload; 
-    }
+  mutations: {
+    ISLOGIN(state, payload) {
+      state.isLogin = payload;
+    },
   },
-  actions:{
-    
+  actions: {
+    getIsLogin({ commit }, isLogin) {
+      commit("ISLOGIN", isLogin);
+    },
   },
-}
+};

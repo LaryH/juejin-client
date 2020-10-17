@@ -28,91 +28,7 @@
         <!-- 内容 -->
         <div class="article-content">
           <!-- markdown-body -->
-          <div class="markdown-body">
-            <blockquote>
-              <p>
-                微信搜索【前端全栈开发者】关注这个脱发、摆摊、
-                <a href="https://store.zhangbing.site">卖货</a>
-                、持续学习的程序员，第一时间阅读最新文章，会优先两天发表新文章。关注即可大礼包，准能为你节省不少钱！
-              </p>
-            </blockquote>
-            <p>我为当前项目测试了一些本地存储库。想知道他们有什么很棒的功能吗？继续阅读。</p>
-            <h2 data-id="heading-0">Local Storage Bridge</h2>
-            <p>
-              <a href="https://github.com/krasimir/lsbridge">github.com/krasimir/ls…</a>
-            </p>
-            <p>如果你必须在同一个浏览器中从一个标签页发送消息到另一个标签页，你不必用艰难的方式。Local storage bridge在这里让任务变得更简单。</p>
-            <p>基本使用：</p>
-            <pre><code class="hljs language-javascript copyable" lang="javascript"><span class="hljs-comment">// 发送</span>
-lsbridge.send(‘app.message.error’, { <span class="hljs-attr">error</span>: ‘Out <span class="hljs-keyword">of</span> memory’ });
-
-<span class="hljs-comment">// 监听</span>
-lsbridge.subscribe(‘app.message.error’, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>) </span>{
-  <span class="hljs-built_in">console</span>.log(data); <span class="hljs-comment">// { error: ‘Out of memory’ }</span>
-});
-<span class="copy-code-btn">复制代码</span></code></pre>
-            <h2 data-id="heading-1">Basil.js</h2>
-            <p>
-              <img
-                src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a5836957daec41df8d8e1ea80288a78a~tplv-k3u1fbpfcp-watermark.webp"
-                class="lazyload inited loaded"
-                style="width: 652px;"
-              />
-            </p>
-            <p>Basil.js统一了session、localStorage和cookie，为你提供了一种处理数据的直接方法。</p>
-            <p>基本使用：</p>
-            <pre>
-              <code class="hljs language-javascript copyable" lang="javascript"><span class="hljs-keyword">let</span> basil = <span class="hljs-keyword">new</span> Basil(options);
-basil.set(‘name’, ‘Amy’);
-basil.get(‘name’);
-basil.remove(‘name’);
-basil.reset();
-<span
-  class="copy-code-btn"
->复制代码</span></code>
-          </pre>
-            <h2 data-id="heading-2">store.js</h2>
-            <p>
-              <a href="https://github.com/marcuswestin/store.js">github.com/marcuswesti…</a>
-            </p>
-            <p>Store.js像其他东西一样处理数据存储。但还有更多的功能，它的一个高级特性是让你更深入地访问浏览器支持。</p>
-            <h2 data-id="heading-3">lscache</h2>
-            <p>
-              <a href="https://github.com/pamelafox/lscache">github.com/pamelafox/l…</a>
-            </p>
-            <p>它与localStorage API类似。事实上，它是localStorage的一个封装器，并使用HTML5模拟memcaches函数。在上面的文档中发现更多的功能。</p>
-            <h2 data-id="heading-4">Lockr</h2>
-            <p>
-              <img
-                class="lazyload inited loaded"
-                src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ced88bcff45d40b7826bcbde1883b999~tplv-k3u1fbpfcp-watermark.webp"
-              />
-            </p>
-            <p>Lockr建立在localStorage API之上。它提供了一些有用的方法来更轻松地处理本地数据。</p>
-            <p>是什么让你要使用此库而不是localStorage API？</p>
-            <p>好吧，localStorage API仅允许你存储字符串。如果要存储数字，则需要先将该数字转换为字符串。在Lockr中不会发生这种情况，因为Lockr允许你存储更多的数据类型甚至对象。</p>
-            <h2 data-id="heading-5">Barn</h2>
-            <p>
-              <a href="https://github.com/arokor/barn">github.com/arokor/barn</a>
-            </p>
-            <p>Barn在localStorage之上提供了一个类似Redis的API。如果持久性很重要，那么你将需要这个库来保持数据状态，以防发生错误。</p>
-            <h2 data-id="heading-6">localForage</h2>
-            <p>
-              <a href="https://github.com/localForage/localForage">github.com/localForage…</a>
-            </p>
-            <p>这个简单而快速的库将通过IndexedDB或WebSQL使用异步存储来改善Web的脱机体验。它类似于localStorage，但具有回调功能。</p>
-            <p>
-              很神奇的是它提供
-              <a href="https://localforage.docschina.org/">中文文档</a>
-            </p>
-            <h2 data-id="heading-7">crypt.io</h2>
-            <p>
-              <a href="https://github.com/jas-/crypt.io">github.com/jas-/crypt.…</a>
-            </p>
-            <p>crypt.io使用标准JavaScript加密库实现安全的浏览器存储。使用crypto.io时，有三个存储选项：sessionStorage，localStorage或cookie。</p>
-            <hr />
-            <p>你还知道其他本地存储库吗？为什么使用它？在下面的评论中让我知道！</p>
-          </div>
+          <div class="markdown-body"></div>
         </div>
         <!-- 文章底部 -->
         <div class="tag-list-box">
@@ -162,10 +78,12 @@ basil.reset();
           <a
             class="banner-title"
             href="https://juejin.im/extension/?utm_source=juejin.im&amp;utm_medium=post&amp;utm_campaign=extension_promotion"
-          >安装掘金浏览器插件</a>
-          <div
-            class="banner-content"
-          >打开新标签页发现好内容，掘金、GitHub、Dribbble、ProductHunt 等站点内容轻松获取。快来安装掘金浏览器插件获取高质量内容吧！</div>
+            >安装掘金浏览器插件</a
+          >
+          <div class="banner-content">
+            打开新标签页发现好内容，掘金、GitHub、Dribbble、ProductHunt
+            等站点内容轻松获取。快来安装掘金浏览器插件获取高质量内容吧！
+          </div>
         </div>
         <!-- 评论区 -->
         <div class="comment-list-box" id="comment-box">
@@ -226,7 +144,9 @@ basil.reset();
             </div>
             <div class="info-box">
               <a href="#" class="username">
-                <span class="name" style="max-width: 128px;">杭州程序员张张</span>
+                <span class="name" style="max-width: 128px;"
+                  >杭州程序员张张</span
+                >
                 <a href="#" class="rank">
                   <img
                     src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMyIgaGVpZ2h0PSIxNCIgdmlld0JveD0iMCAwIDIzIDE0Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZmlsbD0iI0ZGQTAwMCIgZD0iTTMgMWgxN2EyIDIgMCAwIDEgMiAydjhhMiAyIDAgMCAxLTIgMkgzYTIgMiAwIDAgMS0yLTJWM2EyIDIgMCAwIDEgMi0yeiIvPgogICAgICAgIDxwYXRoIGZpbGw9IiNGRkYiIGQ9Ik0zIDRoMnY3SDN6TTggNmgybDIgNWgtMnoiLz4KICAgICAgICA8cGF0aCBmaWxsPSIjRkZGIiBkPSJNMTQgNmgtMmwtMiA1aDJ6TTMgOWg1djJIM3pNMTggOGgydjNoLTJ6TTE1IDNoNXYyaC01ek0xNSA5aDN2MmgtM3pNMTYgNmgzdjJoLTN6Ii8+CiAgICAgICAgPHBhdGggZmlsbD0iI0ZGRiIgZD0iTTE4IDZoMnYyaC0yek0xNSA1aDJ2M2gtMnoiLz4KICAgIDwvZz4KPC9zdmc+Cg=="
@@ -234,7 +154,9 @@ basil.reset();
                   />
                 </a>
               </a>
-              <div title="公众号 @ 前端全栈开发者" class="position">公众号 @ 前端全栈开发者</div>
+              <div title="公众号 @ 前端全栈开发者" class="position">
+                公众号 @ 前端全栈开发者
+              </div>
             </div>
           </a>
           <!-- 点赞 -->
@@ -247,7 +169,13 @@ basil.reset();
               class="zan"
             >
               <g fill="none" fill-rule="evenodd" transform="translate(0 .57)">
-                <ellipse cx="12.5" cy="12.57" fill="#E1EFFF" rx="12.5" ry="12.57" />
+                <ellipse
+                  cx="12.5"
+                  cy="12.57"
+                  fill="#E1EFFF"
+                  rx="12.5"
+                  ry="12.57"
+                />
                 <path
                   fill="#7BB9FF"
                   d="M8.596 11.238V19H7.033C6.463 19 6 18.465 6 17.807v-5.282c0-.685.483-1.287 1.033-1.287h1.563zm4.275-4.156A1.284 1.284 0 0 1 14.156 6c.885.016 1.412.722 1.595 1.07.334.638.343 1.687.114 2.361-.207.61-.687 1.412-.687 1.412h3.596c.38 0 .733.178.969.488.239.317.318.728.21 1.102l-1.628 5.645a1.245 1.245 0 0 1-1.192.922h-7.068v-7.889c1.624-.336 2.623-2.866 2.806-4.029z"
@@ -261,7 +189,12 @@ basil.reset();
           </div>
           <!-- 阅读 -->
           <div class="stat-item item">
-            <svg width="25" height="25" viewBox="0 0 25 25" class="icon stat-view-icon">
+            <svg
+              width="25"
+              height="25"
+              viewBox="0 0 25 25"
+              class="icon stat-view-icon"
+            >
               <g fill="none" fill-rule="evenodd">
                 <circle cx="12.5" cy="12.5" r="12.5" fill="#E1EFFF" />
                 <path
@@ -388,7 +321,9 @@ basil.reset();
             <div class="catalog-body">
               <ul class="catalog-list" style="margin-top: 0px;">
                 <li class="item d1 active">
-                  <a href="#" title="Local Storage Bridge">Local Storage Bridge</a>
+                  <a href="#" title="Local Storage Bridge"
+                    >Local Storage Bridge</a
+                  >
                 </li>
                 <li class="item d1">
                   <a href="#" title="Basil.js">Basil.js</a>
@@ -424,6 +359,23 @@ basil.reset();
 <script>
 export default {
   name: "",
+  data() {
+    return {
+      articleId: "",
+      article: "",
+    };
+  },
+  mounted() {
+    this.getArticle();
+  },
+  methods: {
+    async getArticle() {
+      console.log(this.articleId);
+      this.articleId = this.$route.params;
+      const result = await this.$API.details.getPost(this.articleId);
+      this.article = result;
+    },
+  },
 };
 </script>
 
@@ -906,4 +858,3 @@ a {
   }
 }
 </style>
-

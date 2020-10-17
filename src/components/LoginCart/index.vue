@@ -6,7 +6,7 @@
       </a>
     </div>
     <div class="logincart">
-      <form class="logincart-auth-form">
+      <form class="logincart-auth-form" >
         <div class="logincart-panda" ref="panda">
           <img src="./images/panda01.png" class="normal" ref="normal" />
           <img src="./images/panda02.png" class="greeting" ref="greeting" />
@@ -39,6 +39,7 @@
               name="loginPhoneOrEmail"
               placeholder="请输入手机号码/邮箱"
               @focus="changePandaIMG('phoneOrEmail')"
+               v-model="mobile"
             />
           </div>
           <div class="logincart-password-box" v-show="isPhone">
@@ -49,6 +50,7 @@
               name="registerSmsCode"
               placeholder="验证码"
               @focus="changePandaIMG('smsCode')"
+             
             />
             <button>获取验证码</button>
           </div>
@@ -59,11 +61,12 @@
               maxlength="64"
               placeholder="请输入密码"
               @focus="changePandaIMG('loginPassword')"
+              v-model="password"
             />
           </div>
         </div>
         <!-- 登录按钮 -->
-        <button class="logincart-btn">登录</button>
+        <button class="logincart-btn" @click.prevent="login">登录</button>
         <!-- 其他登录方式 -->
         <div class="logincart-other-login" v-show="isPhone">
           <span @click="changeLogin('other')">手机登录</span>
@@ -103,6 +106,9 @@ export default {
     return {
       // 是否手机登录
       isPhone: true,
+      mobile:"",
+      password:"",
+      
     };
   },
   methods: {
@@ -143,7 +149,42 @@ export default {
     close() {
       this.$emit("closeLoginCart");
     },
+
+    // 登录
+    async login(){
+      const{mobile,password}= this;
+      console.log(mobile,password);
+      // 正则验证
+      let phoneReg = new RegExp(/^1[0-9]{10}/);
+      let pwdReg = new RegExp(/[a-zA-Z0-9]{6}/);
+      if (!phoneReg.test(mobile)){
+        alert('请输入正确手机号格式~~')
+        return
+      }
+      if (!pwdReg.test(password)) {
+        alert('手机或密码不正确~~请重新输入')
+      }
+      try {
+        let result = await this.$API.login.reqLogin({user_name:mobile,password})
+         console.log(result)
+         if(result.code === 200){
+          // 数据存入localstorage中
+          localStorage.setItem("USERINFO_KEY",JSON.stringify(result.data))
+          alert('恭喜你登录成功~~');
+          location.reload()
+          this.close()
+          this.$store.dispatch("getIsLogin",true)
+         }else{
+             return Promise.reject(new Error('failed'))
+        }
+      } catch (error) {
+        alert(error.message)
+      }
+      // 关闭登录框
+      this.close()
+      }
   },
+  
 };
 </script>
 

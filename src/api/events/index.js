@@ -11,7 +11,6 @@ export default {
 
   // 获取event列表
   getEventList(eventListParams) {
-    console.log(eventListParams);
     return request({
       // url: "/test",
       // method: "GET",

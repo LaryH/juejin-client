@@ -4,7 +4,7 @@
       <ul class="nav-list left">
         <li class="nav-item">
           <div class="category-popover-box">
-            <a href="#">推荐</a>
+            <i @click="getRecommendFeed(recommendedUrl, categoryId)">推荐</i>
           </div>
         </li>
         <li
@@ -59,6 +59,7 @@ export default {
     return {
       categoryList: [],
       categoryId: "",
+      recommendedUrl: "recommened",
       tagList: [],
       tagId: "",
     };
@@ -69,27 +70,35 @@ export default {
   methods: {
     // 获取首页二级路由列表
     async getCategoryList() {
-      const result = await this.$API.home.getCategoryBriefs();
-      if (result.err_msg === "success") {
-        this.categoryList = result.data;
-        this.$router.addRoutes([
-          {
-            path: "/home",
-            component: () => import("@/pages/Home"),
-            children: [
-              ...this.categoryList.map((item) => {
-                return {
-                  path: "/" + item.category_url,
-                  // component: () => import(`@/pages/Home/${item.category_url}`),
+      const reg = /^\/books/;
+      if (!reg.test(this.$route.path)) {
+        const result = await this.$API.home.getCategoryBriefs();
+        if (result.err_msg === "success") {
+          this.categoryList = result.data;
+          this.$router.addRoutes([
+            {
+              path: "/home",
+              component: () => import("@/pages/Home"),
+              children: [
+                {
+                  path: "/recommened",
                   component: () => import(`@/components/Container`),
-                };
-              }),
-            ],
-          },
-        ]);
-        this.categoryId =
-          result.data !== null ? this.categoryList[0].category_id : "";
-        this.getTagList(this.categoryId);
+                },
+                ...this.categoryList.map((item) => {
+                  return {
+                    path: "/" + item.category_url,
+                    component: () => import(`@/components/Container`),
+                  };
+                }),
+              ],
+            },
+          ]);
+          this.categoryId =
+            result.data !== null ? this.categoryList[0].category_id : "";
+          this.getTagList(this.categoryId);
+          this.getRecommendFeed(this.recommendedUrl, this.categoryId);
+        }
+      } else {
       }
     },
     // 获取首页二级路由tag列表
@@ -139,6 +148,9 @@ ul {
   margin: auto;
   align-items: center;
   line-height: 1;
+  i {
+    cursor: pointer;
+  }
 }
 .view-nav .nav-list .nav-item {
   height: 100%;
@@ -152,9 +164,6 @@ ul {
 }
 .view-nav .nav-list .nav-item .posi {
   position: relative;
-  i {
-    cursor: pointer;
-  }
 }
 .nav-item > a::before {
   content: "标签管理";

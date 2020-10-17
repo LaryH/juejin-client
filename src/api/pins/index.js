@@ -3,7 +3,6 @@ import request from '../../utils/request'
 export default {
   //获取内容列表
   gethot(hotInfo) {
-    console.log(hotInfo)
     return request({
       url: '/zhuanfa/recommend_api/v1/short_msg/hot',
       method: 'post',

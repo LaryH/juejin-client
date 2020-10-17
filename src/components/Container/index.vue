@@ -8,17 +8,22 @@
               <a href>热门</a>
             </li>
             <li class="nav-item">
-              <a href>热门</a>
+              <a href>最新</a>
             </li>
             <li class="nav-item">
-              <a href>热门</a>
+              <a href>热榜</a>
             </li>
           </ul>
         </nav>
       </header>
       <div class="entry-list-wrap">
         <ul class="entry-list">
-          <li class="item" v-for="art in articleList" :key="art.article_id">
+          <li
+            class="item"
+            v-for="art in articleList"
+            :key="art.article_id"
+            @click="window.location = `https://juejin.im/${art.article_id}`"
+          > 
             <div class="entry-link">
               <div class="content-box">
                 <div class="info-box">
@@ -28,7 +33,11 @@
                         >{{ art.author_user_info.user_name }} .</a
                       >
                     </li>
-                    <li class="item">时间 .</li>
+                    <li class="item">
+                      {{
+                        calcTime(art.article_info.ctime, art.article_info.mtime)
+                      }}
+                    </li>
                     <li class="item tag">
                       <a style="color: #b2bac2">{{
                         art.category.category_name
@@ -82,6 +91,7 @@
 
 <script>
 import Sidebar from "@/components/Sidebar";
+import calc from "@/utils/calcTime";
 export default {
   name: "Container",
   components: {
@@ -118,6 +128,14 @@ export default {
       }
       this.oldTagId = this.tagId;
     },
+
+    calcTime(ctime, mtime) {
+      return calc(ctime, mtime);
+    },
+
+    // toPost(articleId) {
+    //   this.$router.push({ path: "/detail", params: { articleId } });
+    // },
   },
   computed: {
     categoryId() {
@@ -251,7 +269,11 @@ a {
                   border: 1px solid #edeeef;
 
                   img {
+                    width: 16px;
+                    height: 16px;
                     margin-bottom: -2px;
+                  }
+                  .art_comment {
                   }
 
                   .count {

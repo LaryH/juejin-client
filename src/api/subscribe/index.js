@@ -1,11 +1,11 @@
-import request from '@/utils/request'
+import request from "@/utils/request";
 
 export default {
-    getFollow () {
+  getFollow() {
     return request({
-      url: '/zhuanfa/interact_api/v1/follow/tag_list',
-      method: 'get',
-    //   data,
-    })
-  }
-}
+      url: "/zhuanfa/interact_api/v1/follow/tag_list",
+      method: "post",
+      //   data,
+    });
+  },
+};

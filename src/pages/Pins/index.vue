@@ -208,7 +208,6 @@ export default {
         scrollTop + windowHeight >= scrollHeight - 20 &&
         !this.isAchiveBottom
       ) {
-        console.log(111);
         this.isAchiveBottom = true;
       }
     };
