@@ -5,3 +5,4 @@ export { default as topics } from "./topics";
 export { default as books } from "./books";
 export { default as events } from "./events";
 export { default as subscribe } from "./subscribe";
+export { default as details } from "./details";

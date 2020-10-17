@@ -18,7 +18,12 @@
       </header>
       <div class="entry-list-wrap">
         <ul class="entry-list">
-          <li class="item" v-for="art in articleList" :key="art.article_id">
+          <li
+            class="item"
+            v-for="art in articleList"
+            :key="art.article_id"
+            @click="window.location = `https://juejin.im/${art.article_id}`"
+          > 
             <div class="entry-link">
               <div class="content-box">
                 <div class="info-box">
@@ -127,6 +132,10 @@ export default {
     calcTime(ctime, mtime) {
       return calc(ctime, mtime);
     },
+
+    // toPost(articleId) {
+    //   this.$router.push({ path: "/detail", params: { articleId } });
+    // },
   },
   computed: {
     categoryId() {

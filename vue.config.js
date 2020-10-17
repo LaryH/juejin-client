@@ -14,7 +14,7 @@ module.exports = {
         pathRewrite: { "^/juejin": "" },
       },
       "/zhuanfa": {
-        target: "http://192.168.26.25:3000", // 代理目标的基础路径
+        target: "http://localhost:6666", // 代理目标的基础路径
         changeOrigin: true, // 支持跨域,
         pathRewrite: {
           "^/zhuanfa": "",
@@ -23,6 +23,10 @@ module.exports = {
       // 登录接口，转发到商城
       "/api": {
         target: "http://182.92.128.115/",
+      },
+      "/post": {
+        target: "https://juejin.im/",
+        changeOrigin: true, // 支持跨域,
       },
     },
   },
